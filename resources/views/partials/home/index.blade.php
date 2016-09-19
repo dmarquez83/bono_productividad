@@ -21,7 +21,7 @@
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     @yield('configure')
-                    @include('partials.home.page_bar')
+                    @include('partials.home.page_bar_calendar')
                     @include('partials.home.title')
                     @yield('sidebar')
 

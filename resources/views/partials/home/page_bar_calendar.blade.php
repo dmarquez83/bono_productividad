@@ -9,5 +9,6 @@
             <span>@yield('name')</span>
         </li>
     </ul>
+    @include('partials.home.calendar')
 </div>
 <!-- END PAGE BAR -->

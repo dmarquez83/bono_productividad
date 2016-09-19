@@ -3,7 +3,7 @@
 @include('partials.home.header')
 <!-- BEGIN HEADER & CONTENT DIVIDER -->
 <div class="clearfix"> </div>
-<!-- END HEADER & CONTENT DIVIDER -->
+<!-- END HEADER & CONTENT DIVIDER diagno imagen - integran-->
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
