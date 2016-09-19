@@ -1,0 +1,1 @@
+<div class="copyright">Copyright 2016 &copy;  Grupo Trical. </div>

@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+.env
+public/css
+public/fonts
+public/img
+public/ionicons
+public/js
+.idea
+/bower_components
+composer.lock
