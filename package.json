@@ -1,0 +1,27 @@
+{
+  "name": "trical",
+  "version": "1.0.0",
+  "description": "Proyecto Bono Productividad - Grupo Trical",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/development_movement/trical.git"
+  },
+  "author": "Digna Marquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/development_movement/trical/issues"
+  },
+  "homepage": "https://gitlab.com/development_movement/trical#README",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.9",
+    "laravel-elixir": "^6.0.0-11"
+  }
+}

@@ -27,8 +27,9 @@
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
 @include('partials.layout.footer')
-        <!-- END COPYRIGHT -->
+<!-- END COPYRIGHT -->
 @include('partials.layout.scripts')
 @include('partials.layout.scripts_app')
+@yield('scripts')
 </body>
 </html>
