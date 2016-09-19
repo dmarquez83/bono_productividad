@@ -3,6 +3,7 @@
  */
 $(document).ready(function(){
 //alert('Documento listo');
+
     $('.btn-delete').click(function(){
         var row = $(this).parents('tr');
         var id = row.data('id');
@@ -21,4 +22,24 @@ $(document).ready(function(){
         });
 
     });
+
+    $('#sample_3').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
+        },
+        "paging": true,
+        "lengthChange": true,
+        "searching": true,
+        "ordering": true,
+        "order": [[ 0, "asc" ]],
+        "info": true,
+        "autoWidth": true
+    });
+
+    $('#example').DataTable( {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+        }
+    } );
 });
+
