@@ -11,7 +11,8 @@
         "barryvdh/laravel-debugbar": "^2.0@dev",
         "laravel/socialite": "^3.0@dev",
         "intervention/image": "^2.3",
-        "fzaninotto/faker": "^1.6"
+        "fzaninotto/faker": "^1.6",
+        "fzaninotto/company-name-generator": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
