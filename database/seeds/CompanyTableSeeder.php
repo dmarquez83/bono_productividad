@@ -14,7 +14,7 @@ class CompanyTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        // $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker));
+        // $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker)); --
 
         for($i =0; $i <15; $i ++){
             \DB::table('companies')->insert(array(
