@@ -23,12 +23,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-     //dd($request->get('name'));
-     // dd($users);
-      //$users =  User::orderBy('id','DESC')->paginate();
-      //usando scope se crea en la clase user
-      $users =  User::name($request->get('name'))->orderBy('id','DESC')->paginate();
-
+      $users =  User::all();
       return view('modules.admin.users.index', compact('users'));
     }
 
