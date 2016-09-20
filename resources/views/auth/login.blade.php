@@ -6,10 +6,10 @@
      @include('modules.admin.users.partials.messager_login')
     <div class="form-group">
         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-        <label class="control-label visible-ie8 visible-ie9">Username</label>
+        <label class="control-label visible-ie8 visible-ie9">trans('form.label.username')</label>
         <div class="input-icon">
             <i class="fa fa-user"></i>
-            {!! Form::email('email', '', ['class'=> 'form-control placeholder-no-fix','placeholder' => trans('form.label.email'), 'autocomplete' => 'off']) !!}
+            {!! Form::text('username', '', ['class'=> 'form-control placeholder-no-fix','placeholder' => trans('form.label.username'), 'autocomplete' => 'off']) !!}
         </div>
     </div>
     <div class="form-group">

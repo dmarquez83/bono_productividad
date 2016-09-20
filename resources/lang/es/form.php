@@ -27,7 +27,8 @@ return [
     	'password'				=> 'Contraseña',
     	'password_confirmation' => 'Confirmar contraseña',
     	'remember'				=> 'Recuerdame',
-    	'name'					=> 'Nombre'
+    	'name'					=> 'Nombre',
+		'username'				=> 'User ID'
     ]
     
 ];
