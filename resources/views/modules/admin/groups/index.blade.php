@@ -50,5 +50,5 @@
 @endsection
 
 @section('scripts_interno')
-    {!! Html::script('assets/js/admin/user/delete.js') !!}
+    {!! Html::script('assets/js/admin/delete.js') !!}
 @endsection

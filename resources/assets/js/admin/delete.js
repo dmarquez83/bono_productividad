@@ -12,18 +12,23 @@ $(document).ready(function(){
         //serializamos el formulario
         var data = form.serialize();
 
-        row.fadeOut(); //desaparecer la fila antes de enivar la peticion ajax
+        var eliminar = confirm("¿Deseas eliminar este registro?");
 
-        $.post(url, data, function (result) {
-            alert(result.message);
-        }).fail(function(){
-            alert('El usuario no fue Eliminado');
-            row.show();
-        });
+        if (eliminar) {
+            row.fadeOut(); //desaparecer la fila antes de enivar la peticion ajax
+
+            $.post(url, data, function (result) {
+                alert(result.message);
+            }).fail(function(){
+                alert('El Registro no fue Eliminado');
+                row.show();
+            });
+        }
+
 
     });
 
-    $('#sample_3').DataTable({
+   /* $('#sample_3').DataTable({
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json"
         },
@@ -34,12 +39,12 @@ $(document).ready(function(){
         "order": [[ 0, "asc" ]],
         "info": true,
         "autoWidth": true
-    });
+    });*/
 
-    $('#example').DataTable( {
+   /* $('#example').DataTable( {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
         }
-    } );
+    } );*/
 });
 
