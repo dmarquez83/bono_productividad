@@ -31,6 +31,7 @@ Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\Pa
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namespace' =>'Admin'], function () {
 
     Route::resource('users','UsersController');
+    Route::resource('companies','CompaniesController');
 
 });
 /*******************************FIN DE ADMINISTRADOR******************************************/
