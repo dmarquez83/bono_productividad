@@ -21,7 +21,7 @@
                         <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-briefcase"></i>Grupos
+                                    <i class="fa fa-users"></i>Grupos
 
                                         <a href="{{ route('admin.groups.create') }}" class="btn btn-default btn-sm btn-circle">
                                             <i class="fa fa-plus"></i> Nuevo </a>

@@ -21,7 +21,7 @@
                         <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-user"></i>Empresas
+                                    <i class="fa fa-briefcase"></i>Empresas
 
                                         <a href="{{ route('admin.companies.create') }}" class="btn btn-default btn-sm btn-circle">
                                             <i class="fa fa-plus"></i> Nuevo </a>

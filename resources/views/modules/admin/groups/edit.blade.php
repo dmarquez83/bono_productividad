@@ -13,7 +13,7 @@
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
-                        <i class="icon-user font-red-sunglo"></i>
+                        <i class="icon-users font-red-sunglo"></i>
                         <span class="caption-subject bold uppercase">Editar Grupo: {{ $group->name }}</span>
                     </div>
                     @include('modules.admin.groups.partials.action')
