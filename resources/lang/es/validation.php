@@ -109,6 +109,8 @@ return [
         'type' => 'Tipo',
         'first_name' => 'Nombre',
         'last_name' => 'Apellido',
+        'name' => 'Nombre',
+        'cpnyid' => 'Identificador de la Empresa',
     ),
 
 ];
