@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namesp
 
     Route::resource('users','UsersController');
     Route::resource('companies','CompaniesController');
+    Route::resource('groups','GroupsController');
 
 });
 /*******************************FIN DE ADMINISTRADOR******************************************/

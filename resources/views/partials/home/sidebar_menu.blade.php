@@ -61,12 +61,12 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{ route('admin.groups.create') }}" class="nav-link ">
                             <span class="title">Registrar</span>
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
+                        <a href="{{ route('admin.groups.index') }}" class="nav-link ">
                             <span class="title">Listar</span>
                         </a>
                     </li>
