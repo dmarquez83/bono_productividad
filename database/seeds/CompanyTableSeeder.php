@@ -19,7 +19,6 @@ class CompanyTableSeeder extends Seeder
         for($i =0; $i <15; $i ++){
             \DB::table('companies')->insert(array(
                 'name' => $faker->unique()->company,
-                'cpnyid' => $faker->companySuffix,
                 'email'  => $faker->unique()->companyEmail,
                 'status' => 'A',
                 'created_at'     => new DateTime,

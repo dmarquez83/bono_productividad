@@ -3,7 +3,6 @@
     <tr>
         <th class="all">#</th>
         <th class="all">Nombre</th>
-        <th class="min-tablet">Cpnyid</th>
         <th class="all">Email</th>
         <th class="none">Fecha de Creacion</th>
         <th class="none">Fecha de Actualizacion</th>
@@ -16,7 +15,6 @@
         <tr data-id="{{ $company->id }}">
             <td>{{ $company->id }}</td>
             <td>{{ $company->name }}</td>
-            <td>{{ $company->cpnyid }}</td>
             <td>{{ $company->email }}</td>
             <td>{{ $company->created_at }}</td>
             <td>{{ $company->updated_at }}</td>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
@@ -47,7 +46,6 @@ class CompaniesController extends Controller
 
       $rules = array(
         'name' => 'required|unique:companies,name',
-        'cpnyid' => 'required',
         'email' => 'required|unique:companies,email'
       );
 
@@ -55,7 +53,6 @@ class CompaniesController extends Controller
 
       $data= [
         'name'  => $request->get('name'),
-        'cpnyid'  =>$request->get('cpnyid'),
         'email'  => $request->get('email'),
         'status'  => 'A',
         'created_at' => new \DateTime,
@@ -100,10 +97,29 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $company = Company::findOrFail($id);
-       $company->fill($request->all());
-       $company->save();
-        return redirect()->route('admin.companies.index');
+
+        $rules = array(
+            'name' => 'required|unique:companies,name',
+            'email' => 'required|unique:companies,email,'.$id,
+        );
+
+        $this->validate($request, $rules);
+
+        $company = Company::findOrFail($id);
+
+        $data= [
+            'name'  => $request->get('name'),
+            'email' =>  $request->get('email'),
+            'status'  => 'A',
+            'created_at' => new \DateTime,
+            'updated_at' =>  new \Datetime
+        ];
+        //dd($data);
+
+
+           $company->fill($data);
+           $company->save();
+           return redirect()->route('admin.companies.index');
 
         //return redirect()->back(); //con este redirecciona al mismo formulario
     }

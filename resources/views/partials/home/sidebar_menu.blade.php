@@ -52,6 +52,7 @@
                     </li>
                 </ul>
             </li>
+
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-users"></i>
@@ -71,6 +72,27 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-briefcase"></i>
+                    <span class="title">Empresas</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="{{ route('admin.companies.create') }}" class="nav-link ">
+                            <span class="title">Registrar</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="{{ route('admin.companies.index') }}" class="nav-link ">
+                            <span class="title">Listar</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-key"></i>
