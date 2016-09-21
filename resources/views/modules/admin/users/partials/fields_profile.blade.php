@@ -1,4 +1,5 @@
-{!! Form::model($userProfile, ['route' => ['admin.users_profile.update', $user], 'method' => 'PUT']) !!}
+{!! Form::model($userProfile, ['route' => ['admin.users.update.profile', $user], 'method' => 'POST']) !!}
+    @include('modules.admin.users.partials.messager')
     <div class="form-group">
         {!! Form::label('name', trans('form.label.name'), array('class' => 'control-label')) !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su '.trans('form.label.name')]) !!}

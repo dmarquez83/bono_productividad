@@ -143,4 +143,43 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_profile(Request $request, $id)
+    {
+        $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
+
+        $rules = array(
+            'name' => 'required|unique:user_profiles,name,'.$userProfile->id,
+            'home_page' => 'required'
+        );
+
+        $this->validate($request, $rules);
+
+        $data= [
+            'id'   => $userProfile->id,
+            'name'  => $request->get('name'),
+            'phone'  => $request->get('phone'),
+            'extending'  => $request->get('extending'),
+            'user_name_windows'  => $request->get('user_name_windows'),
+            'home_page'  => $request->get('home_page'),
+            'user_id'  => $id,
+            'created_at' => new \DateTime,
+            'updated_at' =>  new \Datetime
+        ];
+        //dd($data);
+
+        //$userProfile->fill($data);
+
+        $userProfile->save($data);
+
+        return redirect()->route('admin.users.index');
+        //return redirect()->back();
+    }
 }

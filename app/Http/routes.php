@@ -31,9 +31,9 @@ Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\Pa
 Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
 
     Route::resource('users','UsersController');
+    Route::post('users_profile/{users}', ['as' => 'admin.users.update.profile', 'uses' => 'UsersController@update_profile',]);
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
-    Route::resource('users_profile','UsersProfileController');
 
 });
 /*******************************FIN DE ADMINISTRADOR******************************************/
