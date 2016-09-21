@@ -45,7 +45,13 @@ class UsersController extends Controller
      */
     public function store(CreateuserRequest  $request)
     {
-        $user = User::create($request->all());
+        $data = [
+            'username' => $request->get('username'),
+            'email' => $request->get('email'),
+            'password' =>  $request->get('password'),
+            'status' =>  'A'
+        ];
+        $user = User::create($data);
         return redirect()->route('admin.users.index');
     }
 
@@ -81,8 +87,16 @@ class UsersController extends Controller
      */
     public function update(EditUserRequest $request, $id)
     {
+
+        $data = [
+            'username' => $request->get('username'),
+            'email' => $request->get('email'),
+            'password' =>  $request->get('password'),
+            'status' =>  'A'
+        ];
+
         $user = User::findOrFail($id);
-        $user->fill($request->all());
+        $user->fill($data);
         $user->save();
         return redirect()->route('admin.users.index');
 

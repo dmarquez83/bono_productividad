@@ -14,8 +14,11 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('twitter')->nullable();
-            $table->mediumText('website')->nullable();
+            $table->text('name')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('extending')->nullable();
+            $table->text('user_name_windows')->unique()->nullable();
+            $table->text('home_page')->unique()->nullable();
             $table->integer('user_id')->unsigned();//entero sin signo
             $table->foreign('user_id')
                 ->references('id')
