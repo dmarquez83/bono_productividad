@@ -28,7 +28,10 @@ return [
     	'password_confirmation' => 'Confirmar contraseña',
     	'remember'				=> 'Recuerdame',
     	'name'					=> 'Nombre',
-		'username'				=> 'User ID'
+		'username'				=> 'User ID',
+		'phone'					=> 'Telefono',
+		'extending'			    => 'Extension',
+		'user_name_windows'		=> 'Usuario de Windows',
     ]
     
 ];

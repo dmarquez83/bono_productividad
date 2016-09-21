@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateuserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Models\User;
+use App\Models\UserProfile;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -63,7 +64,17 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
+
+        if(empty($userProfile))
+        {
+            Flash::error('Peril no encontrado');
+
+            return redirect()->back();
+        }
+
+        return view('modules.admin.users.profile', compact('user', 'userProfile'));
     }
 
     /**

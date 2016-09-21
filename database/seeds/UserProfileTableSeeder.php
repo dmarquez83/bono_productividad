@@ -23,7 +23,7 @@ class UserProfileTableSeeder extends Seeder
                 'phone'             => $faker->unique()->phoneNumber,
                 'extending'         => $faker->unique()->buildingNumber,
                 'user_name_windows' => $faker->unique()->domainWord,
-                'home_page'   => '/home',
+                'home_page'   => 'home',
                 'created_at'     => new DateTime,
                 'updated_at'     => new Datetime,
                 'user_id'        => $user->id

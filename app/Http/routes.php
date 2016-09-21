@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::resource('users','UsersController');
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
+    Route::resource('users_profile','UsersProfileController');
 
 });
 /*******************************FIN DE ADMINISTRADOR******************************************/
