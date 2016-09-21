@@ -13,7 +13,7 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('es_VE');
         // $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker)); --
 
         for($i =0; $i <15; $i ++){

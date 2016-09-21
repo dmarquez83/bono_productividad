@@ -18,7 +18,7 @@ class CreateUserProfilesTable extends Migration
             $table->text('phone')->nullable();
             $table->text('extending')->nullable();
             $table->text('user_name_windows')->unique()->nullable();
-            $table->text('home_page')->unique()->nullable();
+            $table->text('home_page')->nullable();
             $table->integer('user_id')->unsigned();//entero sin signo
             $table->foreign('user_id')
                 ->references('id')

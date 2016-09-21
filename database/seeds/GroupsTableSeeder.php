@@ -13,7 +13,7 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker::create('es_VE');
 
         for($i =0; $i <7; $i ++){
             \DB::table('groups')->insert(array(
