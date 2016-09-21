@@ -69,7 +69,7 @@ class UsersController extends Controller
 
         if(empty($userProfile))
         {
-            Flash::error('Peril no encontrado');
+            Flash::error('Perfil no encontrado');
 
             return redirect()->back();
         }
