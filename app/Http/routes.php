@@ -26,9 +26,9 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', ['as' => 'password/postReset', 'uses' =>  'Auth\PasswordController@postReset']);
 
 /*******************************FIN LOGIN******************************************/
-
+/*Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namespace' =>'Admin'], function () {*/
 /*******************************ADMINISTRADOR******************************************/
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namespace' =>'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
 
     Route::resource('users','UsersController');
     Route::resource('companies','CompaniesController');

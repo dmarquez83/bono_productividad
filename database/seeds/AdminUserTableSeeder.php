@@ -12,11 +12,9 @@ class AdminUserTableSeeder extends Seeder
     public function run(){
         \DB::table('users')->insert(array(
            'username'     => 'admin',
-           'first_name'     => 'admin',
-           'last_name'     => 'admin',
            'email'    => 'admin@trical.com',
            'password' =>  \Hash::make('admin'),
-           'type' =>  'admin',
+           'status' =>  'A',
            'created_at' => new DateTime,
            'updated_at' =>  new Datetime,
         ));

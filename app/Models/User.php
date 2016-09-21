@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['first_name','last_name', 'email', 'password', 'type'];
+    protected $fillable = ['username','email', 'password', 'status'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,7 +38,7 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     public function getFullNameAttribute(){
-       return $this->first_name.' '.$this->last_name;
+       //return $this->first_name.' '.$this->last_name;
     }
 
     public function setPasswordAttribute($value){
@@ -49,9 +49,11 @@ class User extends Model implements AuthenticatableContract,
 
     }
 
+
+
     public function scopeName($query, $name){
         if(trim($name) != ""){
-            $query->where(\DB::raw("first_name||' '||last_name"),"LIKE","%$name%");
+            //$query->where(\DB::raw("first_name||' '||last_name"),"LIKE","%$name%");
             //esto se puede arreglar creando un campo full name en la Bd y ya no tendria que utilizar el facades DB
         }
     }

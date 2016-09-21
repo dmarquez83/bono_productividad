@@ -34,7 +34,7 @@
 {!! Form::close() !!}
 <!-- END LOGIN FORM -->
 <!-- BEGIN FORGOT PASSWORD FORM -->
-<form class="forget-form" action="index.html" method="post">
+{!! Form::open(['route' => 'password/postEmail', 'POST' , 'class' => 'forget-form' ]) !!}
     <h3>{{ trans('passwords.forgot') }}</h3>
     <p> {{ trans('passwords.enter_email') }}  </p>
     <div class="form-group">
@@ -46,6 +46,6 @@
         <button type="button" id="back-btn" class="btn red btn-outline">{{ trans('pagination.back') }} </button>
         <button type="submit" class="btn green pull-right"> {{ trans('form.login.submit')  }} </button>
     </div>
-</form>
+{!! Form::close() !!}
 <!-- END FORGOT PASSWORD FORM -->
 @endsection

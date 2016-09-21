@@ -16,12 +16,10 @@ class UserTableSeeder extends Seeder
 
         for($i =0; $i <30; $i ++){
             \DB::table('users')->insert(array(
-                'username'     => $faker->userName,
-                'first_name'     => $faker->firstName,
-                'last_name'      => $faker->lastName,
+                'username'       => $faker->userName,
                 'email'          => $faker->unique()->email,
                 'password'       => \Hash::make('123456'),
-                'type'           => 'user',
+                'status'         => 'A',
                 'created_at'     => new DateTime,
                 'updated_at'     => new Datetime,
             ));

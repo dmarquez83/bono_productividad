@@ -24,11 +24,9 @@ class CreateuserRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'username' => 'required|unique:users,username',
             'email' => 'required|unique:users,email',
-            'password' => 'required',
-            'type' => 'required|in:user,admin'
+            'password' => 'required'
         ];
     }
 }

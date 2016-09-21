@@ -2,9 +2,9 @@
     <thead>
     <tr>
         <th class="all">#</th>
-        <th class="all">Nombre</th>
+        <th class="all">{{ trans('form.label.username') }}</th>
         <th class="min-tablet">Email</th>
-        <th class="all">Tipo</th>
+        <th class="all">Status</th>
         <th class="none">Fecha de Creacion</th>
         <th class="none">Fecha de Actualizacion</th>
         <th class="all">Acciones</th>
@@ -15,9 +15,9 @@
     @foreach($users as $user)
         <tr data-id="{{ $user->id }}">
             <td>{{ $user->id }}</td>
-            <td>{{ $user->FullName }}</td>
+            <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->type }}</td>
+            <td>{{ $user->status }}</td>
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
 
