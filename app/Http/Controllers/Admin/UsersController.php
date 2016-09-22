@@ -38,6 +38,17 @@ class UsersController extends Controller
     }
 
     /**
+     * password the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function password()
+    {
+       return view('modules.admin.users.change_password');
+
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -214,12 +225,13 @@ class UsersController extends Controller
             'password' =>  $request->get('password')
         ];
 
-
         $user->fill($data);
         $user->save();
         //  return redirect()->route('admin.users.index');
         return redirect()->back();
     }
+
+
 
 
 }
