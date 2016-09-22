@@ -5,6 +5,10 @@
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su '.trans('form.label.name')]) !!}
     </div>
     <div class="form-group">
+        {!! Form::label('email', trans('form.label.email'), array('class' => 'control-label')) !!}
+        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su '.trans('form.label.email')]) !!}
+    </div>
+    <div class="form-group">
         {!! Form::label('phone', trans('form.label.phone'), array('class' => 'control-label')) !!}
         {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su N# de '.trans('form.label.phone')]) !!}
     </div>

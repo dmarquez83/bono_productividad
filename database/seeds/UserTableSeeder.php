@@ -17,7 +17,6 @@ class UserTableSeeder extends Seeder
         for($i =0; $i <30; $i ++){
             \DB::table('users')->insert(array(
                 'username'       => $faker->userName,
-                'email'          => $faker->unique()->email,
                 'password'       => \Hash::make('123456'),
                 'status'         => 'A',
                 'created_at'     => new DateTime,

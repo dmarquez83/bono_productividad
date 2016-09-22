@@ -111,6 +111,7 @@ return [
         'last_name' => 'Apellido',
         'name' => 'Nombre',
         'cpnyid' => 'Identificador de la Empresa',
+        'username' => 'User ID'
     ),
 
 ];

@@ -22,7 +22,7 @@
                     @include('modules.admin.users.partials.messager')
                     {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'PUT']) !!}
                     <div class="form-body">
-                        @include('modules.admin.users.partials.fields')
+                        @include('modules.admin.users.partials.fields_edit')
                         <div class="col-xs-5 col-sm-6 text-center">
                             <button type="submit" class="btn blue">Actualizar Usuario</button>
                         </div>

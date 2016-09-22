@@ -13,6 +13,6 @@
         <span class="input-group-addon">
             <i class="fa fa-lock font-red"></i>
         </span>
-        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su '.trans('form.label.password')]) !!}
+        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '********']) !!}
     </div>
 </div>

@@ -48,11 +48,17 @@ class UsersController extends Controller
     {
         $data = [
             'username' => $request->get('username'),
-            'email' => $request->get('email'),
             'password' =>  $request->get('password'),
             'status' =>  'A'
         ];
         $user = User::create($data);
+
+        $dataProfile = [
+            'user_id' => $user->id,
+            'home_page' => 'home',
+            'avatar' =>  'avatar.png'
+        ];
+        UserProfile::create($dataProfile);
         return redirect()->route('admin.users.index');
     }
 
@@ -101,7 +107,6 @@ class UsersController extends Controller
 
         $data = [
             'username' => $request->get('username'),
-            'email' => $request->get('email'),
             'password' =>  $request->get('password'),
             'status' =>  'A'
         ];
@@ -109,9 +114,8 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->fill($data);
         $user->save();
-        return redirect()->route('admin.users.index');
-
-        //return redirect()->back(); //con este redirecciona al mismo formulario
+      //  return redirect()->route('admin.users.index');
+        return redirect()->back();
     }
 
     /**
@@ -155,8 +159,11 @@ class UsersController extends Controller
     {
         $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
 
+        $userProfile = UserProfile::where('user_id', '=', 34)->firstOrFail();
+
         $rules = array(
             'name' => 'required|unique:user_profiles,name,'.$userProfile->id,
+            'email' => 'required|unique:user_profiles,email,'.$userProfile->id,
             'home_page' => 'required'
         );
 
@@ -165,6 +172,7 @@ class UsersController extends Controller
         $data= [
             'id'   => $userProfile->id,
             'name'  => $request->get('name'),
+            'email'  => $request->get('email'),
             'phone'  => $request->get('phone'),
             'extending'  => $request->get('extending'),
             'user_name_windows'  => $request->get('user_name_windows'),
@@ -173,13 +181,15 @@ class UsersController extends Controller
             'created_at' => new \DateTime,
             'updated_at' =>  new \Datetime
         ];
-        //dd($data);
+       // dd($userProfile->save($data));
 
-        //$userProfile->fill($data);
+        $userProfile->fill($data);
 
-        $userProfile->save($data);
+        $userProfile->save();
 
-        return redirect()->route('admin.users.index');
-        //return redirect()->back();
+       // return redirect()->route('admin.users.index');
+       return redirect()->back();
     }
+
+
 }

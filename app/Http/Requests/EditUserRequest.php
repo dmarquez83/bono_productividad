@@ -31,14 +31,12 @@ class EditUserRequest extends Request
      */
     public function rules()
     {
-       // dd($this->route->getParameter('users')); para ver el parametro que me llega en este caso el id del user
+       //dd($this->route->getParameter('users')); para ver el parametro que me llega en este caso el id del user
        //previamente se paso la ruta por el constructor
        //con este excluimos la validacion que el email es unico al moemnto de editar para el correo que ya existe
 
         return [
-            'username' => 'required|unique:users,username,'.$this->route->getParameter('users'),
-            'email' => 'required|unique:users,email,'.$this->route->getParameter('users'),
-            'password' => 'required'
+            'username' => 'required|unique:users,username,'.$this->route->getParameter('users')
         ];
     }
 }
