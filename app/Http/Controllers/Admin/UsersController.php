@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\Http\Requests\CreateuserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Models\User;
@@ -59,7 +58,7 @@ class UsersController extends Controller
             'avatar' =>  'avatar.png'
         ];
         UserProfile::create($dataProfile);
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.show',$user);
     }
 
     /**
@@ -189,6 +188,37 @@ class UsersController extends Controller
 
        // return redirect()->route('admin.users.index');
        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_password(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+       // dd(Crypt::decrypt($user->password));
+
+        $rules = array(
+            'password_ac' => 'required|min:6|current_password',
+            'password' => 'confirmed|min:6'
+        );
+
+        $this->validate($request, $rules);
+
+        $data = [
+            'password' =>  $request->get('password')
+        ];
+
+
+        $user->fill($data);
+        $user->save();
+        //  return redirect()->route('admin.users.index');
+        return redirect()->back();
     }
 
 

@@ -145,6 +145,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Mi Provider Digna Marquez
+        App\Providers\ValidatorServiceProvider::class,
+
         /*
          *Instalacion Personal
          */
@@ -158,6 +161,8 @@ return [
 
         // Socialite
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+
 
     ],
 

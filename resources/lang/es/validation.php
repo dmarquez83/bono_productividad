@@ -74,6 +74,7 @@ return [
     "timezone"         => "El :attribute debe ser una zona válida.",
     "unique"           => ":attribute ya ha sido registrado.",
     "url"              => "El formato :attribute es inválido.",
+    "current_password" => "La :attribute No Coincide con la Grabada en el Sistema",
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +112,11 @@ return [
         'last_name' => 'Apellido',
         'name' => 'Nombre',
         'cpnyid' => 'Identificador de la Empresa',
-        'username' => 'User ID'
+        'username' => 'User ID',
+        'password_ac' => 'Contraseña Actual',
+        'password_new' => 'Contraseña Nueva',
+        'password_confirmation' => 'Confirme Contraseña'
+
     ),
 
 ];

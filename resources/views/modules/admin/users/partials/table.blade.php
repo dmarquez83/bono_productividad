@@ -22,8 +22,8 @@
             <td>{{ $user->updated_at }}</td>
 
             <td>
-                <a href="{{ route('admin.users.edit',$user->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
-                <a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Ver">  <i class="fa fa-user"></i> </a>
+                <a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
+                <!--<a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Ver">  <i class="fa fa-user"></i> </a>-->
                 <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
             </td>
         </tr>

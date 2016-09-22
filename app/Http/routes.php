@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
 
     Route::resource('users','UsersController');
     Route::post('users_profile/{users}', ['as' => 'admin.users.update.profile', 'uses' => 'UsersController@update_profile',]);
+    Route::post('users/update/password/{users}', ['as' => 'admin.users.update.password', 'uses' => 'UsersController@update_password',]);
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
 
