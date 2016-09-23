@@ -68,6 +68,8 @@ class UsersController extends Controller
             'home_page' => 'home',
             'avatar' =>  'avatar.png'
         ];
+
+       // dd($dataProfile);
         UserProfile::create($dataProfile);
         return redirect()->route('admin.users.show',$user);
     }

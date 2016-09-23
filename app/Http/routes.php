@@ -37,7 +37,14 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::resource('groups','GroupsController');
 
 });
+Route::group(['prefix' => 'user'], function () {
 
-/* Route::get('users/password', ['as' => 'admin.users.password', 'uses' => 'UsersController@password',]);
- Route::post('users/password', ['as' => 'admin.users.password', 'uses' => 'UsersController@update_password',]);*/
+     Route::get('profile', ['as' => 'user.profile', 'uses' => 'UsersController@index',]);
+     Route::post('profile', ['as' => 'user.profile', 'uses' => 'UsersController@update_password',]);
+     Route::post('update/{users}', ['as' => 'user.update', 'uses' => 'UsersController@update',]);
+     Route::post('update/profile/{users}', ['as' => 'user.update.profile', 'uses' => 'UsersController@update_profile',]);
+
+});
+
+
 /*******************************FIN DE ADMINISTRADOR******************************************/

@@ -20,14 +20,15 @@ class UserProfileTableSeeder extends Seeder
         foreach ($userId as $user) {
             \DB::table('user_profiles')->insert(array(
                 'name'              => $faker->unique()->name,
-                'email'          => $faker->unique()->email,
+                'email'             => $faker->unique()->email,
+                'avatar'            => 'avatar.png',
                 'phone'             => $faker->unique()->phoneNumber,
                 'extending'         => $faker->unique()->buildingNumber,
                 'user_name_windows' => $faker->unique()->domainWord,
-                'home_page'   => 'home',
-                'created_at'     => new DateTime,
-                'updated_at'     => new Datetime,
-                'user_id'        => $user->id
+                'home_page'         => 'home',
+                'created_at'        => new DateTime,
+                'updated_at'        => new Datetime,
+                'user_id'           => $user->id
             ));
         }
 

@@ -313,8 +313,8 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
-                                        <i class="icon-user"></i> My Profile </a>
+                                    <a href="{{ route('user.profile') }}">
+                                        <i class="icon-user"></i> Mi Perfil </a>
                                 </li>
                                 <li>
                                     <a href="app_calendar.html">

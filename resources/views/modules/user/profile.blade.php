@@ -34,10 +34,10 @@
                                                 <i class="icon-globe theme-font hide"></i>
                                                 <span class="caption-subject font-blue-madison bold uppercase">Cuenta de Perfil</span>
                                             </div>
-                                            @include('modules.admin.users.partials_profile.menu')
+                                            @include('modules.user.partials_profile.menu')
                                         </div>
                                         <div class="portlet-body">
-                                            @include('modules.admin.users.partials_profile.portlet_content')
+                                            @include('modules.user.partials_profile.portlet_content')
                                         </div>
                                     </div>
                                 </div>

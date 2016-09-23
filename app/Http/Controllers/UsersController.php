@@ -23,153 +23,23 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-      $users =  User::all();
-      return view('modules.admin.users.index', compact('users'));
+        $user = User::findOrFail(\Auth::user()->id);
+
+        $userProfile = UserProfile::where('user_id', '=', \Auth::user()->id)->firstOrFail();
+
+       return view('modules.user.profile',  compact('user', 'userProfile'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('modules.admin.users.create');
-    }
-
-    /**
-     * password the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function password()
-    {
-       return view('modules.admin.users.change_password');
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateuserRequest  $request)
-    {
-        $data = [
-            'username' => $request->get('username'),
-            'password' =>  $request->get('password'),
-            'status' =>  'A'
-        ];
-        $user = User::create($data);
-
-        $dataProfile = [
-            'user_id' => $user->id,
-            'home_page' => 'home',
-            'avatar' =>  'avatar.png'
-        ];
-        UserProfile::create($dataProfile);
-        return redirect()->route('admin.users.show',$user);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
-
-        if(empty($userProfile))
-        {
-            Flash::error('Perfil no encontrado');
-
-            return redirect()->back();
-        }
-
-        return view('modules.admin.users.profile', compact('user', 'userProfile'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = User::findOrFail($id);
-        return view('modules.admin.users.edit', compact('user'));
-    }
-
-    /**
+      /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditUserRequest $request, $id)
+    public function update_profile(Request $request)
     {
-
-        $data = [
-            'username' => $request->get('username'),
-            'password' =>  $request->get('password'),
-            'status' =>  'A'
-        ];
-
-        $user = User::findOrFail($id);
-        $user->fill($data);
-        $user->save();
-      //  return redirect()->route('admin.users.index');
-        return redirect()->back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id, Request $request)
-    {
-        //dd('Eliminando :'.$id);
-        //User::destroy($id);
-        //abort(500);
-
-        $user = User::findOrFail($id);
-
-        $user->delete();
-
-        $message=$user->FullName.' fue Eliminado de Nuestro Registro';
-
-        if($request->ajax()){
-            return response()->json([
-              'id' => $user->id,
-              'message' => $message
-            ]);
-        }
-
-        Session::flash('message',$message);
-
-        return redirect()->route('admin.users.index');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update_profile(Request $request, $id)
-    {
-        $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
-
-        $userProfile = UserProfile::where('user_id', '=', 34)->firstOrFail();
+        $userProfile = UserProfile::where('user_id', '=', \Auth::user()->id)->firstOrFail();
 
         $rules = array(
             'name' => 'required|unique:user_profiles,name,'.$userProfile->id,
@@ -187,7 +57,7 @@ class UsersController extends Controller
             'extending'  => $request->get('extending'),
             'user_name_windows'  => $request->get('user_name_windows'),
             'home_page'  => $request->get('home_page'),
-            'user_id'  => $id,
+            'user_id'  => \Auth::user()->id,
             'created_at' => new \DateTime,
             'updated_at' =>  new \Datetime
         ];
@@ -208,9 +78,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_password(Request $request, $id)
+    public function update_password(Request $request)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail(\Auth::user()->id);
 
        // dd(Crypt::decrypt($user->password));
 
