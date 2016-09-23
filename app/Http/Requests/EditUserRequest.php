@@ -36,8 +36,7 @@ class EditUserRequest extends Request
        //con este excluimos la validacion que el email es unico al moemnto de editar para el correo que ya existe
 
         return [
-            'username' => 'required|unique:users,username,'.$this->route->getParameter('users'),
-            'password' => 'required|min:6|'
+            'username' => 'required|unique:users,username,'.$this->route->getParameter('users')
         ];
     }
 }

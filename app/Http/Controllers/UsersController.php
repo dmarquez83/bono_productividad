@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -90,7 +90,7 @@ class UsersController extends Controller
             return redirect()->back();
         }
 
-        return view('modules.admin.users.profile_admin', compact('user', 'userProfile'));
+        return view('modules.admin.users.profile', compact('user', 'userProfile'));
     }
 
     /**
@@ -117,6 +117,7 @@ class UsersController extends Controller
 
         $data = [
             'username' => $request->get('username'),
+            'password' =>  $request->get('password'),
             'status' =>  'A'
         ];
 
@@ -168,6 +169,8 @@ class UsersController extends Controller
     {
         $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
 
+        $userProfile = UserProfile::where('user_id', '=', 34)->firstOrFail();
+
         $rules = array(
             'name' => 'required|unique:user_profiles,name,'.$userProfile->id,
             'email' => 'required|unique:user_profiles,email,'.$userProfile->id,
@@ -212,6 +215,7 @@ class UsersController extends Controller
        // dd(Crypt::decrypt($user->password));
 
         $rules = array(
+            'password_ac' => 'required|min:6|current_password',
             'password' => 'confirmed|min:6'
         );
 
