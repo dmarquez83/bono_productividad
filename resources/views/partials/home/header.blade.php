@@ -307,7 +307,7 @@
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
+                                <img alt="" class="img-circle" src="{{ asset('img/profile/avatar.png')}}" />
                                 <span class="username username-hide-on-mobile"> Nick </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
@@ -339,7 +339,7 @@
                                 </li>
                                 <li>
                                     <a href="{{ route('auth/logout') }}">
-                                        <i class="icon-key"></i> Log Out </a>
+                                        <i class="icon-key"></i> Salir</a>
                                 </li>
                             </ul>
                         </li>
