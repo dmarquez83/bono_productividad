@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::resource('users','UsersController');
     Route::post('users_profile/{users}', ['as' => 'admin.users.update.profile', 'uses' => 'UsersController@update_profile',]);
     Route::post('users/update/password/{users}', ['as' => 'admin.users.update.password', 'uses' => 'UsersController@update_password',]);
+    Route::post('update/avatar/{users}', ['as' => 'admin.users.update.avatar', 'uses' => 'UsersController@update_avatar',]);
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
 
@@ -41,7 +42,7 @@ Route::group(['prefix' => 'user'], function () {
 
      Route::get('profile', ['as' => 'user.profile', 'uses' => 'UsersController@index',]);
      Route::post('profile', ['as' => 'user.profile', 'uses' => 'UsersController@update_password',]);
-     Route::post('update/{users}', ['as' => 'user.update', 'uses' => 'UsersController@update',]);
+     Route::post('update/{users}', ['as' => 'user.update', 'uses' => 'UsersController@update_avatar',]);
      Route::post('update/profile/{users}', ['as' => 'user.update.profile', 'uses' => 'UsersController@update_profile',]);
 
 });

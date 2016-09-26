@@ -13,6 +13,9 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 class UsersController extends Controller
 {
@@ -97,6 +100,46 @@ class UsersController extends Controller
 
         $user->fill($data);
         $user->save();
+        //  return redirect()->route('admin.users.index');
+        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_avatar(Request $request)
+    {
+       //dd($request);
+        $userProfile = UserProfile::where('user_id', '=', \Auth::user()->id)->firstOrFail();
+
+        $input = Input::file('avatar');
+
+        $image = Image::make($input);
+
+        $name = \Auth::user()->username.'_'.\Auth::user()->id;
+
+        $path = public_path().'/img/profile/'.$name;
+
+        if($image->save($path.'.jpg')){
+            $image->resize(240,240);
+            // Guardar
+            $image->save($path.'-thumb'.'.jpg');
+        }
+
+        $data= [
+            'avatar'   => $name.'.jpg'
+        ];
+        $userProfile->fill($data);
+
+        //dd($userProfile);
+
+        $userProfile->save();
+
+        session()->flash('message', 'Imagen de Perfil Guardada Correctamente.');
         //  return redirect()->route('admin.users.index');
         return redirect()->back();
     }
