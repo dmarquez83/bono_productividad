@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::post('update/avatar/{users}', ['as' => 'admin.users.update.avatar', 'uses' => 'UsersController@update_avatar',]);
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
+    Route::resource('users','GroupsUsersController');
 
 });
 Route::group(['prefix' => 'user'], function () {

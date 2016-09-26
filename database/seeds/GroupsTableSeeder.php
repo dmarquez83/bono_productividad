@@ -15,7 +15,7 @@ class GroupsTableSeeder extends Seeder
     {
         $faker = Faker::create('es_VE');
 
-        for($i =0; $i <7; $i ++){
+        for($i =0; $i <15; $i ++){
             \DB::table('groups')->insert(array(
                 'name' => $faker->unique()->word,
                 'status' => 'A',
