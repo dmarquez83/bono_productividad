@@ -37,6 +37,14 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
+    public function groupuser(){
+        return $this->hasMany('App\Models\GroupUser');
+    }
+
+    public function userprofile(){
+        return $this->belongsTo('App\Models\UserProfile');
+    }
+
     public function getFullNameAttribute(){
        //return $this->first_name.' '.$this->last_name;
     }

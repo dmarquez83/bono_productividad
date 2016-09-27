@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\GroupsUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateuserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Models\User;
 use App\Models\UserProfile;
+use App\Models\GroupUser;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -87,7 +89,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
+        $userGroups =  GroupUser::with(['group','user'])->where('user_id', '=', $id)->get();
 
+       // dd($userGroups);
         if(empty($userProfile))
         {
             Flash::error('Perfil no encontrado');
@@ -95,7 +99,7 @@ class UsersController extends Controller
             return redirect()->back();
         }
 
-        return view('modules.admin.users.profile_admin', compact('user', 'userProfile'));
+        return view('modules.admin.users.profile_admin', compact('user', 'userProfile','userGroups'));
     }
 
     /**
@@ -273,6 +277,5 @@ class UsersController extends Controller
         //  return redirect()->route('admin.users.index');
         return redirect()->back();
     }
-
 
 }

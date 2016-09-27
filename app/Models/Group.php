@@ -8,4 +8,8 @@ class Group extends Model
 {
     protected $table = 'groups';
     protected $fillable = ['name','description','avatar', 'status'];
+
+    public function usergroup(){
+        return $this->hasMany('App\Models\GroupUser');
+    }
 }
