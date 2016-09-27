@@ -90,6 +90,7 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
         $userGroups =  GroupUser::with(['group','user'])->where('user_id', '=', $id)->get();
+        //agregar luego la cantidad de miembros del grupo y el porcentaje que representa
 
        // dd($userGroups);
         if(empty($userProfile))
