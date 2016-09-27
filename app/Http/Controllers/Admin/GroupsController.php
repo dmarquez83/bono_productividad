@@ -11,6 +11,9 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
+
 class GroupsController extends Controller
 {
     /**
@@ -48,10 +51,33 @@ class GroupsController extends Controller
             'name' => 'required|unique:groups,name|max:60'
         );
 
+        /*conseguir el ultimo id*/
+
+        $groupId= Group::all();
+        $id =($groupId->last()->id)+1;
+
+        //var_dump($groupId->last('id'));
+
         $this->validate($request, $rules);
 
+        $input = Input::file('avatar');
+
+        $image = Image::make($input);
+
+        $name = 'groupId'.'_'.$id;
+
+        $path = public_path().'/img/group/'.$name;
+
+        if($image->save($path.'.jpg')){
+            $image->resize(240,240);
+            // Guardar
+            $image->save($path.'-thumb'.'.jpg');
+        }
+
         $data= [
-            'name'  => $request->get('name'),     
+            'name'  => $request->get('name'),
+            'description'  => $request->get('description'),
+            'avatar'  => $name.'.jpg',
             'status'  => 'A',
             'created_at' => new \DateTime,
             'updated_at' =>  new \Datetime
@@ -104,8 +130,24 @@ class GroupsController extends Controller
 
         $Group = Group::findOrFail($id);
 
+        $input = Input::file('avatar');
+
+        $image = Image::make($input);
+
+        $name = 'groupId'.'_'.$id;
+
+        $path = public_path().'/img/group/'.$name;
+
+        if($image->save($path.'.jpg')){
+            $image->resize(240,240);
+            // Guardar
+            $image->save($path.'-thumb'.'.jpg');
+        }
+
         $data= [
             'name'  => $request->get('name'),
+            'description'  => $request->get('description'),
+            'avatar'  => $name.'.jpg',
             'status'  => 'A',
             'created_at' => new \DateTime,
             'updated_at' =>  new \Datetime

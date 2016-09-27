@@ -1,7 +1,6 @@
 {!! Form::open(['route' => 'user.update', 'method' => 'POST', 'files' => 'true']) !!}
     <div class="form-group">
         <div class="fileinput fileinput-new" data-provides="fileinput">
-
             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
             <div>
                 <span class="btn default btn-file">

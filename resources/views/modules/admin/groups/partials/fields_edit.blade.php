@@ -19,7 +19,7 @@
 <div class="form-group">
     <div class="fileinput fileinput-new" data-provides="fileinput">
         <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-         <img src="{{ asset('img/no_image.png')}}" class="img-responsive" alt="" >
+         <img src="{{ asset('img/group/'.$group->avatar)}}" class="img-responsive" alt="" >
         </div>
         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
         <div>

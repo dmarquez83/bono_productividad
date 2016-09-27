@@ -18,6 +18,8 @@ class GroupsTableSeeder extends Seeder
         for($i =0; $i <15; $i ++){
             \DB::table('groups')->insert(array(
                 'name' => $faker->unique()->word,
+                'description' => $faker->text(200),
+                'avatar' => 'avatar_group.png',
                 'status' => 'A',
                 'created_at'     => new DateTime,
                 'updated_at'     => new Datetime,

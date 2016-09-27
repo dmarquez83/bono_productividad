@@ -20,9 +20,9 @@
                 </div>
                 <div class="portlet-body form">
                     @include('modules.admin.groups.partials.messager')
-                    {!! Form::model($group, ['route' => ['admin.groups.update', $group], 'method' => 'PUT']) !!}
+                    {!! Form::model($group, ['route' => ['admin.groups.update', $group], 'method' => 'PUT', 'files' => 'true']) !!}
                     <div class="form-body">
-                        @include('modules.admin.groups.partials.fields')
+                        @include('modules.admin.groups.partials.fields_edit')
                         <div class="col-xs-5 col-sm-6 text-center">
                             <button type="submit" class="btn blue">Actualizar Grupo</button>
                         </div>

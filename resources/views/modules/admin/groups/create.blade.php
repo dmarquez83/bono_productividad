@@ -20,7 +20,7 @@
                 </div>
                 <div class="portlet-body form">
                     @include('modules.admin.groups.partials.messager')
-                    {!! Form::open(['route' => 'admin.groups.store', 'POST' ,'role' => 'form' ]) !!}
+                    {!! Form::open(['route' => 'admin.groups.store', 'POST' ,'role' => 'form', 'files' => 'true' ]) !!}
                     <div class="form-body">
                         @include('modules.admin.groups.partials.fields')
                         <div class="text-center">

@@ -3,6 +3,7 @@
     <tr>
         <th class="all">#</th>
         <th class="all">Nombre</th>
+        <th class="all">Descripción</th>
         <th class="none">Fecha de Creacion</th>
         <th class="none">Fecha de Actualizacion</th>
         <th class="all">Acciones</th>
@@ -14,6 +15,7 @@
         <tr data-id="{{ $group->id }}">
             <td>{{ $group->id }}</td>
             <td>{{ $group->name }}</td>
+            <td>{{ $group->description }}</td>
             <td>{{ $group->created_at }}</td>
             <td>{{ $group->updated_at }}</td>
 
