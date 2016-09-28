@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(GroupsTableSeeder::class);
         $this->call(UserProfileTableSeeder::class);
         $this->call(GroupsUsersTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
+        $this->command->info('Comment table seeded.');
+
 
         Model::reguard();
     }
