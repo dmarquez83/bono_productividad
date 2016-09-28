@@ -6,7 +6,7 @@
 <script src="{{ asset('assets/global/plugins/jquery.sparkline.min.js') }}"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="{{ asset('assets/pages/scripts/table-datatables-responsive.min.js') }}"></script>
+<script src="{{ asset('assets/pages/scripts/table-datatables-responsive.js') }}"></script>
 <script src="{{ asset('../assets/pages/scripts/profile.min.js') }}"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->

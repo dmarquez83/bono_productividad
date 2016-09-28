@@ -133,12 +133,12 @@ var TableDatatablesResponsive = function () {
                     "sortDescending": ": activate to sort column descending"
                 },
                 "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                "infoEmpty": "No entries found",
-                "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                "lengthMenu": "_MENU_ entries",
-                "search": "Search:",
-                "zeroRecords": "No matching records found"
+                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "search": "Buscar:",
+                "zeroRecords": "No se encontraron resultados"
             },
 
             // Or you can use remote translation file
@@ -148,9 +148,15 @@ var TableDatatablesResponsive = function () {
 
             // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
-                { extend: 'print', className: 'btn default' },
+              /*  { extend: 'print', className: 'btn default' },
                 { extend: 'pdf', className: 'btn default' },
-                { extend: 'csv', className: 'btn default' }
+                { extend: 'csv', className: 'btn default' }*/
+                { extend: 'print', className: 'btn dark btn-outline', text: 'Imrpimir' },
+                { extend: 'copy', className: 'btn red btn-outline', text: 'Copiar' },
+                { extend: 'pdf', className: 'btn green btn-outline' },
+                { extend: 'excel', className: 'btn yellow btn-outline ' },
+                { extend: 'csv', className: 'btn purple btn-outline ' },
+                { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columnas'}
             ],
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
@@ -161,7 +167,7 @@ var TableDatatablesResponsive = function () {
             },
 
             "order": [
-                [0, 'asc']
+                [0, 'desc']
             ],
             
             "lengthMenu": [

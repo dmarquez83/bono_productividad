@@ -34,6 +34,7 @@ class UsersController extends Controller
         $userGroups =  GroupUser::with(['group','user'])->where('user_id', '=', \Auth::user()->id)->get();
 
         //agregar luego la cantidad de miembros del grupo y el porcentaje que representa angular
+        //la ruta de los valores que van en la grafica es /public/assets/layouts/layout5/scripts/index.js: con la funcion sparkline_bar2
 
        return view('modules.user.profile',  compact('user', 'userProfile','userGroups'));
     }
