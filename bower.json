@@ -1,0 +1,20 @@
+{
+  "name": "trical",
+  "description": "Proyecto Bono Productividad - Grupo Trical",
+  "main": "index.js",
+  "authors": [
+    "Digna Marquez"
+  ],
+  "license": "ISC",
+  "homepage": "home",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AlertifyJS": "https://github.com/MohammadYounes/AlertifyJS.git#~1.3.0"
+  }
+}
