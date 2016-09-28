@@ -10,5 +10,7 @@ elixir(function(mix) {
         .copy('resources/assets/global/', 'public/assets/global/')
         .copy('resources/assets/layouts', 'public/assets/layouts/')
         .copy('resources/assets/pages/', 'public/assets/pages/')
-        .scripts('resources/assets/js/admin/delete.js', 'public/assets/js/admin/delete.js')
+        .scripts('resources/assets/js/admin/delete.js', 'public/assets/js/admin/delete.js');
+
+    mix.browserSync({proxy: 'localhost:8000'});
 });
