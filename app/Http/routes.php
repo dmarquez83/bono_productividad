@@ -50,3 +50,11 @@ Route::group(['prefix' => 'user'], function () {
 
 
 /*******************************FIN DE ADMINISTRADOR******************************************/
+
+// API ROUTES ==================================
+Route::group(array('prefix' => 'api'), function() {
+
+    Route::resource('comments', 'CommentController',
+        array('only' => array('index', 'store', 'destroy')));
+
+});
