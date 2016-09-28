@@ -1,39 +1,39 @@
 <form action="#">
-    <table class="table table-light table-hover">
-        <tr>
-            <td> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus.. </td>
-            <td>
-                <label class="uniform-inline">
-                    <input type="radio" name="optionsRadios1" value="option1" /> Yes </label>
-                <label class="uniform-inline">
-                    <input type="radio" name="optionsRadios1" value="option2" checked/> No </label>
-            </td>
-        </tr>
-        <tr>
-            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-            <td>
-                <label class="uniform-inline">
-                    <input type="checkbox" value="" /> Yes </label>
-            </td>
-        </tr>
-        <tr>
-            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-            <td>
-                <label class="uniform-inline">
-                    <input type="checkbox" value="" /> Yes </label>
-            </td>
-        </tr>
-        <tr>
-            <td> Enim eiusmod high life accusamus terry richardson ad squid wolf moon </td>
-            <td>
-                <label class="uniform-inline">
-                    <input type="checkbox" value="" /> Yes </label>
-            </td>
-        </tr>
-    </table>
-    <!--end profile-settings-->
-    <div class="margin-top-10">
-        <a href="javascript:;" class="btn red"> Save Changes </a>
-        <a href="javascript:;" class="btn default"> Cancel </a>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption caption-md">
+                        <i class="icon-users font-red"></i>
+                        <span class="caption-subject font-red bold uppercase">Grupos</span>
+                        <span class="caption-helper">Listado</span>
+                    </div>
+
+                </div>
+                <div class="portlet-body">
+                    <div class="row number-stats margin-bottom-30">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="stat-left">
+                                <div class="stat-chart">
+                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                    <div id="sparkline_bar2"></div>
+                                </div>
+                                <div class="stat-number">
+                                    <div class="title"> Cantidad </div>
+                                    <div class="number"> 7 </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="stat-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable table-scrollable-borderless">
+                    @include('modules.admin.users.partials.table_group')
+                </div>
+            </div>
+        </div>
     </div>
 </form>

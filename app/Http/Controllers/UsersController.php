@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateuserRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Models\User;
+use App\Models\GroupUser;
 use App\Models\UserProfile;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
@@ -30,7 +31,11 @@ class UsersController extends Controller
 
         $userProfile = UserProfile::where('user_id', '=', \Auth::user()->id)->firstOrFail();
 
-       return view('modules.user.profile',  compact('user', 'userProfile'));
+        $userGroups =  GroupUser::with(['group','user'])->where('user_id', '=', \Auth::user()->id)->get();
+
+        //agregar luego la cantidad de miembros del grupo y el porcentaje que representa angular
+
+       return view('modules.user.profile',  compact('user', 'userProfile','userGroups'));
     }
 
       /**
