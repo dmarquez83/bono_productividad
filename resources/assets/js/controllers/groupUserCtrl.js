@@ -12,6 +12,16 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
+		server.getAll('api/users_list').success(function (data) {
+			$scope.users = data;
+			$scope.loading = false;
+		});
+
+		server.getAll('api/groups_list').success(function (data) {
+			$scope.groups = data;
+			$scope.loading = false;
+		});
+
 		// function to handle submitting the form
 		$scope.submitGroupUser = function() {
 			$scope.loading = true;
