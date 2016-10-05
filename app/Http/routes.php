@@ -25,9 +25,17 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::post('update/avatar/{users}', ['as' => 'admin.users.update.avatar', 'uses' => 'UsersController@update_avatar',]);
     Route::resource('companies','CompaniesController');
     Route::resource('groups','GroupsController');
-    Route::resource('groups/users','GroupsUsersController');
+    Route::resource('groups-users', 'GroupsUsersController');
+    Route::resource('groups-users/api/users', 'GroupsUsersController',
+        array('only' => array('index', 'store', 'destroy')));
+
 
 });
+
+
+
+
+
 Route::group(['prefix' => 'user'], function () {
 
      Route::get('profile', ['as' => 'user.profile', 'uses' => 'UsersController@index',]);

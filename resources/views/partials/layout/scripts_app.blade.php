@@ -20,3 +20,7 @@
 <script src="{{ asset('assets/js/services/commentService.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
+
+<script src="{{ asset('assets/js/controllers/groupUserCtrl.js') }}"></script>
+<script src="{{ asset('assets/js/services/groupUserService.js') }}"></script>
+<script src="{{ asset('assets/js/app_group.js') }}"></script>

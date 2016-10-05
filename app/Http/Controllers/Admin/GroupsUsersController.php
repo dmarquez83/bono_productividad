@@ -3,9 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateuserRequest;
+use App\Http\Requests\EditUserRequest;
+use App\Models\User;
+use App\Models\Group;
+use App\Models\Comment;
+use App\Http\Requests;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Response;
 
 class GroupsUsersController extends Controller
 {
@@ -16,7 +24,7 @@ class GroupsUsersController extends Controller
      */
     public function index()
     {
-        //
+       return response()->json(Comment::get());
     }
 
     /**
@@ -26,7 +34,9 @@ class GroupsUsersController extends Controller
      */
     public function create()
     {
-        //
+        $users =  User::all();
+        $groups = Group::all();
+        return view('modules.admin.groups.user', compact('users','groups'));
     }
 
     /**
@@ -37,7 +47,12 @@ class GroupsUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Comment::create(array(
+            'author' => $request->get('author'),
+            'text' =>  $request->get('text')
+        ));
+
+        return response()->json(array('success' => true));
     }
 
     /**
@@ -82,6 +97,8 @@ class GroupsUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comment::destroy($id);
+
+        return response()->json(array('success' => true));
     }
 }
