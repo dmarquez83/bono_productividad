@@ -29,6 +29,8 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
+                @include('index')
+                <div ui-view="filters"></div>
             </div>
         </div>
     </div>
