@@ -22,6 +22,8 @@
 	  <input type="text" class="form-control input-lg" name="comment" ng-model="commentData.text" placeholder="Say what you have to say">
 	</div>
 
+
+
 	<!-- SUBMIT BUTTON -->
 	<div class="form-group text-right">
 	  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
