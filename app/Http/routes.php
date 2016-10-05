@@ -10,9 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
 Route::get('/', ['as' => 'home','uses' => 'HomeController@index',]);
-Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index',]);
+Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index',]);*/
 /*******************************LOGIN******************************************/
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -57,4 +57,8 @@ Route::group(array('prefix' => 'api'), function() {
     Route::resource('comments', 'CommentController',
         array('only' => array('index', 'store', 'destroy')));
 
+});
+
+Route::get('/', function() {
+  return View::make('index');
 });

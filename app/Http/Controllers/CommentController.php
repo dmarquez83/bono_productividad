@@ -12,6 +12,7 @@ use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Response;
 
 class CommentController extends Controller
 {
@@ -22,7 +23,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return Response::json(Comment::get());
+        return response()->json(Comment::get());
+        /*return response()->json(['name' => 'Abigail', 'state' => 'CA']);*/
     }
 
 
@@ -36,11 +38,11 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         Comment::create(array(
-            'author' => Input::get('author'),
-            'text' => Input::get('text')
+            'author' => $request->get('author'),
+            'text' =>  $request->get('text')
         ));
 
-        return Response::json(array('success' => true));
+        return response()->json(array('success' => true));
     }
 
 
@@ -54,6 +56,6 @@ class CommentController extends Controller
     {
         Comment::destroy($id);
 
-        return Response::json(array('success' => true));
+        return response()->json(array('success' => true));
     }
 }

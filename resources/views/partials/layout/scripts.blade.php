@@ -11,7 +11,8 @@
 
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{ asset('assets/global/scripts/app.min.js') }}"></script>
-<script src="{{ asset('assets/js/angular.min.js') }}"></script>
+<!-- <script src="{{ asset('assets/js/angular.min.js') }}"></script>-->
+<!-- <script src="{{ asset('assets/global/plugins/angularjs/angular.min.js') }}"></script>-->
 <script src="{{ asset('assets/js/admin/app.js') }}"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 
