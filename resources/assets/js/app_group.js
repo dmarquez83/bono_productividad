@@ -1,1 +1,1 @@
-var groupUserApp = angular.module('groupUserApp', ['groupUserCtrl', 'groupUserService']);
+angular.module('app', ['groupUserCtrl', 'appService']);

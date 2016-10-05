@@ -3,7 +3,7 @@
     Grupo
 @endsection
 @section('title')
-    : Registro
+    : Asignar Usuarios
 @endsection
 @section('configure')
 @endsection

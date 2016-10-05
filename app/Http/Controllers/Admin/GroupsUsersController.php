@@ -101,4 +101,24 @@ class GroupsUsersController extends Controller
 
         return response()->json(array('success' => true));
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function user_list()
+    {
+        return response()->json(User::get());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function group_list()
+    {
+        return response()->json(Group::get());
+    }
 }

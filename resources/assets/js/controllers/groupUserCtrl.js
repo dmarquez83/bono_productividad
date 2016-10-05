@@ -1,30 +1,27 @@
 angular.module('groupUserCtrl', [])
 
-	.controller('groupUserController', function($scope, $http, Comment) {
+	.controller('groupUserController', function($scope, $http, server) {
 		// object to hold all the data for the new comment form
-		$scope.commentData = {};
+		$scope.groupuserData = {};
 
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
-		
-		// get all the comments first and bind it to the $scope.comments object
-		Comment.get()
-			.success(function(data) {
-				$scope.comments = data;
-				$scope.loading = false;
-			});
 
+		server.getAll('api/users').success(function (data) {
+			$scope.comments = data;
+			$scope.loading = false;
+		});
 
 		// function to handle submitting the form
-		$scope.submitComment = function() {
+		$scope.submitGroupUser = function() {
 			$scope.loading = true;
 
 			// save the comment. pass in comment data from the form
-			Comment.save($scope.commentData)
+			server.save('api/users', $scope.groupuserData)
 				.success(function(data) {
-					$scope.commentData = {};
+					$scope.groupuserData = {};
 					// if successful, we'll need to refresh the comment list
-					Comment.get()
+					server.getAll('api/users')
 						.success(function(getData) {
 							$scope.comments = getData;
 							$scope.loading = false;
@@ -38,13 +35,13 @@ angular.module('groupUserCtrl', [])
 
 		// function to handle deleting a comment
 		$scope.deleteComment = function(id) {
-			$scope.loading = true; 
+			$scope.loading = true;
 
-			Comment.destroy(id)
+			server.delete('api/users',id)
 				.success(function(data) {
 
 					// if successful, we'll need to refresh the comment list
-					Comment.get()
+					server.getAll('api/users')
 						.success(function(getData) {
 							$scope.comments = getData;
 							$scope.loading = false;

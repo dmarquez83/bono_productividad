@@ -22,5 +22,5 @@
 
 
 <script src="{{ asset('assets/js/controllers/groupUserCtrl.js') }}"></script>
-<script src="{{ asset('assets/js/services/groupUserService.js') }}"></script>
+<script src="{{ asset('assets/js/services/appService.js') }}"></script>
 <script src="{{ asset('assets/js/app_group.js') }}"></script>
