@@ -1012,28 +1012,7 @@
                             <i class="fa fa-bell-o"></i>
                         </span>
                     </div>
-                    <div class="task-config">
-                        <div class="task-config-btn btn-group">
-                            <a class="btn btn-sm default" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="fa fa-cog"></i>
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-check"></i> Complete </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-pencil"></i> Edit </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <i class="fa fa-trash-o"></i> Cancel </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </li>
                 <li>
                     <div class="task-checkbox">

@@ -70,6 +70,11 @@
                             <span class="title">Listar</span>
                         </a>
                     </li>
+                    <li class="nav-item  ">
+                        <a href="{{ route('admin.groups-users.create') }}" class="nav-link ">
+                            <span class="title">Asignar Usuario</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

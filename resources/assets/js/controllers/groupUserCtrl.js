@@ -17,7 +17,7 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
-		server.getAll('api/groups_list').success(function (data) {
+		server.getAll('api/group_list').success(function (data) {
 			$scope.groups = data;
 			$scope.loading = false;
 		});
