@@ -22,10 +22,16 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 		server.getAll('api/groups_user_list').success(function (data) {
+			$scope.group_users = [];
+			var group_user_objeto = {};
 			$scope.groups_user_list = _.groupBy(data, 'group_id');
 			angular.forEach(($scope.groups_user_list), function(row){
-				console.log(row[0].group);
+				group_user_objeto = {'group': row[0].group, 'user': row[0].user };
+				$scope.group_users.push(group_user_objeto);
+				//$scope.group_users.push(row[0].group);
 			});
+			//var prueba = _(data).where({'group_id': 1});
+			//console.log(prueba);
 
 			$scope.loading = false;
 		});

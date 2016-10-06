@@ -150,14 +150,14 @@
 					<div class="mt-list-container list-todo">
 						<div class="list-todo-line red"></div>
 						<ul>
-							<li class="mt-list-item">
+							<li class="mt-list-item" ng-hide="loading" ng-repeat="group_user in group_users" >
 								<div class="list-todo-icon bg-white font-green-meadow">
 									<i class="fa fa-users"></i>
 								</div>
 								<div class="list-todo-item green-meadow">
 									<a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-2" aria-expanded="false">
 										<div class="list-toggle done uppercase">
-											<div class="list-toggle-title bold">Creative Artwork</div>
+											<div class="list-toggle-title bold">{{ group_user.group.name }}</div>
 											<div class="badge badge-default pull-right bold">3</div>
 										</div>
 									</a>
