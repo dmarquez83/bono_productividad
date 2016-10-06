@@ -21,6 +21,14 @@ angular.module('groupUserCtrl', [])
 			$scope.groups = data;
 			$scope.loading = false;
 		});
+		server.getAll('api/groups_user_list').success(function (data) {
+			$scope.groups_user_list = _.groupBy(data, 'group_id');
+			angular.forEach(($scope.groups_user_list), function(row){
+				console.log(row[0].group);
+			});
+
+			$scope.loading = false;
+		});
 
 		// function to handle submitting the form
 		$scope.submitGroupUser = function() {

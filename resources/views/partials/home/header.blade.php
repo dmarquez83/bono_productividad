@@ -130,7 +130,7 @@
                                         <span class="bold">7 New</span> Messages</h3>
                                     <a href="app_inbox.html">view all</a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
                                         <li>
                                             <a href="#">
@@ -188,7 +188,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>
                         <!-- END INBOX DROPDOWN -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\GroupUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateuserRequest;
@@ -61,9 +62,10 @@ class GroupsUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function groups_user_list()
     {
-        //
+        $groupuser = GroupUser::with(['group','user'])->get();
+        return response()->json($groupuser);
     }
 
     /**

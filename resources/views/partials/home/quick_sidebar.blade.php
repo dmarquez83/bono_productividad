@@ -45,7 +45,7 @@
                 <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
                     <h3 class="list-heading">Staff</h3>
                     <ul class="media-list list-items">
-                        <li class="media">
+                       <!-- <li class="media">
                             <div class="media-status">
                                 <span class="badge badge-success">8</span>
                             </div>
@@ -78,11 +78,11 @@
                                 <h4 class="media-heading">Ella Wong</h4>
                                 <div class="media-heading-sub"> CEO </div>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
                     <h3 class="list-heading">Customers</h3>
                     <ul class="media-list list-items">
-                        <li class="media">
+                       <!-- <li class="media">
                             <div class="media-status">
                                 <span class="badge badge-warning">2</span>
                             </div>
@@ -139,7 +139,7 @@
                                 <div class="media-heading-sub"> Manager, Infomatic Inc </div>
                                 <div class="media-heading-small"> Last seen 03:10 AM </div>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
                 <div class="page-quick-sidebar-item">
@@ -149,7 +149,7 @@
                                 <i class="icon-arrow-left"></i>Back</a>
                         </div>
                         <div class="page-quick-sidebar-chat-user-messages">
-                            <div class="post out">
+                            <!--<div class="post out">
                                 <img class="avatar" alt="" src="../assets/layouts/layout/img/avatar3.jpg" />
                                 <div class="message">
                                     <span class="arrow"></span>
@@ -241,7 +241,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="tab-pane page-quick-sidebar-alerts" id="quick_sidebar_tab_2">
