@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 Use Faker\Factory as Faker;
 use App\Models\User;
 use App\Models\Group;
+use App\Models\GroupUser;
 
 class GroupsUsersTableSeeder extends Seeder
 {
@@ -16,15 +17,35 @@ class GroupsUsersTableSeeder extends Seeder
     public function run()
     {
         $userId = User::all();
+
         $faker = Faker::create('es_VE');
 
         foreach ($userId as $user) {
-            for ($i = 0; $i < 7; $i++) {
+            for ($i = 0; $i < 3; $i++) {
+                $userGroups =  GroupUser::where('user_id', '=', $user->id)->get();
+                //echo $userGroups.'aqui'.$user->id;
+                $cantidad = count($userGroups);
+                if ($cantidad>0){
+                    foreach ($userGroups as $userGroup) {
+                        $numero_grupo= $faker->numberBetween($min = 1, $max = 7);
+                        if($userGroup->group_id!=$numero_grupo){
+                            $numero_grupo=$numero_grupo;
+                        }else{
+                            $numero_grupo= $faker->numberBetween($min = 1, $max = 7);
+                            if($userGroup->group_id!=$numero_grupo){
+                                $numero_grupo=$numero_grupo;
+                            }
+                        }
+                    }
+                }else{
+                    $numero_grupo= $faker->numberBetween($min = 1, $max = 7);
+                }
+
                 \DB::table('groups_users')->insert(array(
                     'created_at' => new DateTime,
                     'updated_at' => new Datetime,
                     'user_id' => $user->id,
-                    'group_id' =>$faker->numberBetween($min = 1, $max = 15)
+                    'group_id' =>$numero_grupo
                     //$postTags = $tags->random(rand(2, 4));
                 ));
             }
