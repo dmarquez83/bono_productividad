@@ -141,7 +141,7 @@
 							<h3 class="list-title">Usuarios Asignados a Grupos</h3>
 							<div class="list-head-count">
 								<div class="list-head-count-item">
-									<i class="fa fa-user"></i> 15</div>
+									<i class="fa fa-user"></i> {{ group_users.length }}</div>
 								<div class="list-head-count-item">
 									<i class="fa fa-users"></i> 34</div>
 							</div>
@@ -150,7 +150,7 @@
 					<div class="mt-list-container list-todo">
 						<div class="list-todo-line red"></div>
 						<ul>
-							<li class="mt-list-item" ng-hide="loading" ng-repeat="group_user in group_users" >
+							<li class="mt-list-item" ng-hide="loading" ng-repeat="group_user in group_users track by $index" >
 								<div class="list-todo-icon bg-white font-green-meadow">
 									<i class="fa fa-users"></i>
 								</div>
@@ -158,15 +158,15 @@
 									<a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-2" aria-expanded="false">
 										<div class="list-toggle done uppercase">
 											<div class="list-toggle-title bold">{{ group_user.group.name }}</div>
-											<div class="badge badge-default pull-right bold">3</div>
+											<div class="badge badge-default pull-right bold">{{ group_user.user.length }}</div>
 										</div>
 									</a>
 									<div class="task-list panel-collapse collapse" id="task-2-2">
 										<ul>
-											<li class="task-list-item done">
+											<li class="task-list-item done"  ng-hide="loading" ng-repeat="user_data in group_user.user ">
 												<div class="task-icon">
 													<a href="javascript:;">
-														<i class="fa fa-file-image-o"></i>
+														<img src='../../../../../public/assets/layouts/img/profile/'.{{  user_data.users.user.avatar }}.'' class="img-responsive" alt="" width="13px" height="15px"  >
 													</a>
 												</div>
 												<div class="task-status">
@@ -179,9 +179,9 @@
 												</div>
 												<div class="task-content">
 													<h4 class="uppercase bold">
-														<a href="javascript:;">Concept Design</a>
+														<a href="javascript:;">{{  user_data.users.username }}   </a>
 													</h4>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum gravida mauris, a tincidunt dolor porttitor eu. </p>
+													<p>{{  user_data.profile }}</p>
 												</div>
 											</li>
 										</ul>

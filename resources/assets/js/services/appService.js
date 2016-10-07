@@ -37,10 +37,10 @@ angular.module('appService', [])
 					data: data
 				});
 			},
-			get: function (resource, parameter) {
+			get: function (resource, id) {
 				return $http({
 					method: 'GET',
-					url: resource + '/?parameter=' + parameter
+					url: resource + '/' + id
 				});
 			},
 			getByParameter: function (resource, parameter, data) {

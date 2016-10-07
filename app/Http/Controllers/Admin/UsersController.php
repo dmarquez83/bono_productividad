@@ -278,4 +278,24 @@ class UsersController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_profile($id)
+    {
+        $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
+        return response()->json($userProfile);
+
+    }
+
+    public function show_profiles()
+    {
+        $userProfile = UserProfile::get();
+        return response()->json($userProfile);
+
+    }
+
 }
