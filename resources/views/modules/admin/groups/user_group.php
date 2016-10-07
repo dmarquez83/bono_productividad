@@ -162,7 +162,7 @@
 										<ul>
 											<li class="task-list-item done"  ng-hide="loading" ng-repeat="user_data in group_user.user ">
 												<div class="task-icon">
-													<img src="{{ path_img }}{{ user_data.profile[0].profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
+													<img src="/img/profile/{{user_data.profile[0].profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
 												</div>
 												<div class="task-status">
 													<a class="done" href="javascript:;">

@@ -14,6 +14,10 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
+		server.getAll('api/users_profile').success(function (data) {
+			profiles_data = data;
+		});
+
 		server.getAll('api/groups_user_list').success(function (data) {
 			$scope.group_users = [];
 			$scope.group_users_all = data;
@@ -43,7 +47,6 @@ angular.module('groupUserCtrl', [])
 				group_user_objeto = {'group': row[0].group, 'user': user };
 				$scope.group_users.push(group_user_objeto);
 			});
-
 			$scope.loading = false;
 		});
 
@@ -71,9 +74,7 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
-		server.getAll('api/users_profile').success(function (data) {
-			profiles_data = data;
-		});
+
 
 		// function to handle submitting the form
 		$scope.submitGroupUser = function() {
