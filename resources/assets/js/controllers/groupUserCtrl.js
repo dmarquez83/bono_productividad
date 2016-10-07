@@ -4,6 +4,7 @@ angular.module('groupUserCtrl', [])
 		// object to hold all the data for the new comment form
 		$scope.groupuserData = {};
 		var profiles_data = [];
+		$scope.path_img='../../../../../img/profile/';
 
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;

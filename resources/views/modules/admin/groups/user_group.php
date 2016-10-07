@@ -166,7 +166,7 @@
 											<li class="task-list-item done"  ng-hide="loading" ng-repeat="user_data in group_user.user ">
 												<div class="task-icon">
 													<a href="javascript:;">
-														<img src='../../../../../public/assets/layouts/img/profile/'.{{  user_data.users.user.avatar }}.'' class="img-responsive" alt="" width="13px" height="15px"  >
+														<img src="{{ path_img }}{{ user_data.profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
 													</a>
 												</div>
 												<div class="task-status">
@@ -181,7 +181,7 @@
 													<h4 class="uppercase bold">
 														<a href="javascript:;">{{  user_data.users.username }}   </a>
 													</h4>
-													<p>{{  user_data.profile }}</p>
+													<p>{{  user_data.profile.name }}</p>
 												</div>
 											</li>
 										</ul>
