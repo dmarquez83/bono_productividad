@@ -14,22 +14,9 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
-		server.getAll('api/users_list').success(function (data) {
-			$scope.users = data;
-			$scope.loading = false;
-		});
-
-		server.getAll('api/group_list').success(function (data) {
-			$scope.groups = data;
-			$scope.loading = false;
-		});
-
-		server.getAll('api/users_profile').success(function (data) {
-			profiles_data = data;
-		});
 		server.getAll('api/groups_user_list').success(function (data) {
 			$scope.group_users = [];
-
+			$scope.group_users_all = data;
 			var groups_user_list = _.groupBy(data, 'group_id');
 
 			angular.forEach((groups_user_list), function(row){ //recorre los grupos
@@ -42,14 +29,15 @@ angular.module('groupUserCtrl', [])
 					_.where(data, {'group_id': row[0].group.id}),
 					function(person) {
 						//console.log(person.user.id,'person');
-						var  profile_data = [];
+						var  profile_data = {};
 						profile_data = _.map(
 							_.where(profiles_data, {'user_id': person.user.id}),
 							function(data_profile) {
 								return { profile: data_profile};
 							}
 						);
-						return { users: person.user, profile: profile_data[0].profile};
+						//return { users: person.user, profile: profile_data[0].profile};
+						return { users: person.user, profile: profile_data};
 					}
 				);
 				group_user_objeto = {'group': row[0].group, 'user': user };
@@ -59,6 +47,33 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
+		server.getAll('api/users_list').success(function (data) {
+			$scope.users = [];
+			angular.forEach((data), function(row){ //recorre los grupos
+				$scope.profile_data = [];
+				var group_users_all = {};
+				group_users_all = _.map(
+					_.where($scope.group_users_all, {'user_id': row.id}),
+					function(group) {
+						return { groups: group};
+					}
+				);
+				//console.log('que paso',group_users_all);
+				var group_users_objeto = {'user': row, 'group': group_users_all };
+				$scope.users.push(group_users_objeto);
+			});
+			//console.log($scope.users[0].group);
+			$scope.loading = false;
+		});
+
+		server.getAll('api/group_list').success(function (data) {
+			$scope.groups = data;
+			$scope.loading = false;
+		});
+
+		server.getAll('api/users_profile').success(function (data) {
+			profiles_data = data;
+		});
 
 		// function to handle submitting the form
 		$scope.submitGroupUser = function() {

@@ -47,16 +47,13 @@
 					<div class="scroller" style="height: 312px;" data-always-visible="1" data-rail-visible1="1">
 						<!-- START TASK LIST -->
 						<ul class="task-list">
-							<li class="user"  ng-repeat="user in users">
+							<li class="user"  ng-repeat="user in users track by $index">
 								<!--<div class="task-checkbox">
 									<input type="checkbox" class="" value="" /> </div>-->
 								<div class="task-title">
 									<input type="checkbox" class="icheck">
-									<span class="task-title-sp"> {{ user.username }} </span>
-									<span class="label label-sm label-success">Company</span>
-									<span class="task-bell">
-										<i class="fa fa-bell-o"></i>
-									</span>
+									<span class="task-title-sp"> {{ user.user.username }}</span>
+									<span class="btn btn-circle default green-stripe"  ng-repeat="user_group in users[$index].group" >{{ user_group.groups.group.name }}</span>
 								</div>
 							</li>
 						</ul>
@@ -155,19 +152,17 @@
 									<i class="fa fa-users"></i>
 								</div>
 								<div class="list-todo-item green-meadow">
-									<a class="list-toggle-container font-white" data-toggle="collapse" href="#task-2-2" aria-expanded="false">
+									<a class="list-toggle-container font-white" data-toggle="collapse" href="#task-{{$index+1}}-2" aria-expanded="false">
 										<div class="list-toggle done uppercase">
 											<div class="list-toggle-title bold">{{ group_user.group.name }}</div>
 											<div class="badge badge-default pull-right bold">{{ group_user.user.length }}</div>
 										</div>
 									</a>
-									<div class="task-list panel-collapse collapse" id="task-2-2">
+									<div class="task-list panel-collapse collapse" id="task-{{$index+1}}-2">
 										<ul>
 											<li class="task-list-item done"  ng-hide="loading" ng-repeat="user_data in group_user.user ">
 												<div class="task-icon">
-													<a href="javascript:;">
-														<img src="{{ path_img }}{{ user_data.profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
-													</a>
+													<img src="{{ path_img }}{{ user_data.profile[0].profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
 												</div>
 												<div class="task-status">
 													<a class="done" href="javascript:;">
@@ -181,7 +176,7 @@
 													<h4 class="uppercase bold">
 														<a href="javascript:;">{{  user_data.users.username }}   </a>
 													</h4>
-													<p>{{  user_data.profile.name }}</p>
+													<p>{{  user_data.profile[0].profile.name }}</p>
 												</div>
 											</li>
 										</ul>
