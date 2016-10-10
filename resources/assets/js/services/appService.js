@@ -55,7 +55,7 @@ angular.module('appService', [])
 					url: resource + '/' + parameter1 +  '/' + parameter2
 				});
 			},
-			delete_pr: function (resource, data) {
+			delete_data: function (resource, data) {
 				return $http({
 					method: 'DELETE',
 					url: resource,

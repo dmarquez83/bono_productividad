@@ -188,8 +188,8 @@ angular.module('groupUserCtrl', [])
 		// function to handle deleting a
 		$scope.delete_user_group = function(user_id,group_id) {
 			$scope.loading = true;
-			var datos = { 'user_id': user_id, 'group_id': group_id}
-			server.delete_pr('api',datos)
+			var delete_data = { 'user_id': user_id, 'group_id': group_id};
+			server.delete_data('api',delete_data)
 				.success(function(data) {
 					users_list();
 					group_list();

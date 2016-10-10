@@ -15,31 +15,6 @@
 				  <div class="actions">
 					  <div class="btn-group">
 						  <button type="button" class="btn btn-circle grey-mint" ng-click="isChecked_user_all()" >Seleccionar Todos</button>
-						  <a class="btn green btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Grupos
-							  <i class="fa fa-angle-down"></i>
-						  </a>
-						  <ul class="dropdown-menu pull-right">
-							  <li>
-								  <a href="javascript:;"> Todos los Grupos </a>
-							  </li>
-							  <li class="divider"> </li>
-							  <div  ng-hide="loading" ng-repeat="group in groups">
-								  <li>
-									  <a href="javascript:;"> {{ group.name }} </a>
-								  </li>
-							  </div>
-							  <li class="divider"> </li>
-							  <li>
-								  <a href="javascript:;"> Pendientes
-									  <span class="badge badge-danger"> 4 </span>
-								  </a>
-							  </li>
-							  <li>
-								  <a href="javascript:;"> Inactivos
-									  <span class="badge badge-success"> 12 </span>
-								  </a>
-							  </li>
-						  </ul>
 					  </div>
 					  <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
 				  </div>
@@ -56,7 +31,11 @@
 								  <div class="task-title">
 									<input type="checkbox" class="icheck" ng-change="sync(user_check, user.user)" ng-model="user_check" ng-checked="isChecked(user.user.id)">
 									  <span class="task-title-sp"> {{ user.user.username }}</span>
-									  <span class="btn btn-circle default green-stripe" ng-hide="loading" ng-repeat="user_group in users[$index].group" >{{ user_group.groups.group.name }}</span>
+									  <span class="btn btn-circle default green-stripe" ng-hide="loading" ng-repeat="user_group in users[$index].group" >{{ user_group.groups.group.name }}
+									  <a class="done" href="" ng-click="delete_user_group(user.user.id,user_group.groups.group.id)">
+										<i class="fa fa-close"></i>
+									  </a>
+									  </span>
 								  </div>
 							  </li>
 						  </ul>
@@ -86,20 +65,6 @@
 				  <div class="actions">
 					  <div class="btn-group">
 						  <button type="button" class="btn btn-circle grey-mint" ng-click="isChecked_group_all()">Seleccionar Todos</button>
-						  <a class="btn green-meadow btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Grupos
-							  <i class="fa fa-angle-down"></i>
-						  </a>
-						  <ul class="dropdown-menu pull-right">
-							  <li>
-								  <a href="" > Todos los Grupos </a>
-							  </li>
-							  <li class="divider"> </li>
-							  <div  ng-hide="loading" ng-repeat="group in groups">
-								  <li>
-									  <a href="javascript:;"> {{ group.name }} </a>
-								  </li>
-							  </div>
-						  </ul>
 					  </div>
 					  <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
 				  </div>
@@ -113,7 +78,7 @@
 							  <li ng-hide="loading" ng-repeat="group in groups">
 									  <div class="task-title">
 										<input type="checkbox" class="icheck" ng-change="sync_group(group_check, group)" ng-model="group_check" ng-checked="isChecked_group(group.id)">
-										  <span class="task-title-sp"> {{ group.name }} </span>
+										  <span class="task-title-sp" > {{ group.name }} </span>
 									  </div>
 							  </li>
 						  </ul>
