@@ -195,7 +195,9 @@ angular.module('groupUserCtrl', [])
 					group_list();
 					groups_user_list();
 					$scope.loading = false;
+					//para que recargue automaticamente data debe retornar los datos que se muestran
 				});
+
 		};
 
 	});
