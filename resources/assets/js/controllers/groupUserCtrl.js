@@ -3,8 +3,13 @@ angular.module('groupUserCtrl', [])
 	.controller('groupUserController', function($scope, $http, server) {
 		// object to hold all the data for the new comment form
 		$scope.groupuserData = {};
+
 		var profiles_data = [];
 		$scope.path_img='../../../../../img/profile/';
+
+		$scope.user_check_data = [];
+
+		$scope.group_check_data = [];
 
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
@@ -74,14 +79,13 @@ angular.module('groupUserCtrl', [])
 			$scope.loading = false;
 		});
 
-
-
 		// function to handle submitting the form
 		$scope.submitGroupUser = function() {
 			$scope.loading = true;
-
+			console.log('Entro');
+			console.log($scope.groupuserData,'Data');
 			// save the comment. pass in comment data from the form
-			server.save('api/users', $scope.groupuserData)
+			/*server.save('api/users', $scope.groupuserData)
 				.success(function(data) {
 					$scope.groupuserData = {};
 					// if successful, we'll need to refresh the comment list
@@ -94,8 +98,83 @@ angular.module('groupUserCtrl', [])
 				})
 				.error(function(data) {
 					console.log(data);
-				});
+				});*/
 		};
+
+		//seleccion de usuario
+
+		$scope.isChecked_user_all = function(){
+           var users=[];
+			angular.forEach($scope.users, function(value, key) {
+				users.push(value.user);
+			});
+			if ($scope.user_check_data.length === users.length) {
+				$scope.user_check_data = [];
+			} else if ($scope.user_check_data.length === 0 || $scope.user_check_data.length > 0) {
+				$scope.user_check_data = users.slice(0);
+			}
+		};
+
+
+		$scope.isChecked = function(id){
+			var match = false;
+			for(var i=0 ; i < $scope.user_check_data.length; i++) {
+				if($scope.user_check_data[i].id == id){
+					match = true;
+				}
+			}
+			return match;
+		};
+
+		$scope.sync = function(user_check, item){
+			if(user_check){
+				// add item
+				$scope.user_check_data.push(item);
+			} else {
+				// remove item
+				for(var i=0 ; i < $scope.user_check_data.length; i++) {
+					if($scope.user_check_data[i].id == item.id){
+						$scope.user_check_data.splice(i,1);
+					}
+				}
+			}
+		};
+
+		//selecion de grupo
+
+		$scope.isChecked_group_all = function(){
+			if ($scope.group_check_data.length === $scope.groups.length) {
+				$scope.group_check_data = [];
+			} else if ($scope.user_check_data.length === 0 || $scope.group_check_data.length > 0) {
+				$scope.group_check_data = $scope.groups.slice(0);
+			}
+		};
+
+		$scope.isChecked_group = function(id){
+			var match = false;
+			for(var i=0 ; i < $scope.group_check_data.length; i++) {
+				if($scope.group_check_data[i].id == id){
+					match = true;
+				}
+			}
+			return match;
+		};
+
+		$scope.sync_group = function(group_check, item){
+			if(group_check){
+				// add item
+				$scope.group_check_data.push(item);
+			} else {
+				// remove item
+				for(var i=0 ; i < $scope.group_check_data.length; i++) {
+					if($scope.group_check_data[i].id == item.id){
+						$scope.group_check_data.splice(i,1);
+					}
+				}
+			}
+		};
+
+		//fin grupo
 
 		// function to handle deleting a comment
 		$scope.deleteComment = function(id) {
