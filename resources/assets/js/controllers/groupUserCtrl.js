@@ -3,21 +3,12 @@ angular.module('groupUserCtrl', [])
 	.controller('groupUserController', function($scope, $http, server) {
 		// object to hold all the data for the new comment form
 		$scope.groupuserData = {};
-
 		var profiles_data = [];
 		$scope.path_img='../../../../../img/profile/';
-
 		$scope.user_check_data = [];
-
 		$scope.group_check_data = [];
-
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
-
-		server.getAll('api/users').success(function (data) {
-			$scope.comments = data;
-			$scope.loading = false;
-		});
 
 		server.getAll('api/users_profile').success(function (data) {
 			profiles_data = data;
@@ -54,53 +45,35 @@ angular.module('groupUserCtrl', [])
 			});
 			$scope.loading = false;
 		});
-
-		server.getAll('api/users_list').success(function (data) {
-			$scope.users = [];
-			angular.forEach((data), function(row){ //recorre los grupos
-				$scope.profile_data = [];
-				var group_users_all = {};
-				group_users_all = _.map(
-					_.where($scope.group_users_all, {'user_id': row.id}),
-					function(group) {
-						return { groups: group};
-					}
-				);
-				//console.log('que paso',group_users_all);
-				var group_users_objeto = {'user': row, 'group': group_users_all };
-				$scope.users.push(group_users_objeto);
+		function users_list() {
+			server.getAll('api/users_list').success(function (data) {
+				$scope.users = [];
+				angular.forEach((data), function (row) { //recorre los grupos
+					$scope.profile_data = [];
+					var group_users_all = {};
+					group_users_all = _.map(
+						_.where($scope.group_users_all, {'user_id': row.id}),
+						function (group) {
+							return {groups: group};
+						}
+					);
+					//console.log('que paso',group_users_all);
+					var group_users_objeto = {'user': row, 'group': group_users_all};
+					$scope.users.push(group_users_objeto);
+				});
+				//console.log($scope.users[0].group);
+				$scope.loading = false;
 			});
-			//console.log($scope.users[0].group);
-			$scope.loading = false;
-		});
+		}
+		users_list();
 
-		server.getAll('api/group_list').success(function (data) {
-			$scope.groups = data;
-			$scope.loading = false;
-		});
-
-		// function to handle submitting the form
-		$scope.submitGroupUser = function() {
-			$scope.loading = true;
-			console.log('Entro');
-			console.log($scope.groupuserData,'Data');
-			// save the comment. pass in comment data from the form
-			/*server.save('api/users', $scope.groupuserData)
-				.success(function(data) {
-					$scope.groupuserData = {};
-					// if successful, we'll need to refresh the comment list
-					server.getAll('api/users')
-						.success(function(getData) {
-							$scope.comments = getData;
-							$scope.loading = false;
-						});
-
-				})
-				.error(function(data) {
-					console.log(data);
-				});*/
-		};
-
+		function group_list() {
+			server.getAll('api/group_list').success(function (data) {
+				$scope.groups = data;
+				$scope.loading = false;
+			});
+		}
+		group_list();
 		//seleccion de usuario
 
 		$scope.isChecked_user_all = function(){
@@ -175,6 +148,32 @@ angular.module('groupUserCtrl', [])
 		};
 
 		//fin grupo
+
+
+		$scope.to_assign = function() {
+			$scope.loading = true;
+			console.log('Entro');
+
+			console.log(' User ',$scope.user_check_data, ' Group ',$scope.group_check_data);
+			//var groupuserData =[];
+
+			angular.forEach($scope.group_check_data, function(value_group) {
+				angular.forEach($scope.user_check_data, function(value_user) {
+					var groupuserData = {'user_id':value_user.id, 'group_id': value_group.id };
+					//console.log(groupuserData);
+					server.save('api/users', groupuserData)
+					 .success(function(data) {
+							users_list();
+							group_list();
+						 })
+					  .error(function(data) {
+					      console.log(data,'error');
+					 });
+				});
+			});
+
+
+		};
 
 		// function to handle deleting a comment
 		$scope.deleteComment = function(id) {

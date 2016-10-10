@@ -62,12 +62,12 @@
 						  <!-- END START TASK LIST -->
 					  </div>
 				  </div>
-				<!-- <div class="task-footer">
+				 <div class="task-footer">
                     <div class="btn-arrow-link pull-right">
-                        <a href="javascript:;">Asignar a</a>
+                        <a href=""  ng-click="to_assign()" >Asignar a</a>
                         <i class="icon-arrow-right"></i>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>

@@ -48,9 +48,9 @@ class GroupsUsersController extends Controller
      */
     public function store(Request $request)
     {
-        Comment::create(array(
-            'author' => $request->get('author'),
-            'text' =>  $request->get('text')
+        GroupUser::create(array(
+            'user_id' => $request->get('user_id'),
+            'group_id' =>  $request->get('group_id')
         ));
 
         return response()->json(array('success' => true));
