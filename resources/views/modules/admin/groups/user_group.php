@@ -133,18 +133,24 @@
 
 			<div class="portlet-body">
 				<div class="mt-element-list">
-					<div class="mt-list-head list-todo green">
-						<div class="list-head-title-container">
-							<h3 class="list-title">Usuarios Asignados a Grupos</h3>
-							<div class="list-head-count">
-								<div class="list-head-count-item">
-									<i class="fa fa-user"></i> {{ group_users.length }}</div>
-								<div class="list-head-count-item">
-									<i class="fa fa-users"></i> 34</div>
-							</div>
-						</div>
-					</div>
-					<div class="mt-list-container list-todo">
+				  <a class="list-toggle-container font-white" data-toggle="collapse" href="#lista-grupo" aria-expanded="false">
+					  <div class="mt-list-head list-todo green">
+						  <div class="list-head-title-container">
+							  <h3 class="list-toggle-title bold list-title">Usuarios Asignados a Grupos</h3>
+							  <div class="list-head-count">
+								  <div class="list-head-count-item">
+									  <i class="fa fa-user"></i> {{ group_users.length }}</div>
+								  <div class="list-head-count-item">
+									  <i class="fa fa-users"></i> {{ users.length }}</div>
+							  </div>
+						  </div>
+						  <div class="list-count pull-right green-meadow">
+							<i class="fa fa-plus"></i>
+						  </div>
+
+					  </div>
+					</a>
+					<div class="mt-list-container list-todo task-list panel-collapse collapse" id="lista-grupo">
 						<div class="list-todo-line red"></div>
 						<ul>
 							<li class="mt-list-item" ng-hide="loading" ng-repeat="group_user in group_users track by $index" >
