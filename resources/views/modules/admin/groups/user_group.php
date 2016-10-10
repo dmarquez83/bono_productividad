@@ -2,6 +2,7 @@
 <body class="container" ng-app="app" ng-controller="groupUserController">
 <form ng-submit="submitGroupUser()">
 	<div class="row">
+	  <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-5x fa-spin"></span></p>
 	  <!-- lista de usuario-->
 	  <div class="col-md-6 col-sm-6">
 		  <div class="portlet light tasks-widget bordered">
@@ -49,13 +50,13 @@
 						  <!-- START TASK LIST -->
 						  <ul class="task-list">
 							<!-- <pre>{{user_check_data | json}}</pre>-->
-                             <li class="user"  ng-repeat="user in users track by $index">
+                             <li class="user" ng-hide="loading" ng-repeat="user in users track by $index">
                                  <!--<div class="task-checkbox">
                                      <input type="checkbox" class="" value="" /> </div>-->
 								  <div class="task-title">
 									<input type="checkbox" class="icheck" ng-change="sync(user_check, user.user)" ng-model="user_check" ng-checked="isChecked(user.user.id)">
 									  <span class="task-title-sp"> {{ user.user.username }}</span>
-									  <span class="btn btn-circle default green-stripe"  ng-repeat="user_group in users[$index].group" >{{ user_group.groups.group.name }}</span>
+									  <span class="btn btn-circle default green-stripe" ng-hide="loading" ng-repeat="user_group in users[$index].group" >{{ user_group.groups.group.name }}</span>
 								  </div>
 							  </li>
 						  </ul>
@@ -171,14 +172,11 @@
 									<div class="task-list panel-collapse collapse" id="task-{{$index+1}}-2">
 										<ul>
 											<li class="task-list-item done"  ng-hide="loading" ng-repeat="user_data in group_user.user ">
-												<div class="task-icon">
+												<div class="task-icon" ng-hide="loading">
 													<img src="/img/profile/{{user_data.profile[0].profile.avatar}}"  class="img-circle" alt="" width="50px" height="52px"  >
 												</div>
 												<div class="task-status">
-													<a class="done" href="javascript:;">
-														<i class="fa fa-check"></i>
-													</a>
-													<a class="pending" href="javascript:;">
+													<a class="done" href="" ng-click="delete_user_group(user_data.users.id,group_user.group.id)">
 														<i class="fa fa-close"></i>
 													</a>
 												</div>

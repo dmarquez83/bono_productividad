@@ -21,7 +21,8 @@ class GroupsUsersTableSeeder extends Seeder
         $faker = Faker::create('es_VE');
 
         foreach ($userId as $user) {
-            for ($i = 0; $i < 3; $i++) {
+            $max_group = $faker->numberBetween($min = 1, $max = 3);
+            for ($i = 0; $i < $max_group; $i++) {
                 $userGroups =  GroupUser::where('user_id', '=', $user->id)->get();
                 //echo $userGroups.'aqui'.$user->id;
                 $cantidad = count($userGroups);

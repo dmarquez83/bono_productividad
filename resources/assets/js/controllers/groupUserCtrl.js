@@ -14,6 +14,7 @@ angular.module('groupUserCtrl', [])
 			profiles_data = data;
 		});
 		function groups_user_list() {
+			$scope.loading = true;
 			server.getAll('api/groups_user_list').success(function (data) {
 				$scope.group_users = [];
 				$scope.group_users_all = data;
@@ -23,7 +24,7 @@ angular.module('groupUserCtrl', [])
 					//$scope.group_users.push(row[0].group);
 					var group_user_objeto = {};
 					var user = [];
-
+					console.log('aqui id',row.id);
 					$scope.profile_data = [];
 					user = _.map(
 						_.where(data, {'group_id': row[0].group.id}),
@@ -48,6 +49,7 @@ angular.module('groupUserCtrl', [])
 		}
 		groups_user_list();
 		function users_list() {
+			$scope.loading = true;
 			server.getAll('api/users_list').success(function (data) {
 				$scope.users = [];
 				angular.forEach((data), function (row) { //recorre los grupos
@@ -70,6 +72,7 @@ angular.module('groupUserCtrl', [])
 		users_list();
 
 		function group_list() {
+			$scope.loading = true;
 			server.getAll('api/group_list').success(function (data) {
 				$scope.groups = data;
 				$scope.loading = false;
@@ -173,6 +176,7 @@ angular.module('groupUserCtrl', [])
 								groups_user_list();
 								$scope.user_check_data = [];
 								$scope.group_check_data = [];
+								$scope.loading = false;
 							}else{
 								console.log('ya se encuentra registrado los datos user_id:',value_user.id, ' group_id: ', value_group.id);
 							}
@@ -183,9 +187,8 @@ angular.module('groupUserCtrl', [])
 		};
 
 		// function to handle deleting a comment
-		$scope.deleteComment = function(id) {
+		$scope.delete_user_group = function(user_id,group_id) {
 			$scope.loading = true;
-
 			server.delete('api/users',id)
 				.success(function(data) {
 

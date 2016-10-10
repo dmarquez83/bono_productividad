@@ -17,7 +17,7 @@ class GroupsTableSeeder extends Seeder
 
         for($i =0; $i <7; $i ++){
             \DB::table('groups')->insert(array(
-                'name' => $faker->unique()->word,
+                'name' => $faker->unique()->firstNameMale,
                 'description' => $faker->text(200),
                 'avatar' => 'avatar_group.png',
                 'status' => 'A',
