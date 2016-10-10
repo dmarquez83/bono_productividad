@@ -123,4 +123,21 @@ class GroupsUsersController extends Controller
     {
         return response()->json(Group::get());
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function group_user($user_id,$group_id)
+    {
+        $GroupUser = GroupUser::where('user_id', '=', $user_id)->where('group_id', '=', $group_id)->get();
+        //var_dump(count($GroupUser));
+        //die();
+        if(count($GroupUser) > 0){
+            return response()->json(array('success' => false));
+        }else{
+            return response()->json(array('success' => true));
+        }
+    }
 }

@@ -43,12 +43,18 @@ angular.module('appService', [])
 					url: resource + '/' + id
 				});
 			},
-			getByParameter: function (resource, parameter, data) {
+			getByParameter: function (resource, parameter1, parameter2) {
+				return $http({
+					method: 'GET',
+					url: resource + '/' + parameter1 +  '/' + parameter2
+				});
+			},
+			/*getByParameter: function (resource, parameter, data) {
 				return $http({
 					method: 'GET',
 					url: resource + '/' + data + '?parameter=' + parameter
 				});
-			},
+			},*/
 			getColumnsByParameters: function (resource, parameters, columns) {
 				return $http({
 					method: 'POST',

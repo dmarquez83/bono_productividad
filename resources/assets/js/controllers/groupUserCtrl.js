@@ -13,38 +13,40 @@ angular.module('groupUserCtrl', [])
 		server.getAll('api/users_profile').success(function (data) {
 			profiles_data = data;
 		});
+		function groups_user_list() {
+			server.getAll('api/groups_user_list').success(function (data) {
+				$scope.group_users = [];
+				$scope.group_users_all = data;
+				var groups_user_list = _.groupBy(data, 'group_id');
 
-		server.getAll('api/groups_user_list').success(function (data) {
-			$scope.group_users = [];
-			$scope.group_users_all = data;
-			var groups_user_list = _.groupBy(data, 'group_id');
+				angular.forEach((groups_user_list), function (row) { //recorre los grupos
+					//$scope.group_users.push(row[0].group);
+					var group_user_objeto = {};
+					var user = [];
 
-			angular.forEach((groups_user_list), function(row){ //recorre los grupos
-				//$scope.group_users.push(row[0].group);
-				var group_user_objeto = {};
-				var  user = [];
-
-				$scope.profile_data = [];
-				user = _.map(
-					_.where(data, {'group_id': row[0].group.id}),
-					function(person) {
-						//console.log(person.user.id,'person');
-						var  profile_data = {};
-						profile_data = _.map(
-							_.where(profiles_data, {'user_id': person.user.id}),
-							function(data_profile) {
-								return { profile: data_profile};
-							}
-						);
-						//return { users: person.user, profile: profile_data[0].profile};
-						return { users: person.user, profile: profile_data};
-					}
-				);
-				group_user_objeto = {'group': row[0].group, 'user': user };
-				$scope.group_users.push(group_user_objeto);
+					$scope.profile_data = [];
+					user = _.map(
+						_.where(data, {'group_id': row[0].group.id}),
+						function (person) {
+							//console.log(person.user.id,'person');
+							var profile_data = {};
+							profile_data = _.map(
+								_.where(profiles_data, {'user_id': person.user.id}),
+								function (data_profile) {
+									return {profile: data_profile};
+								}
+							);
+							//return { users: person.user, profile: profile_data[0].profile};
+							return {users: person.user, profile: profile_data};
+						}
+					);
+					group_user_objeto = {'group': row[0].group, 'user': user};
+					$scope.group_users.push(group_user_objeto);
+				});
+				$scope.loading = false;
 			});
-			$scope.loading = false;
-		});
+		}
+		groups_user_list();
 		function users_list() {
 			server.getAll('api/users_list').success(function (data) {
 				$scope.users = [];
@@ -118,7 +120,7 @@ angular.module('groupUserCtrl', [])
 		$scope.isChecked_group_all = function(){
 			if ($scope.group_check_data.length === $scope.groups.length) {
 				$scope.group_check_data = [];
-			} else if ($scope.user_check_data.length === 0 || $scope.group_check_data.length > 0) {
+			} else if ($scope.group_check_data.length === 0 || $scope.group_check_data.length > 0) {
 				$scope.group_check_data = $scope.groups.slice(0);
 			}
 		};
@@ -152,26 +154,31 @@ angular.module('groupUserCtrl', [])
 
 		$scope.to_assign = function() {
 			$scope.loading = true;
-			console.log('Entro');
-
-			console.log(' User ',$scope.user_check_data, ' Group ',$scope.group_check_data);
-			//var groupuserData =[];
-
 			angular.forEach($scope.group_check_data, function(value_group) {
 				angular.forEach($scope.user_check_data, function(value_user) {
 					var groupuserData = {'user_id':value_user.id, 'group_id': value_group.id };
-					//console.log(groupuserData);
-					server.save('api/users', groupuserData)
-					 .success(function(data) {
-							users_list();
-							group_list();
-						 })
-					  .error(function(data) {
-					      console.log(data,'error');
-					 });
+					server.getByParameter('api', value_user.id, value_group.id)
+					.success(function(data) {
+							//console.log(data.success,' success ',value_user.id, ' group_id: ', value_group.id);
+							if(data.success){
+								server.save('api/users', groupuserData)
+									.success(function(data) {
+										console.log('Se registraron los datos user_id:',value_user.id, ' group_id: ', value_group.id);
+									})
+									.error(function(data) {
+										console.log('error de registro');
+									});
+								users_list();
+								group_list();
+								groups_user_list();
+								$scope.user_check_data = [];
+								$scope.group_check_data = [];
+							}else{
+								console.log('ya se encuentra registrado los datos user_id:',value_user.id, ' group_id: ', value_group.id);
+							}
+					});
 				});
 			});
-
 
 		};
 
