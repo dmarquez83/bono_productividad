@@ -140,4 +140,18 @@ class GroupsUsersController extends Controller
             return response()->json(array('success' => true));
         }
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function group_user_delete(Request $request)
+    {
+        $GroupUser = GroupUser::where('user_id', '=', $request->get('user_id'))->where('group_id', '=', $request->get('group_id'))->get();
+        //dd($GroupUser[0]->id);
+        //die();
+        GroupUser::destroy($GroupUser[0]->id);
+        return response()->json(array('success' => true));
+    }
 }

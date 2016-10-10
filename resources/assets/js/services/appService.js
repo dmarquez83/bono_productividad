@@ -49,6 +49,20 @@ angular.module('appService', [])
 					url: resource + '/' + parameter1 +  '/' + parameter2
 				});
 			},
+			deleteByParameter: function (resource,  parameter1, parameter2) {
+				return $http({
+					method: 'DELETE',
+					url: resource + '/' + parameter1 +  '/' + parameter2
+				});
+			},
+			delete_pr: function (resource, data) {
+				return $http({
+					method: 'DELETE',
+					url: resource,
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+					data: $.param(data)
+				});
+			},
 			/*getByParameter: function (resource, parameter, data) {
 				return $http({
 					method: 'GET',

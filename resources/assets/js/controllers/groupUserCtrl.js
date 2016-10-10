@@ -24,7 +24,6 @@ angular.module('groupUserCtrl', [])
 					//$scope.group_users.push(row[0].group);
 					var group_user_objeto = {};
 					var user = [];
-					console.log('aqui id',row.id);
 					$scope.profile_data = [];
 					user = _.map(
 						_.where(data, {'group_id': row[0].group.id}),
@@ -186,19 +185,16 @@ angular.module('groupUserCtrl', [])
 
 		};
 
-		// function to handle deleting a comment
+		// function to handle deleting a
 		$scope.delete_user_group = function(user_id,group_id) {
 			$scope.loading = true;
-			server.delete('api/users',id)
+			var datos = { 'user_id': user_id, 'group_id': group_id}
+			server.delete_pr('api',datos)
 				.success(function(data) {
-
-					// if successful, we'll need to refresh the comment list
-					server.getAll('api/users')
-						.success(function(getData) {
-							$scope.comments = getData;
-							$scope.loading = false;
-						});
-
+					users_list();
+					group_list();
+					groups_user_list();
+					$scope.loading = false;
 				});
 		};
 
