@@ -21,6 +21,6 @@
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
 
-<script src="{{ asset('assets/js/controllers/groupUserCtrl.js') }}"></script>
+
 <script src="{{ asset('assets/js/services/appService.js') }}"></script>
-<script src="{{ asset('assets/js/app_group.js') }}"></script>
+
