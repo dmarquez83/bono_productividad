@@ -21,6 +21,12 @@ class DatabaseSeeder extends Seeder
         $this->call(UserProfileTableSeeder::class);
         $this->call(GroupsUsersTableSeeder::class);
         $this->call(CommentTableSeeder::class);
+        $this->call(ModulesTableSeeder::class);
+        $this->call(RoutesTableSeeder::class);
+        $this->call(MenuModulesTableSeeder::class);
+        $this->call(AccessModulesTableSeeder::class);
+        $this->call(AccessUsersTableSeeder::class);
+
 
 
 
