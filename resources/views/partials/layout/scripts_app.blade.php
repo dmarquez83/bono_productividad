@@ -15,12 +15,5 @@
 <script src="{{ asset('assets/layouts/global/scripts/quick-sidebar.min.js') }}"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 <script src="{{ asset('assets/js/angular.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/controllers/mainCtrl.js') }}"></script>
-<script src="{{ asset('assets/js/services/commentService.js') }}"></script>
-<script src="{{ asset('assets/js/app.js') }}"></script>
-
-
-
 <script src="{{ asset('assets/js/services/appService.js') }}"></script>
 

@@ -70,7 +70,10 @@ class UsersController extends Controller
         $dataProfile = [
             'user_id' => $user->id,
             'home_page' => 'home',
-            'avatar' =>  'avatar.png'
+            'avatar' =>  'avatar.png',
+            'name' =>  $request->get('name'),
+            'phone' =>  $request->get('phone'),
+            'extending' =>  $request->get('extending')
         ];
 
        // dd($dataProfile);
@@ -175,6 +178,7 @@ class UsersController extends Controller
      */
     public function update_profile(Request $request, $id)
     {
+       // dd($request);
         $userProfile = UserProfile::where('user_id', '=', $id)->firstOrFail();
 
         $rules = array(

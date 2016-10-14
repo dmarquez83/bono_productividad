@@ -36,9 +36,8 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::delete('groups-users/api', 'GroupsUsersController@group_user_delete');
     Route::get('groups-users/api/group_list', 'GroupsUsersController@group_list');
     Route::get('groups-users/api/groups_user_list', 'GroupsUsersController@groups_user_list');
-    Route::get('groups-users/api/users_profile/{users}', ['as' => 'admin.users.update.profile', 'uses' => 'UsersController@show_profile',]);
-    Route::get('groups-users/api/users_profile', ['as' => 'admin.users.update.profile', 'uses' => 'UsersController@show_profiles',]);
-
+    Route::get('groups-users/api/users_profile/{users}', 'UsersController@show_profile');
+    Route::get('groups-users/api/users_profile', 'UsersController@show_profiles');
 
 });
 
