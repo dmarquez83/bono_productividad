@@ -15,8 +15,8 @@ class CreateMenuModulesTable extends Migration
         Schema::create('menu_modules', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
-            $table->enum('status', ['A','E']);
+            $table->enum('menu_item', ['Y','N']);
+            $table->enum('type_access', ['Pantalla','Reporte']);
             $table->integer('module_id')->unsigned();//entero sin signo
             $table->foreign('module_id')
               ->references('id')

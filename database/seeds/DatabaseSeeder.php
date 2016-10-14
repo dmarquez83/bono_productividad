@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ModulesTableSeeder::class);
         $this->call(RoutesTableSeeder::class);
         $this->call(MenuModulesTableSeeder::class);
-        $this->call(AccessModulesTableSeeder::class);
-        $this->call(AccessUsersTableSeeder::class);
+        #$this->call(AccessModulesTableSeeder::class);
+        #$this->call(AccessUsersTableSeeder::class);
 
 
 

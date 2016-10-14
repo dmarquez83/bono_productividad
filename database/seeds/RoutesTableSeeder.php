@@ -12,6 +12,8 @@ class RoutesTableSeeder extends Seeder
     public function run()
     {
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Registrar Usuario',
+          'description'     => 'Registrar Usuario',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/users/create',
           'name' =>  'admin.users.create',
@@ -21,6 +23,8 @@ class RoutesTableSeeder extends Seeder
           'updated_at' =>  new Datetime,
         ));
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Listar Usuario',
+          'description'     => 'Listar Usuario',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/users',
           'name' =>  'admin.users.index',
@@ -31,6 +35,8 @@ class RoutesTableSeeder extends Seeder
         ));
 
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Registrar Grupos',
+          'description'     => 'Registrar Grupos',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/groups/create',
           'name' =>  'admin.groups.create',
@@ -41,6 +47,8 @@ class RoutesTableSeeder extends Seeder
         ));
 
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Listar Grupos',
+          'description'     => 'Listar Grupos',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/groups',
           'name' =>  'admin.groups.index',
@@ -51,6 +59,8 @@ class RoutesTableSeeder extends Seeder
         ));
 
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Asignar Usuarios a Grupos',
+          'description'     => 'Asignar Usuarios a Grupos',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/groups-users/create',
           'name' =>  'admin.groups-users.create',
@@ -60,6 +70,8 @@ class RoutesTableSeeder extends Seeder
           'updated_at' =>  new Datetime,
         ));
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Registrar Empresas',
+          'description'     => 'Registrar Empresas',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/companies/create',
           'name' =>  'admin.companies.create',
@@ -70,6 +82,8 @@ class RoutesTableSeeder extends Seeder
         ));
 
         \DB::table('routes')->insert(array(
+          'name_route'     => 'Listar Empresas',
+          'description'     => 'Listar Empresas',
           'method'     => 'GET|HEAD',
           'uri' =>  'admin/companies',
           'name' =>  'admin.companies.index',

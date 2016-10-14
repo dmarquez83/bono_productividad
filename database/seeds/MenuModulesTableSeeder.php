@@ -13,8 +13,8 @@ class MenuModulesTableSeeder extends Seeder
     {
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Registrar',
-          'description' =>  'Registro de Usuario',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  1,
           'route_id' =>  1,
           'created_at' => new DateTime,
@@ -22,8 +22,8 @@ class MenuModulesTableSeeder extends Seeder
         ));
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Listar',
-          'description' =>  'Listado de Usuario',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  1,
           'route_id' =>  2,
           'created_at' => new DateTime,
@@ -32,8 +32,8 @@ class MenuModulesTableSeeder extends Seeder
 
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Registrar',
-          'description' =>  'Registro de Grupos',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  2,
           'route_id' =>  3,
           'created_at' => new DateTime,
@@ -41,8 +41,8 @@ class MenuModulesTableSeeder extends Seeder
         ));
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Listar',
-          'description' =>  'Listado de Grupos',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  2,
           'route_id' =>  4,
           'created_at' => new DateTime,
@@ -50,8 +50,8 @@ class MenuModulesTableSeeder extends Seeder
         ));
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Asignar Usuario',
-          'description' =>  'Asignar Usuario a Grupos',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  2,
           'route_id' =>  5,
           'created_at' => new DateTime,
@@ -60,8 +60,8 @@ class MenuModulesTableSeeder extends Seeder
 
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Registrar',
-          'description' =>  'Registro de Empresa',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  3,
           'route_id' =>  6,
           'created_at' => new DateTime,
@@ -69,8 +69,8 @@ class MenuModulesTableSeeder extends Seeder
         ));
         \DB::table('menu_modules')->insert(array(
           'name'     => 'Listar',
-          'description' =>  'Listar Empresas',
-          'status' =>  'A',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'module_id' =>  3,
           'route_id' =>  7,
           'created_at' => new DateTime,

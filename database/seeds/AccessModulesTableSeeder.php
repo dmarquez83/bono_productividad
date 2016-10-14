@@ -13,28 +13,29 @@ class AccessModulesTableSeeder extends Seeder
     {
         /*usuario*/
         \DB::table('access_modules')->insert(array(
-          'name'     => 'store',
-          'status' =>  'A',
+          'name'     => '',
+          'menu_item' =>  'Y',
+          'type_access' =>  'Pantalla',
           'menu_modules_id' =>  1,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'show',
+          'access_types_id'     => 1,
           'status' =>  'A',
           'menu_modules_id' =>  2,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'edit',
+          'access_types_id'     => 2,
           'status' =>  'A',
           'menu_modules_id' =>  2,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'destroy',
+          'access_types_id'     => 4,
           'status' =>  'A',
           'menu_modules_id' =>  2,
           'created_at' => new DateTime,
@@ -42,49 +43,49 @@ class AccessModulesTableSeeder extends Seeder
         ));
         /*grupo*/
         \DB::table('access_modules')->insert(array(
-          'name'     => 'store',
+          'access_types_id'     => 3,
           'status' =>  'A',
           'menu_modules_id' =>  3,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'show',
+          'access_types_id'     => 1,
           'status' =>  'A',
           'menu_modules_id' =>  4,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'edit',
+          'access_types_id'     => 2,
           'status' =>  'A',
           'menu_modules_id' =>  4,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'destroy',
+          'access_types_id'     => 4,
           'status' =>  'A',
           'menu_modules_id' =>  4,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'show',
+          'access_types_id'     => 1,
           'status' =>  'A',
           'menu_modules_id' =>  5,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'store',
+          'access_types_id'     => 3,
           'status' =>  'A',
           'menu_modules_id' =>  5,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'destroy',
+          'access_types_id'     => 4,
           'status' =>  'A',
           'menu_modules_id' =>  5,
           'created_at' => new DateTime,
@@ -92,28 +93,28 @@ class AccessModulesTableSeeder extends Seeder
         ));
         /*Empresa*/
         \DB::table('access_modules')->insert(array(
-          'name'     => 'store',
+          'access_types_id'     => 3,
           'status' =>  'A',
           'menu_modules_id' =>  6,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'show',
+          'access_types_id'     => 1,
           'status' =>  'A',
           'menu_modules_id' =>  7,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'edit',
+          'access_types_id'     => 2,
           'status' =>  'A',
           'menu_modules_id' =>  7,
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
         \DB::table('access_modules')->insert(array(
-          'name'     => 'destroy',
+          'access_types_id'     => 4,
           'status' =>  'A',
           'menu_modules_id' =>  7,
           'created_at' => new DateTime,
