@@ -1,28 +1,19 @@
 <div class="form-group">
-    {!! Form::label('type_user', 'Tipo') !!}
+    {!! Form::label('name', 'Nompre de la Pantalla') !!}
     <div class="input-group">
         <span class="input-group-addon">
-            <i class="fa fa-navicon"></i>
+            <i class="fa fa-tags"></i>
         </span>
-        {!! Form::select('type_access',  array('Usuario' => 'Usuario', 'Grupo' => 'Grupo'), null , ['class' => 'form-control']) !!}
+        {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca el Nombre de la pantalla']) !!}
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('id_type_user', 'Grupo/User Id') !!}
+    {!! Form::label('module_id', 'Modulo') !!}
     <div class="input-group">
         <span class="input-group-addon">
             <i class="fa fa-navicon"></i>
         </span>
-        {!! Form::select('id_type_user',  null, null , ['class' => 'form-control']) !!}
-    </div>
-</div>
-<div class="form-group">
-    {!! Form::label('menu_modules_id', 'Pantalla') !!}
-    <div class="input-group">
-        <span class="input-group-addon">
-            <i class="fa fa-navicon"></i>
-        </span>
-        {!! Form::select('menu_modules_id', $menu_modules, null, ['class' => 'form-control']) !!}
+        {!! Form::select('module_id', $modules, null, ['class' => 'form-control']) !!}
     </div>
 </div>
 <div class="form-group">

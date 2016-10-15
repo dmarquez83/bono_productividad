@@ -6,7 +6,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\Module;
+use App\Models\AccessModule;
+use App\Models\MenuModule;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -17,9 +18,10 @@ class AccessModulesController extends Controller
 {
     public function index()
     {
-        $modules =  Module::orderBy('id','DESC')->paginate();
 
-        return view('modules.admin.modules.index', compact('modules'));
+        $access_modules =  AccessModule::orderBy('id','DESC')->paginate();
+        //dd($access_modules);
+        return view('modules.admin.access-modules.index', compact('access_modules'));
     }
 
     /**
@@ -29,7 +31,10 @@ class AccessModulesController extends Controller
      */
     public function create()
     {
-        return view('modules.admin.modules.create');
+        $menu_modules =  MenuModule::orderBy('id', 'asc')->lists('name', 'id');
+
+        return view('modules.admin.access-modules.create', compact('menu_modules'));
+
     }
 
     /**
@@ -55,9 +60,9 @@ class AccessModulesController extends Controller
           'updated_at' =>  new \Datetime
         ];
         //dd($data);
-        $module = Module::create($data);
+        $access_module = AccessModule::create($data);
 
-        return redirect()->route('admin.modules.index');
+        return redirect()->route('admin.access-modules.index');
 
     }
 
@@ -80,8 +85,8 @@ class AccessModulesController extends Controller
      */
     public function edit($id)
     {
-        $module = Module::findOrFail($id);
-        return view('modules.admin.modules.edit', compact('module'));
+        $access_module = AccessModule::findOrFail($id);
+        return view('modules.admin.access-modules.edit', compact('access_module'));
     }
 
     /**
@@ -100,7 +105,7 @@ class AccessModulesController extends Controller
 
         $this->validate($request, $rules);
 
-        $module = Module::findOrFail($id);
+        $access_module = AccessModule::findOrFail($id);
 
         $data= [
           'name'  => $request->get('name'),
@@ -112,9 +117,9 @@ class AccessModulesController extends Controller
         //dd($data);
 
 
-        $module->fill($data);
-        $module->save();
-        return redirect()->route('admin.modules.index');
+        $access_module->fill($data);
+        $access_module->save();
+        return redirect()->route('admin.access-modules.index');
 
         //return redirect()->back(); //con este redirecciona al mismo formulario
     }
@@ -128,24 +133,24 @@ class AccessModulesController extends Controller
     public function destroy($id, Request $request)
     {
         //dd('Eliminando :'.$id);
-        //Module::destroy($id);
+        //AccessModule::destroy($id);
         //abort(500);
 
-        $module = Module::findOrFail($id);
+        $access_module = AccessModule::findOrFail($id);
 
-        $module->delete();
+        $access_module->delete();
 
-        $message=$module->name.' fue Eliminado de Nuestro Registro';
+        $message=$access_module->name.' fue Eliminado de Nuestro Registro';
 
         if($request->ajax()){
             return response()->json([
-              'id' =>$module->id,
+              'id' =>$access_module->id,
               'message' => $message
             ]);
         }
 
         Session::flash('message',$message);
 
-        return redirect()->route('admin.modules.index');
+        return redirect()->route('admin.access-modules.index');
     }
 }

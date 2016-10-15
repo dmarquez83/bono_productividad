@@ -118,18 +118,37 @@
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-settings"></i>
+            <span class="title">Mantenimiento de Pantallas</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="{{ route('admin.menu-modules.create') }}" class="nav-link ">
+                    <span class="title">Registrar</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.menu-modules.index') }}" class="nav-link ">
+                    <span class="title">Listar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
             <i class="icon-key"></i>
             <span class="title">Accesos</span>
             <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="#" class="nav-link ">
+                <a href="{{ route('admin.access-modules.create') }}" class="nav-link ">
                     <span class="title">Registrar</span>
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="#" class="nav-link ">
+                <a href="{{ route('admin.access-modules.index') }}" class="nav-link ">
                     <span class="title">Listar</span>
                 </a>
             </li>
