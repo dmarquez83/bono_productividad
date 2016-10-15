@@ -12,110 +12,126 @@
         @include('partials.home.sidebar_menu_search')
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
     </li>
+    <li class="nav-item start active open">
+        <a href="{{ route('home') }}" class="nav-link nav-toggle">
+            <i class="icon-home"></i>
+            <span class="title">Dashboard</span>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        </a>
+        <ul class="sub-menu">
             <li class="nav-item start active open">
-                <a href="{{ route('home') }}" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
+                <a href="{{ route('home') }}" class="nav-link ">
+                    <i class="icon-bar-chart"></i>
                     <span class="title">Dashboard</span>
+                    <span class="badge badge-danger">5</span>
                     <span class="selected"></span>
-                    <span class="arrow open"></span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start active open">
-                        <a href="{{ route('home') }}" class="nav-link ">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">Dashboard</span>
-                            <span class="badge badge-danger">5</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                </ul>
             </li>
-        <li class="heading">
-            <h3 class="uppercase">Administrador</h3>
-        </li>
+        </ul>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">Administrador</h3>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-user"></i>
+            <span class="title">Usuarios</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-user"></i>
-                    <span class="title">Usuarios</span>
-                    <span class="arrow"></span>
+                <a href="{{ route('admin.users.create') }}" class="nav-link ">
+                    <span class="title">Registrar</span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.users.create') }}" class="nav-link ">
-                            <span class="title">Registrar</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.users.index') }}" class="nav-link ">
-                            <span class="title">Listar</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.users.index') }}" class="nav-link ">
+                    <span class="title">Listar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
 
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">Grupos</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-users"></i>
-                    <span class="title">Grupos</span>
-                    <span class="arrow"></span>
+                <a href="{{ route('admin.groups.create') }}" class="nav-link ">
+                    <span class="title">Registrar</span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.groups.create') }}" class="nav-link ">
-                            <span class="title">Registrar</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.groups.index') }}" class="nav-link ">
-                            <span class="title">Listar</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.groups-users.create') }}" class="nav-link ">
-                            <span class="title">Asignar Usuario</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
-
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-briefcase"></i>
-                    <span class="title">Empresas</span>
-                    <span class="arrow"></span>
+                <a href="{{ route('admin.groups.index') }}" class="nav-link ">
+                    <span class="title">Listar</span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.companies.create') }}" class="nav-link ">
-                            <span class="title">Registrar</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="{{ route('admin.companies.index') }}" class="nav-link ">
-                            <span class="title">Listar</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
-
             <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-key"></i>
-                    <span class="title">Accesos</span>
-                    <span class="arrow"></span>
+                <a href="{{ route('admin.groups-users.create') }}" class="nav-link ">
+                    <span class="title">Asignar Usuario</span>
                 </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Registrar</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <span class="title">Listar</span>
-                        </a>
-                    </li>
-                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-briefcase"></i>
+            <span class="title">Empresas</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="{{ route('admin.companies.create') }}" class="nav-link ">
+                    <span class="title">Registrar</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.companies.index') }}" class="nav-link ">
+                    <span class="title">Listar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-layers"></i>
+            <span class="title">Modulos</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="{{ route('admin.modules.create') }}" class="nav-link ">
+                    <span class="title">Registrar</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="{{ route('admin.modules.index') }}" class="nav-link ">
+                    <span class="title">Listar</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-key"></i>
+            <span class="title">Accesos</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="#" class="nav-link ">
+                    <span class="title">Registrar</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="#" class="nav-link ">
+                    <span class="title">Listar</span>
+                </a>
             </li>
         </ul>
     </li>
