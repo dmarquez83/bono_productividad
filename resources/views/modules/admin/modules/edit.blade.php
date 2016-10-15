@@ -13,7 +13,7 @@
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
-                        <i class="icon-layers font-red-sunglo"></i>
+                        <i class="icon-briefcase font-red-sunglo"></i>
                         <span class="caption-subject bold uppercase">Editar Modulos: {{ $module->name }}</span>
                     </div>
                     @include('modules.admin.modules.partials.action')

@@ -24,9 +24,11 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::post('users/update/password/{users}', ['as' => 'admin.users.update.password', 'uses' => 'UsersController@update_password',]);
     Route::post('update/avatar/{users}', ['as' => 'admin.users.update.avatar', 'uses' => 'UsersController@update_avatar',]);
     Route::resource('companies','CompaniesController');
-    Route::resource('modules','ModulesController');
     Route::resource('groups','GroupsController');
     Route::resource('groups-users', 'GroupsUsersController', array('only' => array('create')));
+    Route::resource('modules','ModulesController');
+    Route::resource('menu-modules','MenuModulesController');
+    Route::resource('access-modules','AccessModulesController');
 
     /* las rutas para el api de angular*/
     Route::resource('groups-users/api/users', 'GroupsUsersController',  array('only' => array('index', 'store', 'destroy')));

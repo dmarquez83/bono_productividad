@@ -1,6 +1,6 @@
 @extends('partials.home.app')
 @section('name')
-    Empresa
+    Mantenimiento de Pantallas
 @endsection
 @section('title')
     : Registro
@@ -14,15 +14,15 @@
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
                         <i class="icon-layers font-red-sunglo"></i>
-                        <span class="caption-subject bold uppercase">Nuevo Modulo</span>
+                        <span class="caption-subject bold uppercase">Nuevo Mantenimiento de Pantallas</span>
                     </div>
 
                 </div>
                 <div class="portlet-body form">
-                    @include('modules.admin.modules.partials.messager')
-                    {!! Form::open(['route' => 'admin.modules.store', 'POST' ,'role' => 'form' ]) !!}
+                    @include('modules.admin.menu-modules.partials.messager')
+                    {!! Form::open(['route' => 'admin.menu-modules.store', 'POST' ,'role' => 'form' ]) !!}
                     <div class="form-body">
-                        @include('modules.admin.modules.partials.fields')
+                        @include('modules.admin.menu-modules.partials.fields')
                         <div class="text-center">
                             <button type="submit" class="btn blue">Crear Modulo</button>
                         </div>
