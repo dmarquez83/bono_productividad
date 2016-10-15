@@ -18,10 +18,10 @@
         <tr data-id="{{ $menu_module->id }}">
             <td>{{ $menu_module->id }}</td>
             <td>{{ $menu_module->name }}</td>
-            <td>{{ $menu_module->menu_item }}</td>
+            <td>{{ $menu_module->MenuItem }}</td>
             <td>{{ $menu_module->type_access }}</td>
-            <td>{{ $menu_module->module_id }}</td>
-            <td>{{ $menu_module->route_id }}</td>
+            <td>{{ $menu_module->module->name }}</td>
+            <td>{{ $menu_module->route->name }}</td>
             <td>{{ $menu_module->created_at }}</td>
             <td>{{ $menu_module->updated_at }}</td>
 

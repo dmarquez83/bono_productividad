@@ -16,4 +16,15 @@ class MenuModule extends Model
   public function route(){
     return $this->belongsTo('App\Models\Route');
   }
+
+
+  public function getMenuItemAttribute($value){
+    if ($this->attributes['menu_item'] == 'Y')
+      $valor = 'Si';
+    else
+      $valor = 'No';
+
+    return $valor;
+
+  }
 }
