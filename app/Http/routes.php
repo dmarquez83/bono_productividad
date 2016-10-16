@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::resource('access-modules','AccessModulesController');
   /*rutas para angular modulo de acceso*/
     Route::get('access-modules/api/users_list', 'AccessModulesController@user_list');
+    Route::get('access-modules/api/group_list', 'GroupsUsersController@group_list');
+    Route::get('access-modules/api/companies_list', 'CompaniesController@companies_list');
+
   /*fin de rutas de angular modulo de acceso*/
 
     /* las rutas para el api de angular para el modulo de asignar usuarios a grupos*/

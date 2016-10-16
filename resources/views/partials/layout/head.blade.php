@@ -6,6 +6,7 @@
     {!! Html::style('assets/global/plugins/uniform/css/uniform.default.css') !!}
     {!! Html::style('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
     <!-- END GLOBAL MANDATORY STYLES -->
+
     <!-- BEGIN THEME GLOBAL STYLES -->
     {!! Html::style('assets/global/css/components.min.css') !!}
     {!! Html::style('assets/global/css/plugins.min.css') !!}

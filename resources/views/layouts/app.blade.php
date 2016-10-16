@@ -13,6 +13,7 @@
     <meta content="" name="description" />
     <meta content="" name="author" />
     @include('partials.layout.head')
+    @yield('heads')
     @include('partials.layout.head_app')
     <link rel="shortcut icon" href="assets/global/plugins/datatables/images/favicon.ico" />
 </head>

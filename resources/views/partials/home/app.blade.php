@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('heads')
+    @yield('head_interno')
+@endsection
 @section('content')
     @include('partials.home.header')
     <!-- BEGIN HEADER & CONTENT DIVIDER -->

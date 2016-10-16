@@ -10,6 +10,7 @@ use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Response;
 
 class CompaniesController extends Controller
 {
@@ -152,5 +153,15 @@ class CompaniesController extends Controller
         Session::flash('message',$message);
 
         return redirect()->route('admin.companies.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function companies_list()
+    {
+      return response()->json(Company::get());
     }
 }
