@@ -29,8 +29,11 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::resource('modules','ModulesController');
     Route::resource('menu-modules','MenuModulesController');
     Route::resource('access-modules','AccessModulesController');
+  /*rutas para angular modulo de acceso*/
+    Route::get('access-modules/api/users_list', 'AccessModulesController@user_list');
+  /*fin de rutas de angular modulo de acceso*/
 
-    /* las rutas para el api de angular*/
+    /* las rutas para el api de angular para el modulo de asignar usuarios a grupos*/
     Route::resource('groups-users/api/users', 'GroupsUsersController',  array('only' => array('index', 'store', 'destroy')));
     Route::get('groups-users/api/users_list', 'GroupsUsersController@user_list');
     Route::get('groups-users/api/{user}/{group}', 'GroupsUsersController@group_user');

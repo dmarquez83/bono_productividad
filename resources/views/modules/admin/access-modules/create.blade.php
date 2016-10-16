@@ -13,25 +13,24 @@
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
-                        <i class="icon-key font-red-sunglo"></i>
-                        <span class="caption-subject bold uppercase">Nuevo Derechos de Acceso</span>
+                        <i class="icon-layers font-red-sunglo"></i>
+                        <span class="caption-subject bold uppercase">Nuevo Derecho de Accesos</span>
                     </div>
 
                 </div>
                 <div class="portlet-body form">
-                    @include('modules.admin.access-modules.partials.messager')
-                    {!! Form::open(['route' => 'admin.access-modules.store', 'POST' ,'role' => 'form' ]) !!}
+                    @include('modules.admin.menu-modules.partials.messager')
                     <div class="form-body">
                         @include('modules.admin.access-modules.partials.fields')
-                        <div class="text-center">
-                            <button type="submit" class="btn blue">Crear Derechos de Acceso</button>
-                        </div>
+
                     </div>
-                    {!! Form::close() !!}
                 </div>
-               {{-- @include('index')
-                <div ui-view="filters"></div> --}}
+
             </div>
         </div>
     </div>
+@endsection
+@section('scripts_interno')
+    <script src="{{ asset('assets/js/app_access_modules.js') }}"></script>
+    <script src="{{ asset('assets/js/controllers/accessModulesCtrl.js') }}"></script>
 @endsection

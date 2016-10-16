@@ -42,7 +42,7 @@ class User extends Model implements AuthenticatableContract,
     }
 
     public function userprofile(){
-        return $this->belongsTo('App\Models\UserProfile');
+        return $this->hasMany('App\Models\UserProfile');
     }
 
     public function getFullNameAttribute(){

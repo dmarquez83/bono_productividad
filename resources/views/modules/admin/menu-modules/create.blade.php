@@ -24,7 +24,7 @@
                     <div class="form-body">
                         @include('modules.admin.menu-modules.partials.fields')
                         <div class="text-center">
-                            <button type="submit" class="btn blue">Crear Modulo</button>
+                            <button type="submit" class="btn blue">Crear Mantenimiento de Pantalla</button>
                         </div>
                     </div>
                     {!! Form::close() !!}

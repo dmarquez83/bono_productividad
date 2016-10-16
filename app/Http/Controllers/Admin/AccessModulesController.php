@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\AccessModule;
 use App\Models\MenuModule;
+use App\Models\User;
+use App\Models\UserProfile;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -152,5 +154,12 @@ class AccessModulesController extends Controller
         Session::flash('message',$message);
 
         return redirect()->route('admin.access-modules.index');
+    }
+
+    public function user_list()
+    {
+        //GroupUser::with(['group','user'])->get();
+       // dd(User::with(['userprofile'])->get());
+        return response()->json(User::with(['userprofile'])->get());
     }
 }
