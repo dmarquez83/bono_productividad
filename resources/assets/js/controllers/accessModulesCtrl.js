@@ -69,12 +69,12 @@ angular.module('accessModulesCtrl', [])
 			$scope.accessmodulesData.company= null;
 		};
     
-    $scope.user_check_data=[];
+    $scope.option_check_data=[];
 
 		$scope.isChecked = function(id, campo){
 			var match = false;
-			for(var i=0 ; i < $scope.user_check_data.length; i++) {				
-				if($scope.user_check_data[i].id == id && $scope.user_check_data[i].campo == campo){
+			for(var i=0 ; i < $scope.option_check_data.length; i++) {				
+				if($scope.option_check_data[i].id == id && $scope.option_check_data[i].campo == campo){
 					match = true;
 				}
 			}
@@ -83,11 +83,11 @@ angular.module('accessModulesCtrl', [])
 
 		$scope.sync = function(check, item, campo){
 			if(check){				
-				$scope.user_check_data.push({id: item, campo: campo});
+				$scope.option_check_data.push({id: item, campo: campo});
 			} else {				
-				for(var i=0 ; i < $scope.user_check_data.length; i++) {			
-					if($scope.user_check_data[i].id == item && $scope.user_check_data[i].campo == campo){
-						$scope.user_check_data.splice(i,1);
+				for(var i=0 ; i < $scope.option_check_data.length; i++) {			
+					if($scope.option_check_data[i].id == item && $scope.option_check_data[i].campo == campo){
+						$scope.option_check_data.splice(i,1);
 					}
 				}
 			}			
@@ -105,55 +105,81 @@ angular.module('accessModulesCtrl', [])
 				}
 			}
 
-			var pantalla = JSON.parse($scope.accessmodulesData.pantalla);
+			var option_check_data = _.groupBy($scope.option_check_data, 'id');
 
-			if($scope.accessmodulesData.company) {
-				var company = JSON.parse($scope.accessmodulesData.company);
-				preparando_data = {
-					type_user: $scope.accessmodulesData.type_user,
-					id_type_user: type_user_group.id,
-					name_type_user: type_user_group.name,
-					company_id: company.id,
-					company_name: company.name,
-					all_companies: $scope.accessmodulesData.all_companies,
-					pantalla_id: pantalla.id,
-					pantalla_name: pantalla.name,
-					pantalla_type_access: pantalla.type_access,
-					pantalla_module_id: pantalla.module.id,
-					pantalla_module_name: pantalla.module.name,
-					acc_consult: false,
-					acc_update: false,
-					acc_insert: false,
-					acc_remove: false,
-					acc_special: false,
-					acc_authorize: false
-				};
-			}else{
-				preparando_data = {
-					type_user: $scope.accessmodulesData.type_user,
-					id_type_user: type_user_group.id,
-					name_type_user: type_user_group.name,
-					company_id: null,
-					company_name: null,
-					all_companies: $scope.accessmodulesData.all_companies,
-					pantalla_id: pantalla.id,
-					pantalla_name: pantalla.name,
-					pantalla_type_access: pantalla.type_access,
-					pantalla_module_id: pantalla.module.id,
-					pantalla_module_name: pantalla.module.name,
-					acc_consult: false,
-					acc_update: false,
-					acc_insert: false,
-					acc_remove: false,
-					acc_special: false,
-					acc_authorize: false
-				};
-			}
+			angular.forEach((option_check_data), function (row) { 
+					var acc_consult = false;
+				  var acc_update = false;
+					var acc_insert = false;
+					var acc_remove = false;
+					var acc_special = false;
+					var acc_authorize = false;
+					var id_menu_modules = null;
+
+					angular.forEach((row), function (row_det) { 	              
+	              id_menu_modules = row_det.id;
+	              if(row_det.campo == 'acc_consult')	acc_consult = true; 
+								if(row_det.campo == 'acc_update')	acc_update = true; 
+								if(row_det.campo == 'acc_insert')	acc_insert = true; 
+								if(row_det.campo == 'acc_remove')	acc_remove = true; 
+								if(row_det.campo == 'acc_special')	acc_special = true;
+								if(row_det.campo == 'acc_authorize')	acc_authorize = true; 
+					});
 
 
-
-			$scope.accessData.push(preparando_data);
+					if($scope.accessmodulesData.company) {
+						var company = JSON.parse($scope.accessmodulesData.company);
+						preparando_data = {
+							type_user: $scope.accessmodulesData.type_user,
+							id_type_user: type_user_group.id,
+							name_type_user: type_user_group.name,
+							company_id: company.id,
+							//company_name: company.name,
+							all_companies: $scope.accessmodulesData.all_companies,
+							menu_modules_id: id_menu_modules,													
+							acc_consult: acc_consult,
+							acc_update: acc_update,
+							acc_insert: acc_insert,
+							acc_remove: acc_remove,
+							acc_special: acc_special,
+							acc_authorize: acc_authorize
+							
+						};
+					}else{
+						preparando_data = {
+							type_user: $scope.accessmodulesData.type_user,
+							id_type_user: type_user_group.id,
+							name_type_user: type_user_group.name,
+							company_id: null,
+							//company_name: null,
+							all_companies: $scope.accessmodulesData.all_companies,
+							menu_modules_id: row.id,													
+							acc_consult: acc_consult,
+							acc_update: acc_update,
+							acc_insert: acc_insert,
+							acc_remove: acc_remove,
+							acc_special: acc_special,
+							acc_authorize: acc_authorize					
+						};
+					}
+					$scope.accessData.push(preparando_data);
+			});	
+		
 			$scope.accessmodulesData = {};
 		}
 
 	});
+
+	/*
+					pantalla_id: pantalla.id,
+					pantalla_name: pantalla.name,
+					pantalla_type_access: pantalla.type_access,
+					pantalla_module_id: pantalla.module.id,
+					pantalla_module_name: pantalla.module.name,
+					acc_consult: false,
+					acc_update: false,
+					acc_insert: false,
+					acc_remove: false,
+					acc_special: false,
+					acc_authorize: false
+	*/

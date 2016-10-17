@@ -141,9 +141,9 @@
       </div>
   </div>   <!-- fin row 1-->
   <div class="row">
-    <pre>{{accessmodulesData | json}} </pre>
+   <!-- <pre>{{accessmodulesData | json}} </pre>-->
     <pre>{{accessData | json}} </pre>
-    <pre>{{user_check_data | json}} </pre>
+   <!-- <pre>{{option_check_data | json}} </pre>-->
     
       <div class="text-center">
           <button type="submit" class="btn blue" ng-click="to_assign()">Guardar Derechos de Acceso</button>
