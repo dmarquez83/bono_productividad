@@ -33,7 +33,7 @@
 @section('scripts_interno')
     <script src="{{ asset('assets/js/app_access_modules.js') }}"></script>
     <script src="{{ asset('assets/js/controllers/accessModulesCtrl.js') }}"></script>
-    <script src="{{ asset('assets/global/plugins/icheck/icheck.min.js') }}"></script>
+    <!--<script src="{{ asset('assets/global/plugins/icheck/icheck.min.js') }}"></script>-->
 @endsection
 @section('head_interno')
     {!! Html::style('assets/global/plugins/icheck/skins/all.css') !!}

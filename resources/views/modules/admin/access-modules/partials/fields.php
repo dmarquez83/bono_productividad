@@ -118,12 +118,12 @@
                   <td>{{ menuModule.name }}</td>
                   <td>{{ menuModule.type_access }}</td>
                   <td>{{ menuModule.module.name }}</td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_consult" ng-change="acc_consult()"></td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_update" ng-change="acc_update()"></td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_insert" ng-change="acc_insert()"></td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_remove" ng-change="acc_remove()"></td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_special" ng-change="acc_special()"></td>
-                  <td><input type="checkbox" ng-model="accessmodulesData.acc_authorize" ng-change="acc_authorize()"></td>
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_consult, menuModule.id, 'acc_consult')" ng-model="acc_consult" ng-checked="isChecked(menuModule.id, 'acc_consult')" ></td>                  
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_update, menuModule.id, 'acc_update')" ng-model="acc_update" ng-checked="isChecked(menuModule.id, 'acc_update')" ></td>                  
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_insert, menuModule.id, 'acc_insert')" ng-model="acc_insert" ng-checked="isChecked(menuModule.id, 'acc_insert')" ></td>                  
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_remove, menuModule.id, 'acc_remove')" ng-model="acc_remove" ng-checked="isChecked(menuModule.id, 'acc_remove')" ></td>                  
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_special, menuModule.id, 'acc_special')" ng-model="acc_special" ng-checked="isChecked(menuModule.id, 'acc_special')" ></td>                  
+                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_authorize, menuModule.id, 'acc_authorize')" ng-model="acc_authorize" ng-checked="isChecked(menuModule.id, 'acc_authorize')" ></td>                  
                 </tr>
                 </tbody>
               </table>
@@ -143,6 +143,8 @@
   <div class="row">
     <pre>{{accessmodulesData | json}} </pre>
     <pre>{{accessData | json}} </pre>
+    <pre>{{user_check_data | json}} </pre>
+    
       <div class="text-center">
           <button type="submit" class="btn blue" ng-click="to_assign()">Guardar Derechos de Acceso</button>
       </div>

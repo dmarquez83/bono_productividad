@@ -68,6 +68,31 @@ angular.module('accessModulesCtrl', [])
 		$scope.all_companies = function(){
 			$scope.accessmodulesData.company= null;
 		};
+    
+    $scope.user_check_data=[];
+
+		$scope.isChecked = function(id, campo){
+			var match = false;
+			for(var i=0 ; i < $scope.user_check_data.length; i++) {				
+				if($scope.user_check_data[i].id == id && $scope.user_check_data[i].campo == campo){
+					match = true;
+				}
+			}
+			return match;
+		};
+
+		$scope.sync = function(check, item, campo){
+			if(check){				
+				$scope.user_check_data.push({id: item, campo: campo});
+			} else {				
+				for(var i=0 ; i < $scope.user_check_data.length; i++) {			
+					if($scope.user_check_data[i].id == item && $scope.user_check_data[i].campo == campo){
+						$scope.user_check_data.splice(i,1);
+					}
+				}
+			}			
+		};
+
 
 		$scope.to_insert = function(){
 			var preparando_data= [];
