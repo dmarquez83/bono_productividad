@@ -132,24 +132,17 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-  
   <!-- fin lista de pantalla-->
-
   <div class="row">
       <div class="col-md-12 col-sm-12 text-center">
         <button type="submit" class="btn blue" ng-click="to_insert()">Guardar</button>
       </div>
   </div>   <!-- fin row 1-->
-  <div class="row">
-   <!-- <pre>{{accessmodulesData | json}} </pre>-->
-    <pre>{{accessData | json}} </pre>
-   <!-- <pre>{{option_check_data | json}} </pre>-->
-    
-      <div class="text-center">
-          <button type="submit" class="btn blue" ng-click="to_assign()">Guardar Derechos de Acceso</button>
-      </div>
-  </div>
-  
+<!-- <div class="row">
+ <pre>{{accessmodulesData | json}} </pre>-->
+    <!--  <pre>{{accessData | json}} </pre>-->
+    <!-- <pre>{{option_check_data | json}} </pre>-->
+<!-- </div>-->
 </form>
 </body>
 

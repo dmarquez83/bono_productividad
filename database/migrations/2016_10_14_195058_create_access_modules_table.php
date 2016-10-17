@@ -19,8 +19,7 @@ class CreateAccessModulesTable extends Migration
             $table->integer('company_id')->unsigned()->nullable();//entero sin signo
             $table->foreign('company_id')
               ->references('id')
-              ->on('companies')
-              ->onDelete('cascade');
+              ->on('companies');
             $table->boolean('companies_all')->nullable();
             $table->integer('menu_modules_id')->unsigned();//entero sin signo
             $table->foreign('menu_modules_id')

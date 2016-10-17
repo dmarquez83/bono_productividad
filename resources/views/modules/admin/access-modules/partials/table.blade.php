@@ -30,14 +30,14 @@
             <td>{{ $access_module->id }}</td>
             <td>{{ $access_module->type_user }}</td>
             <td>{{ $access_module->id_type_user }}</td>
-            <td>nombre</td>
+            <td>{{ $access_module->name_user }}</td>
             <td>{{ $access_module->company_id }}</td>
-            <td>nombre empresa</td>
+            <td>{{ $access_module->name_company }}</td>
             <td>{{ $access_module->companies_all }}</td>
             <td>{{ $access_module->menu_modules_id }}</td>
-            <td>descripcion</td>
-            <td>tipo</td>
-            <td>Modulo</td>
+            <td>{{ $access_module->name_pantalla }}</td>
+            <td>{{ $access_module->type_access }}</td>
+            <td>{{ $access_module->name_module }}</td>
             <td>{{ $access_module->acc_consult }}</td>
             <td>{{ $access_module->acc_update }}</td>
             <td>{{ $access_module->acc_insert }}</td>
@@ -48,7 +48,6 @@
             <td>{{ $access_module->updated_at }}</td>
 
             <td>
-                <a href="{{ route('admin.access-modules.edit',$access_module->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
                 <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
             </td>
         </tr>

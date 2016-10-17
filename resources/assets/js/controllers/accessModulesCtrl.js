@@ -94,6 +94,8 @@ angular.module('accessModulesCtrl', [])
 		};
 
 		$scope.to_insert = function(){
+			$scope.loading = true;
+
 			var preparando_data= [];
 
 			if($scope.accessmodulesData.user){
@@ -115,15 +117,16 @@ angular.module('accessModulesCtrl', [])
 					var acc_authorize = false;
 					var id_menu_modules = null;
 				    var company_id = null;
+				    var all_company = false;
 
-			angular.forEach((row), function (row_det) {
-	              id_menu_modules = row_det.id;
-	              if(row_det.campo == 'acc_consult')	acc_consult = true; 
-								if(row_det.campo == 'acc_update')	acc_update = true; 
-								if(row_det.campo == 'acc_insert')	acc_insert = true; 
-								if(row_det.campo == 'acc_remove')	acc_remove = true; 
-								if(row_det.campo == 'acc_special')	acc_special = true;
-								if(row_det.campo == 'acc_authorize')	acc_authorize = true; 
+					angular.forEach((row), function (row_det) {
+						id_menu_modules = row_det.id;
+						if(row_det.campo == 'acc_consult')	acc_consult = true;
+						if(row_det.campo == 'acc_update')	acc_update = true;
+						if(row_det.campo == 'acc_insert')	acc_insert = true;
+						if(row_det.campo == 'acc_remove')	acc_remove = true;
+						if(row_det.campo == 'acc_special')	acc_special = true;
+						if(row_det.campo == 'acc_authorize')	acc_authorize = true;
 					});
 
 					if($scope.accessmodulesData.company) {
@@ -134,12 +137,15 @@ angular.module('accessModulesCtrl', [])
 						company_id = null;
 					}
 
+				 	if ($scope.accessmodulesData.all_companies){
+						all_company = true;
+					}
 				preparando_data = {
 					type_user: $scope.accessmodulesData.type_user,
 					id_type_user: type_user_group.id,
 					name_type_user: type_user_group.name,
 					company_id: company_id,
-					all_companies: $scope.accessmodulesData.all_companies,
+					all_companies: all_company,
 					menu_modules_id: id_menu_modules,
 					acc_consult: acc_consult,
 					acc_update: acc_update,
@@ -152,8 +158,16 @@ angular.module('accessModulesCtrl', [])
 
 				$scope.accessData.push(preparando_data);
 
-			});	
-		
+				server.save('api', preparando_data)
+					.success(function(data) {
+						//console.log('Se registraron los datos :',preparando_data);
+					})
+					.error(function(data) {
+						//console.log(data,'error de registro', preparando_data);
+					});
+
+			});
+			$scope.loading = false;
 			$scope.accessmodulesData = {};
 		}
 
