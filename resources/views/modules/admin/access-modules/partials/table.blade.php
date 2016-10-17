@@ -27,27 +27,54 @@
     <tbody>
     @foreach($access_modules as $access_module)
         <tr data-id="{{ $access_module->id }}">
-            <td>{{ $access_module->id }}</td>
+            <td align="center">{{ $access_module->id }}</td>
             <td>{{ $access_module->type_user }}</td>
-            <td>{{ $access_module->id_type_user }}</td>
+            <td align="center"> {{ $access_module->id_type_user }}</td>
             <td>{{ $access_module->name_user }}</td>
-            <td>{{ $access_module->company_id }}</td>
+            <td align="center">{{ $access_module->company_id }}</td>
             <td>{{ $access_module->name_company }}</td>
-            <td>{{ $access_module->companies_all }}</td>
-            <td>{{ $access_module->menu_modules_id }}</td>
+            <td align="center">
+                @if ($access_module->companies_all )
+                {!! Form::checkbox(null, null, $access_module->companies_all) !!}
+                @endif
+            </td>
+            <td align="center">{{ $access_module->menu_modules_id }}</td>
             <td>{{ $access_module->name_pantalla }}</td>
             <td>{{ $access_module->type_access }}</td>
             <td>{{ $access_module->name_module }}</td>
-            <td>{{ $access_module->acc_consult }}</td>
-            <td>{{ $access_module->acc_update }}</td>
-            <td>{{ $access_module->acc_insert }}</td>
-            <td>{{ $access_module->acc_remove }}</td>
-            <td>{{ $access_module->acc_special }}</td>
-            <td>{{ $access_module->acc_authorize }}</td>
+            <td align="center">
+                @if ($access_module->acc_consult )
+                    {!! Form::checkbox(null, null, $access_module->acc_consult) !!}
+                @endif
+            </td>
+            <td align="center">
+                @if ($access_module->acc_update )
+                    {!! Form::checkbox(null, null, $access_module->acc_update) !!}
+                @endif
+            </td>
+            <td align="center">
+                @if ($access_module->acc_insert )
+                    {!! Form::checkbox(null, null, $access_module->acc_insert) !!}
+                @endif
+            </td>
+            <td align="center">
+                @if ($access_module->acc_remove )
+                    {!! Form::checkbox(null, null, $access_module->acc_remove) !!}
+                @endif
+            </td>
+            <td align="center">
+                @if ($access_module->acc_special )
+                    {!! Form::checkbox(null, null, $access_module->acc_special) !!}
+                @endif
+            </td>
+            <td align="center">
+                @if ($access_module->acc_authorize )
+                    {!! Form::checkbox(null, null, $access_module->acc_authorize) !!}
+                @endif
+            </td>
             <td>{{ $access_module->created_at }}</td>
             <td>{{ $access_module->updated_at }}</td>
-
-            <td>
+            <td align="center">
                 <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
             </td>
         </tr>
