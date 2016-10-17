@@ -10,6 +10,8 @@ use App\Models\AccessModule;
 use App\Models\MenuModule;
 use App\Models\User;
 use App\Models\UserProfile;
+use App\Models\Module;
+use App\Models\Route;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -158,8 +160,11 @@ class AccessModulesController extends Controller
 
     public function user_list()
     {
-        //GroupUser::with(['group','user'])->get();
-       // dd(User::with(['userprofile'])->get());
         return response()->json(User::with(['userprofile'])->get());
+    }
+
+    public function menu_modules_list()
+    {
+        return response()->json(MenuModule::with(['module','route'])->get());
     }
 }

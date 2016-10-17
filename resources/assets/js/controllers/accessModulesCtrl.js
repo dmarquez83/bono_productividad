@@ -4,33 +4,15 @@ angular.module('accessModulesCtrl', [])
 		// object to hold all the data for the new comment form
 		$scope.accessmodulesData = {};
 		$scope.type_user = false;
-		var profiles_data = [];
-		$scope.path_img='../../../../../img/profile/';
-		$scope.user_check_data = [];
-		$scope.group_check_data = [];
+		$scope.type_group = false;
+		$scope.accessData = [];
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
-
-
 
 		function users_list() {
 			$scope.loading = true;
 			server.getAll('api/users_list').success(function (data) {
-				$scope.users = [];
-				angular.forEach((data), function (row) { //recorre los grupos
-					$scope.profile_data = [];
-					var group_users_all = {};
-					group_users_all = _.map(
-						_.where($scope.group_users_all, {'user_id': row.id}),
-						function (group) {
-							return {groups: group};
-						}
-					);
-					//console.log('que paso',group_users_all);
-					var group_users_objeto = {'user': row, 'group': group_users_all};
-					$scope.users.push(group_users_objeto);
-				});
-				//console.log($scope.users[0].group);
+				$scope.users = data ;
 				$scope.loading = false;
 			});
 		}
@@ -44,85 +26,109 @@ angular.module('accessModulesCtrl', [])
 			});
 		}
 		group_list();
+
+		function companies_list() {
+			$scope.loading = true;
+			server.getAll('api/companies_list').success(function (data) {
+				$scope.companies = data;
+				$scope.loading = false;
+			});
+		}
+		companies_list();
+
+		function menu_modules_list() {
+			$scope.loading = true;
+			server.getAll('api/menu_modules_list').success(function (data) {
+				$scope.menuModules = data;
+				$scope.loading = false;
+			});
+		}
+		menu_modules_list();
 		//seleccion de usuario
 
-		if ($scope.accessmodulesData.type_user == 'Usuario'){
-			$scope.type_user = true;
+		$scope.show_type_user = function(){
+			if ($scope.accessmodulesData.type_user == 'Usuario'){
+				$scope.type_user = true;
+				$scope.type_group = false;
+			}else{
+				if ($scope.accessmodulesData.type_user == 'Grupo'){
+					$scope.type_user = false;
+					$scope.type_group = true;
+				}else{
+					$scope.type_user = false;
+					$scope.type_group = false;
+				}
+			}
+		};
+
+		$scope.all_companies_false = function(){
+			$scope.accessmodulesData.all_companies= false;
+		};
+
+		$scope.all_companies = function(){
+			$scope.accessmodulesData.company= null;
+		};
+
+		$scope.to_insert = function(){
+			var preparando_data= [];
+
+			if($scope.accessmodulesData.user){
+				var type_user_group = JSON.parse($scope.accessmodulesData.user);
+			}else{
+				if($scope.accessmodulesData.group){
+					var type_user_group = JSON.parse($scope.accessmodulesData.group);
+				}
+			}
+
+			var pantalla = JSON.parse($scope.accessmodulesData.pantalla);
+
+			if($scope.accessmodulesData.company) {
+				var company = JSON.parse($scope.accessmodulesData.company);
+				preparando_data = {
+					type_user: $scope.accessmodulesData.type_user,
+					id_type_user: type_user_group.id,
+					name_type_user: type_user_group.name,
+					company_id: company.id,
+					company_name: company.name,
+					all_companies: $scope.accessmodulesData.all_companies,
+					pantalla_id: pantalla.id,
+					pantalla_name: pantalla.name,
+					pantalla_type_access: pantalla.type_access,
+					pantalla_module_id: pantalla.module.id,
+					pantalla_module_name: pantalla.module.name,
+					acc_consult: false,
+					acc_update: false,
+					acc_insert: false,
+					acc_remove: false,
+					acc_special: false,
+					acc_authorize: false
+				};
+			}else{
+				preparando_data = {
+					type_user: $scope.accessmodulesData.type_user,
+					id_type_user: type_user_group.id,
+					name_type_user: type_user_group.name,
+					company_id: null,
+					company_name: null,
+					all_companies: $scope.accessmodulesData.all_companies,
+					pantalla_id: pantalla.id,
+					pantalla_name: pantalla.name,
+					pantalla_type_access: pantalla.type_access,
+					pantalla_module_id: pantalla.module.id,
+					pantalla_module_name: pantalla.module.name,
+					acc_consult: false,
+					acc_update: false,
+					acc_insert: false,
+					acc_remove: false,
+					acc_special: false,
+					acc_authorize: false
+				};
+			}
+
+
+
+			$scope.accessData.push(preparando_data);
+			$scope.accessmodulesData = {};
 		}
-
-		$scope.isChecked_user_all = function(){
-           var users=[];
-			angular.forEach($scope.users, function(value, key) {
-				users.push(value.user);
-			});
-			if ($scope.user_check_data.length === users.length) {
-				$scope.user_check_data = [];
-			} else if ($scope.user_check_data.length === 0 || $scope.user_check_data.length > 0) {
-				$scope.user_check_data = users.slice(0);
-			}
-		};
-
-
-		$scope.isChecked = function(id){
-			var match = false;
-			for(var i=0 ; i < $scope.user_check_data.length; i++) {
-				if($scope.user_check_data[i].id == id){
-					match = true;
-				}
-			}
-			return match;
-		};
-
-		$scope.sync = function(user_check, item){
-			if(user_check){
-				// add item
-				$scope.user_check_data.push(item);
-			} else {
-				// remove item
-				for(var i=0 ; i < $scope.user_check_data.length; i++) {
-					if($scope.user_check_data[i].id == item.id){
-						$scope.user_check_data.splice(i,1);
-					}
-				}
-			}
-		};
-
-		//selecion de grupo
-
-		$scope.isChecked_group_all = function(){
-			if ($scope.group_check_data.length === $scope.groups.length) {
-				$scope.group_check_data = [];
-			} else if ($scope.group_check_data.length === 0 || $scope.group_check_data.length > 0) {
-				$scope.group_check_data = $scope.groups.slice(0);
-			}
-		};
-
-		$scope.isChecked_group = function(id){
-			var match = false;
-			for(var i=0 ; i < $scope.group_check_data.length; i++) {
-				if($scope.group_check_data[i].id == id){
-					match = true;
-				}
-			}
-			return match;
-		};
-
-		$scope.sync_group = function(group_check, item){
-			if(group_check){
-				// add item
-				$scope.group_check_data.push(item);
-			} else {
-				// remove item
-				for(var i=0 ; i < $scope.group_check_data.length; i++) {
-					if($scope.group_check_data[i].id == item.id){
-						$scope.group_check_data.splice(i,1);
-					}
-				}
-			}
-		};
-
-		//fin grupo
-
-
 
 	});

@@ -16,4 +16,12 @@
 <!-- END THEME LAYOUT SCRIPTS -->
 <script src="{{ asset('assets/js/angular.min.js') }}"></script>
 <script src="{{ asset('assets/js/services/appService.js') }}"></script>
+<!-- BEGIN CORE ANGULARJS PLUGINS 
+<script src="{{ asset('assets/global/plugins/angularjs/angular.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/angularjs/angular-sanitize.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/angularjs/angular-touch.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/angularjs/plugins/angular-ui-router.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js') }}"></script>-->
+<!-- END CORE ANGULARJS PLUGINS -->
 

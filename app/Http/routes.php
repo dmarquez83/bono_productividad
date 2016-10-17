@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'namespace' =>'Admin'], function () {
     Route::get('access-modules/api/users_list', 'AccessModulesController@user_list');
     Route::get('access-modules/api/group_list', 'GroupsUsersController@group_list');
     Route::get('access-modules/api/companies_list', 'CompaniesController@companies_list');
+    Route::get('access-modules/api/menu_modules_list', 'AccessModulesController@menu_modules_list');
 
   /*fin de rutas de angular modulo de acceso*/
 

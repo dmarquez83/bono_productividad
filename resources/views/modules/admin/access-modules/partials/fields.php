@@ -1,7 +1,7 @@
 <!-- declare our angular app and controller -->
 <body class="container" ng-app="app" ng-controller="accessModulesController">
 <form ng-submit="submitGroupUser()">
-    <div class="row">
+  <div class="row">
         <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-5x fa-spin"></span></p>
         <div class="form-group col-md-3 col-sm-3">
             <label for="type_user">Tipo</label>
@@ -16,8 +16,8 @@
             </div>
        </div>
       <div class="col-md-9 col-sm-9"></div>
-    </div>
-    <div class="row">
+  </div>
+  <div class="row">
        <!-- lista de usuario-->
         <div class="col-md-12 col-sm-12"  ng-show="type_user">
             <label for="type_user">Usuario</label>
@@ -57,7 +57,7 @@
       <!-- fin lista de grupo-->
       <!-- lista de companies-->
 
-      <div class="col-md-9 col-sm-9"  >
+      <div class="col-md-9 col-sm-9"  >        
         <label for="type_user">Empresa</label>
         <div class="input-group">
                 <span class="input-group-addon">
@@ -82,20 +82,72 @@
           </div>
       </div>
       <!-- fin lista de companies-->
-    </div>
-    <div class="row">
-      <div class="col-md-12 col-sm-12 text-center">
-        <button type="submit" class="btn blue" ng-click="to_insert()">Insertar</button>
-      </div>
-    </div>   <!-- fin row 1-->
+  </div> <!-- Finf row-->
+  <!-- lista de pantalla-->
   <div class="row">
-
-  </div>
-  <pre>{{accessmodulesData | json}} </pre>
-  <pre>{{accessData | json}} </pre>
-    <div class="text-center">
-        <button type="submit" class="btn blue" ng-click="to_assign()">Guardar Derechos de Acceso</button>
+    <div class="col-md-12">
+        <label for="type_user"></label>
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-settings"></i>Pantalla / Modulos                  
+                </div>
+                <div class="tools"> </div>
+            </div>
+            <div class="portlet-body">
+               <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="access_modules" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                  <th class="all">#</th>
+                  <th class="all">Descripcion</th>
+                  <th class="all">Tipo</th>
+                  <th class="all">Modulo</th>
+                  <th class="all">Consultar</th>
+                  <th class="all">Actualizar</th>
+                  <th class="all">Insertar</th>
+                  <th class="all">Eliminar</th>
+                  <th class="all">Especial</th>
+                  <th class="all">Autorizar</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="menuModule in menuModules" >
+                  <td>{{ menuModule.id }}</td>
+                  <td>{{ menuModule.name }}</td>
+                  <td>{{ menuModule.type_access }}</td>
+                  <td>{{ menuModule.module.name }}</td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_consult" ng-change="acc_consult()"></td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_update" ng-change="acc_update()"></td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_insert" ng-change="acc_insert()"></td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_remove" ng-change="acc_remove()"></td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_special" ng-change="acc_special()"></td>
+                  <td><input type="checkbox" ng-model="accessmodulesData.acc_authorize" ng-change="acc_authorize()"></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
     </div>
+</div>
+  
+  <!-- fin lista de pantalla-->
+
+  <div class="row">
+      <div class="col-md-12 col-sm-12 text-center">
+        <button type="submit" class="btn blue" ng-click="to_insert()">Guardar</button>
+      </div>
+  </div>   <!-- fin row 1-->
+  <div class="row">
+    <pre>{{accessmodulesData | json}} </pre>
+    <pre>{{accessData | json}} </pre>
+      <div class="text-center">
+          <button type="submit" class="btn blue" ng-click="to_assign()">Guardar Derechos de Acceso</button>
+      </div>
+  </div>
+  
 </form>
 </body>
 
