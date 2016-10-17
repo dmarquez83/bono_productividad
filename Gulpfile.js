@@ -1,5 +1,5 @@
 var  elixir = require('laravel-elixir');
-var Promise = require('es6-promise').Promise;
+/*var Promise = require('es6-promise').Promise;*/
 elixir(function(mix) {
     mix.sass('app.scss')
         .styles([
