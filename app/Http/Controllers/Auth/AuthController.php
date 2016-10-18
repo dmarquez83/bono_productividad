@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Company;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -25,6 +27,8 @@ class AuthController extends Controller
 
     protected $username = 'username';
 
+    //protected $company_id = 'company_id';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -34,6 +38,27 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function getCredentials(Request $request)
+    {
+        //dd($request);
+        $rules = array(
+            'company_id' => 'required'
+        );
+        $this->validate($request, $rules);
+        $company = Company::findOrFail($request->get('company_id'));
+        //dd($company->name);
+        $request->session()->put('company_id', $request->get('company_id'));
+        $request->session()->put('company_name', $company->name);
+        return $request->only($this->loginUsername(), 'password');
+    }
+
 
     protected function getFailedLoginMessage()
     {
@@ -71,6 +96,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+
+
 
 
 }

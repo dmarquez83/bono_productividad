@@ -45,6 +45,9 @@ class AccessModulesController extends Controller
                         left join modules f on (e.module_id=f.id)
                         where a.type_user="."'Grupo'"." ) x
                         order by  x.type_user, x.name, x.name_module , x.menu_modules_id");
+
+
+
         //dd($access_modules);
         return view('modules.admin.access-modules.index', compact('access_modules'));
     }

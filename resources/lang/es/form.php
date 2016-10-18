@@ -32,6 +32,7 @@ return [
 		'phone'					=> 'Telefono',
 		'extending'			    => 'Extension',
 		'user_name_windows'		=> 'Usuario de Windows',
+        'company_id'     => 'Empresa ID',
     ]
     
 ];

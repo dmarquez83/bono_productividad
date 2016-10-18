@@ -2,6 +2,7 @@
 
 Route::get('/', ['as' => 'home','uses' => 'HomeController@index',]);
 Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index',]);
+Route::get('index-access', ['as' => 'index-access', 'uses' => 'HomeController@index_access',]);
 /*******************************LOGIN******************************************/
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
