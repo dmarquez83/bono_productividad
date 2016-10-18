@@ -16,3 +16,12 @@ elixir(function(mix) {
     mix.scripts('./bower_components/angular/angular.min.js', 'public/assets/js/angular.min.js');
     mix.browserSync({proxy: 'localhost:8000'});
 });
+
+gulp.task('serveprod', function() {
+  connect.server({
+    //root: [your_project_path],
+    root: 'http://trical.herokuapp.com'
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
