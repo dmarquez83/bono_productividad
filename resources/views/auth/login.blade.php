@@ -9,7 +9,8 @@
         <label class="control-label visible-ie8 visible-ie9">trans('form.label.company_id')</label>
         <div class="input-icon">
             <i class="fa fa-briefcase"></i>
-            {!! Form::text('company_id', '', ['class'=> 'form-control placeholder-no-fix','placeholder' => trans('form.label.company_id'), 'autocomplete' => 'off']) !!}
+            <!--{!! Form::text('company_id', '', ['class'=> 'form-control placeholder-no-fix','placeholder' => trans('form.label.company_id'), 'autocomplete' => 'off']) !!}-->
+                {!! Form::select('company_id', $companies, null, ['class' => 'form-control placeholder-no-fix']) !!}
         </div>
     </div>     
     <div class="form-group">

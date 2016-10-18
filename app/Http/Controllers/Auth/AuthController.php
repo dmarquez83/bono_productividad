@@ -40,6 +40,22 @@ class AuthController extends Controller
     }
 
     /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        $companies = Company::orderBy('id', 'asc')->lists('name', 'id');
+
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate', compact('companies'));
+        }
+
+        return view('auth.login', compact('companies'));
+    }
+
+    /**
      * Get the needed authorization credentials from the request.
      *
      * @param  \Illuminate\Http\Request  $request
