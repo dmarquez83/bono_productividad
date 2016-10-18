@@ -19,7 +19,7 @@
   </div>
   <div class="row">
        <!-- lista de usuario-->
-        <div class="col-md-12 col-sm-12"  ng-show="type_user">
+        <div class="col-md-6 col-sm-6"  ng-show="type_user">
             <label for="type_user">Usuario</label>
             <div class="input-group">
                 <span class="input-group-addon">
@@ -34,11 +34,12 @@
                     </option>
                 </select>
             </div>
-            <!-- <pre>{{accessmodulesData | json}}</pre>-->
         </div>
+  </div>
+  <div class="row">
         <!-- fin lista de usuario-->
       <!-- lista de Grupo-->
-      <div class="col-md-12 col-sm-12"  ng-show="type_group">
+      <div class="col-md-6 col-sm-6"  ng-show="type_group">
         <label for="type_user">Grupos</label>
         <div class="input-group">
                 <span class="input-group-addon">
@@ -54,10 +55,11 @@
           </select>
         </div>
       </div>
-      <!-- fin lista de grupo-->
-      <!-- lista de companies-->
-
-      <div class="col-md-9 col-sm-9"  >        
+  </div>
+    <!-- fin lista de grupo-->
+    <!-- lista de companies-->
+  <div class="row">
+      <div class="col-md-6 col-sm-6"  >
         <label for="type_user">Empresa</label>
         <div class="input-group">
                 <span class="input-group-addon">
@@ -73,7 +75,7 @@
           </select>
         </div>
       </div>
-      <div class="col-md-3 col-sm-3"  >
+      <div class="col-md-6 col-sm-6"  align="right" >
         <label >Todas las Empresas</label>
           <div class="input-group">
             <div class="icheck-list">
