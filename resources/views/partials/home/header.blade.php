@@ -21,7 +21,7 @@
 
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="username username-hide-on-mobile"> {{ $company_name }} </span>
+                                <span class="username username-hide-on-mobile"> aqui nombre de la compania</span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                         </li>
