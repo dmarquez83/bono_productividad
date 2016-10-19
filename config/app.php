@@ -41,6 +41,8 @@ return [
 
     'timezone' => 'UTC',
 
+    'prueba' => 'Digna',
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

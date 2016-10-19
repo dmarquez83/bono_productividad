@@ -18,12 +18,17 @@
 
                     <ul class="nav navbar-nav pull-right">
                         <!-- BEGIN NOTIFICATION DROPDOWN -->
-
+                        @inject('company','App\Http\Controllers\HomeController')
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="username username-hide-on-mobile"> aqui nombre de la compania</span>
+                                <span class="username username-hide-on-mobile"> {{ $company->company()->name }}</span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                     <i class="icon-envelope"></i> {{ $company->company()->email }}
+                                </li>
+                            </ul>
                         </li>
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
@@ -316,7 +321,7 @@
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <img alt="" class="img-circle" src="{{ asset('img/profile/avatar.png')}}" />
-                                <span class="username username-hide-on-mobile"> {{ \Auth::user()->username }} </span>
+                                <span class="username username-hide-on-mobile"> {{ \Auth::user()->username }}   </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">

@@ -47,11 +47,12 @@ class AuthController extends Controller
     public function getLogin()
     {
         $companies = Company::orderBy('id', 'asc')->lists('name', 'id');
+        //$value = config('app.prueba');
+        //dd($value);
 
         if (view()->exists('auth.authenticate')) {
             return view('auth.authenticate', compact('companies'));
         }
-
         return view('auth.login', compact('companies'));
     }
 
@@ -68,10 +69,9 @@ class AuthController extends Controller
             'company_id' => 'required'
         );
         $this->validate($request, $rules);
-        $company = Company::findOrFail($request->get('company_id'));
-        //dd($company->name);
+
         $request->session()->put('company_id', $request->get('company_id'));
-        $request->session()->put('company_name', $company->name);
+
         return $request->only($this->loginUsername(), 'password');
     }
 

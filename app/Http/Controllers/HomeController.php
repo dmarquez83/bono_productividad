@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\Company;
 use Illuminate\Http\Response;
 
 class HomeController extends Controller
@@ -25,6 +26,22 @@ class HomeController extends Controller
       return   view('modules.admin.dashboard.content', compact('company_name'));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function company()
+    {
+        $company = Company::findOrFail(\Request::session()->get('company_id'));
+
+        return $company;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function index_access(Request $request)
     {
         if ($request->session()->has('company_id')) {
