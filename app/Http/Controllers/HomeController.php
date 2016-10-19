@@ -20,10 +20,9 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index()
     {
-      $company_name =  $request->session()->get('company_name');
-      return   view('modules.admin.dashboard.content', compact('company_name'));
+      return   view('modules.admin.dashboard.content');
     }
 
     /**
