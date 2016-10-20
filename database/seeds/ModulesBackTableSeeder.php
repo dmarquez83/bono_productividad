@@ -49,15 +49,6 @@ class ModulesBackTableSeeder extends Seeder
         ));
 
         \DB::table('modules')->insert(array(
-            'name'     => 'Modulos',
-            'description' =>  'Modulos del Sistema',
-            'category_id' =>  2,
-            'status' =>  'A',
-            'created_at' => new DateTime,
-            'updated_at' =>  new Datetime,
-        ));
-
-        \DB::table('modules')->insert(array(
             'name'     => 'Mantenimiento de Pantallas',
             'description' =>  'Mantenimiento de Pantallas',
             'category_id' =>  2,
