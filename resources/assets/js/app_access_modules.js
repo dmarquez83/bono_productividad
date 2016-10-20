@@ -1,1 +1,1 @@
-angular.module('app', ['accessModulesCtrl', 'appService']);
+angular.module('accessModules', ['accessModulesCtrl', 'appService']);

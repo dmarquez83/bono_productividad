@@ -24,4 +24,7 @@
 <script src="{{ asset('assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js') }}"></script>
 <script src="{{ asset('assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js') }}"></script>-->
 <!-- END CORE ANGULARJS PLUGINS -->
-
+<!-- BEGIN USER ACCESS SCRIPTS -->
+<script src="{{ asset('assets/js/app_access_users.js') }}"></script>
+<script src="{{ asset('assets/js/controllers/accessUsersCtrl.js') }}"></script>
+<!-- END USER ACCESS SCRIPTS -->

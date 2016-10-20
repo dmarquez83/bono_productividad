@@ -12,8 +12,9 @@
         <!-- BEGIN SIDEBAR -->
         <div class="page-sidebar-wrapper">
             <!-- BEGIN SIDEBAR -->
-            <div class="page-sidebar navbar-collapse collapse">
-                @include('partials.home.sidebar_menu')
+            <!--   <div class="page-sidebar navbar-collapse collapse"   ng-app="app"    ng-controller="accessUsersController"  >-->
+                <div class="page-sidebar navbar-collapse collapse" >
+                @include('partials.home.menu.sidebar_menu')
             </div>
             <!-- END SIDEBAR -->
         </div>

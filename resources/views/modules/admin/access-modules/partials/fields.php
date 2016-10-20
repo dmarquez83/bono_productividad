@@ -1,5 +1,5 @@
 <!-- declare our angular app and controller -->
-<body class="container" ng-app="app" ng-controller="accessModulesController">
+<body class="container" ng-app="accessModules" ng-controller="accessModulesController">
 <form ng-submit="submitGroupUser()">
   <div class="row">
         <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-5x fa-spin"></span></p>

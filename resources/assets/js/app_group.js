@@ -1,1 +1,1 @@
-angular.module('app', ['groupUserCtrl', 'appService']);
+angular.module('groupUser', ['groupUserCtrl', 'appService']);
