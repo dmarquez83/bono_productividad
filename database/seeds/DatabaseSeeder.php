@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GroupsTableSeeder::class);
         $this->call(UserProfileTableSeeder::class);
         $this->call(GroupsUsersTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
         #$this->call(ModulesTableSeeder::class);
         $this->call(ModulesBackTableSeeder::class);
         #$this->call(RoutesTableSeeder::class);

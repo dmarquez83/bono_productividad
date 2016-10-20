@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModulesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,10 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->integer('category_id')->unsigned();//entero sin signo
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
-            $table->enum('status', ['A','E']);
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('modules');
+        Schema::drop('categories');
     }
 }

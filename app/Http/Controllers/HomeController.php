@@ -41,11 +41,11 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index_access(Request $request)
+    public function index_access()
     {
-        if ($request->session()->has('company_id')) {
+        if (\Request::session()->has('company_id')) {
             //dd($request->session()->get('company_id')); // si existe imprime el valor de la variable mensaje
-            $company_id=$request->session()->get('company_id');
+            $company_id=\Request::session()->get('company_id');
             $user_id=\Auth::user()->id;
             $access_modules = \DB::select("select x.user_id, x.username, x.modules_id, x.modules_name, x.menu_modules_id,
                                           x.menu_modules_name, x.route_id, x.route_name, x.company_id, x.companies_all,
@@ -76,9 +76,7 @@ class HomeController extends Controller
                                           ) x
                                           WHERE x.user_id=$user_id AND (x.companies_all=true or x.company_id=$company_id)
                                           ");
-            //dd($user_id);
         }
-
         return response()->json($access_modules);
     }
 

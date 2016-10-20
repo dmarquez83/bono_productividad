@@ -93,5 +93,16 @@ class RoutesTableSeeder extends Seeder
           'updated_at' =>  new Datetime,
         ));
 
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Dashboard',
+            'description'     => 'Dashboard',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'index-access',
+            'name' =>  'index-access',
+            'action' =>  'App\Http\Controllers\Admin\HomeController@index_access',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
     }
 }

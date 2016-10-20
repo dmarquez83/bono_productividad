@@ -1,3 +1,4 @@
+@inject('company','App\Http\Controllers\HomeController')
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
             <!-- BEGIN HEADER INNER -->
@@ -18,7 +19,6 @@
 
                     <ul class="nav navbar-nav pull-right">
                         <!-- BEGIN NOTIFICATION DROPDOWN -->
-                        @inject('company','App\Http\Controllers\HomeController')
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <span class="username username-hide-on-mobile"> {{ $company->company()->name }}</span>

@@ -76,5 +76,14 @@ class MenuModulesTableSeeder extends Seeder
           'created_at' => new DateTime,
           'updated_at' =>  new Datetime,
         ));
+        \DB::table('menu_modules')->insert(array(
+            'name'     => 'Dashboard Usuario',
+            'menu_item' =>  'Y',
+            'type_access' =>  'Pantalla',
+            'module_id' =>  4,
+            'route_id' =>  8,
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
     }
 }
