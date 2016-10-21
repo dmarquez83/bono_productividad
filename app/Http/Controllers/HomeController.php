@@ -48,11 +48,11 @@ class HomeController extends Controller
             $company_id=\Request::session()->get('company_id');
             $user_id=\Auth::user()->id;
             $access_modules = \DB::select("select x.user_id, x.username, x.modules_id, x.modules_name, x.menu_modules_id,
-                                          x.menu_modules_name, x.route_id, x.route_name, x.company_id, x.companies_all,
+                                          x.menu_modules_name, x.route_id, x.route_name, x.route_uri,  x.company_id, x.companies_all,
                                           x.acc_consult, x.acc_update, x.acc_insert, x.acc_remove, x.acc_special, x.acc_authorize, x.category_id, x.category_name
                                           FROM
                                           (SELECT b.username, f.id as modules_id, f.name as modules_name, e.name as menu_modules_name,
-                                          e.route_id, i.name as route_name, b.id as user_id, a.menu_modules_id, a.company_id, a.companies_all,
+                                          e.route_id, i.name as route_name, i.uri as route_uri, b.id as user_id, a.menu_modules_id, a.company_id, a.companies_all,
                                           a.acc_cONsult, a.acc_update, a.acc_insert, a.acc_remove, a.acc_special, a.acc_authorize, f.category_id, g.name as category_name
                                           FROM  access_modules a
                                           LEFT JOIN users b ON (a.id_type_user=b.id)
@@ -63,7 +63,7 @@ class HomeController extends Controller
                                           WHERE a.type_user="."'Usuario'"."
                                           UNION ALL
                                           select h.username, f.id as modules_id, f.name as modules_name, e.name as menu_modules_name,
-                                          e.route_id, i.name as route_name,  h.id as user_id, a.menu_modules_id, a.company_id, a.companies_all,
+                                          e.route_id, i.name as route_name, i.uri as route_uri,  h.id as user_id, a.menu_modules_id, a.company_id, a.companies_all,
                                           a.acc_cONsult, a.acc_update, a.acc_insert, a.acc_remove, a.acc_special, a.acc_authorize, f.category_id, j.name  as category_name
                                           FROM  access_modules a
                                           LEFT JOIN groups b ON (a.id_type_user=b.id)

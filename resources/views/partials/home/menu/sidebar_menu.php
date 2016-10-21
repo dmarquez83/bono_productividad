@@ -37,7 +37,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  "  ng-repeat="module in modules track by $index">
-                        <a href="#" class="nav-link ">
+                        <a href="{{ module.route_uri }}" class="nav-link ">
                             <span class="title">{{ module.menu_modules_name }}</span>
                         </a>
                     </li>

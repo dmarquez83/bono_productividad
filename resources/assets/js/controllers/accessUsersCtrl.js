@@ -9,7 +9,7 @@ angular.module('accessUsersCtrl', [])
         server.getAll(path_new + '/index-access').success(function (data) {
             $scope.accessUsers = data;
             $scope.accessModules =_.groupBy(data, 'modules_id');
-                console.log('accessCategory :',$scope.accessModules);
+                //console.log('accessCategory :',$scope.accessModules);
                 angular.forEach(($scope.accessModules), function (row) {
                   //  console.log('Category :',row);
                 });

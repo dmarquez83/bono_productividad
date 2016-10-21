@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="assets/global/plugins/datatables/images/favicon.ico" />
 </head>
 <!-- END HEAD -->
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white"  data-ng-app="app">
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!--  Main container -->

@@ -27,8 +27,7 @@
                 @yield('configure')
                 @include('partials.home.page_bar')
                 @include('partials.home.title')
-                <!--   @yield('sidebar')-->
-
+                @yield('sidebar')
             </div>
             <!-- END CONTENT BODY -->
         </div>
