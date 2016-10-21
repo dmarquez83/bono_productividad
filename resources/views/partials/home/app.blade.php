@@ -13,10 +13,8 @@
         <div class="page-sidebar-wrapper">
             <!-- BEGIN SIDEBAR -->
             <!--   <div class="page-sidebar navbar-collapse collapse"   ng-app="app"    ng-controller="accessUsersController"  >-->
-                <div class="page-sidebar navbar-collapse collapse" >
-                    <form ng-controller="accessUsersController" >
-                        @include('partials.home.menu.sidebar_menu')
-                    </form>
+                <div class="page-sidebar navbar-collapse collapse" ng-controller="accessUsersController">
+                   @include('partials.home.menu.sidebar_menu')
                </div>
             <!-- END SIDEBAR -->
         </div>

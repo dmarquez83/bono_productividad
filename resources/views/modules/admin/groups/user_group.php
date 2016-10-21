@@ -1,6 +1,6 @@
 <!-- declare our angular app and controller -->
-<body class="container" ng-app="groupUser" ng-controller="groupUserController">
-<form ng-submit="submitGroupUser()">
+<body class="container"  ng-controller="groupUserController">
+<form >
 	<div class="row">
 	  <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-5x fa-spin"></span></p>
 	  <!-- lista de usuario-->

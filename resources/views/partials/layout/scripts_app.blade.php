@@ -16,6 +16,10 @@
 <!-- END THEME LAYOUT SCRIPTS -->
 <script src="{{ asset('assets/js/angular.min.js') }}"></script>
 <script src="{{ asset('assets/js/services/appService.js') }}"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/js/controllers/accessUsersCtrl.js') }}"></script>
+<script src="{{ asset('assets/js/controllers/groupUserCtrl.js') }}"></script>
+<script src="{{ asset('assets/js/controllers/accessModulesCtrl.js') }}"></script>
 <!-- BEGIN CORE ANGULARJS PLUGINS 
 <script src="{{ asset('assets/global/plugins/angularjs/angular.min.js') }}"></script>
 <script src="{{ asset('assets/global/plugins/angularjs/angular-sanitize.min.js') }}"></script>
@@ -24,8 +28,4 @@
 <script src="{{ asset('assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js') }}"></script>
 <script src="{{ asset('assets/global/plugins/angularjs/plugins/ui-bootstrap-tpls.min.js') }}"></script>-->
 <!-- END CORE ANGULARJS PLUGINS -->
-<!-- BEGIN USER ACCESS SCRIPTS -->
-<script src="{{ asset('assets/js/app_access_modules.js') }}"></script>
-<script src="{{ asset('assets/js/controllers/accessUsersCtrl.js') }}"></script>
-<script src="{{ asset('assets/js/controllers/accessModulesCtrl.js') }}"></script>
-<!-- END USER ACCESS SCRIPTS -->
+
