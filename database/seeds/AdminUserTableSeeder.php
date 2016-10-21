@@ -10,12 +10,21 @@ use Illuminate\Database\Eloquent\Model;
 class AdminUserTableSeeder extends Seeder
 {
     public function run(){
+
         \DB::table('users')->insert(array(
-           'username'     => 'admin',
-           'password' =>  \Hash::make('admin'),
-           'status' =>  'A',
-           'created_at' => new DateTime,
-           'updated_at' =>  new Datetime,
+            'username'     => 'root',
+            'password' =>  \Hash::make('12345678'),
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('users')->insert(array(
+            'username'     => 'admin',
+            'password' =>  \Hash::make('admin'),
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
         ));
     }
 }

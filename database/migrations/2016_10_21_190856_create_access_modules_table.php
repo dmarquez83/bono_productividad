@@ -18,14 +18,14 @@ class CreateAccessModulesTable extends Migration
             $table->integer('id_type_user')->unsigned();//entero sin signo
             $table->integer('company_id')->unsigned()->nullable();//entero sin signo
             $table->foreign('company_id')
-              ->references('id')
-              ->on('companies');
+                ->references('id')
+                ->on('companies');
             $table->boolean('companies_all')->nullable();
             $table->integer('menu_modules_id')->unsigned();//entero sin signo
             $table->foreign('menu_modules_id')
-              ->references('id')
-              ->on('menu_modules')
-              ->onDelete('cascade');
+                ->references('id')
+                ->on('menu_modules')
+                ->onDelete('cascade');
             $table->boolean('acc_consult')->nullable();
             $table->boolean('acc_update')->nullable();
             $table->boolean('acc_insert')->nullable();

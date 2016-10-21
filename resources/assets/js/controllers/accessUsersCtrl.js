@@ -4,8 +4,11 @@ angular.module('accessUsersCtrl', [])
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
         var path = $location.absUrl();
+        $scope.host = $location.host();
         var res = path.split("/");
         var path_new = res[0] + res[1] ;
+        $scope.path = path_new + '//' + res[2] + '/';
+
         server.getAll(path_new + '/index-access').success(function (data) {
             $scope.accessUsers = data;
             $scope.accessModules =_.groupBy(data, 'modules_id');

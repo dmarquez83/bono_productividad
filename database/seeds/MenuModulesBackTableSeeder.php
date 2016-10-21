@@ -76,21 +76,60 @@ class MenuModulesBackTableSeeder extends Seeder
             'created_at' => new DateTime,
             'updated_at' =>  new Datetime,
         ));
+
         \DB::table('menu_modules')->insert(array(
-            'name'     => 'Listar',
+            'name'     => 'Registrar',
             'menu_item' =>  'Y',
             'type_access' =>  'Pantalla',
-            'module_id' =>  3,
-            'route_id' =>  7,
+            'module_id' =>  4,
+            'route_id' =>  8,
             'created_at' => new DateTime,
             'updated_at' =>  new Datetime,
         ));
         \DB::table('menu_modules')->insert(array(
-            'name'     => 'Dashboard Usuario',
+            'name'     => 'Listar',
             'menu_item' =>  'Y',
             'type_access' =>  'Pantalla',
-            'module_id' =>  7,
-            'route_id' =>  8,
+            'module_id' =>  4,
+            'route_id' =>  9,
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('menu_modules')->insert(array(
+            'name'     => 'Registrar',
+            'menu_item' =>  'Y',
+            'type_access' =>  'Pantalla',
+            'module_id' =>  5,
+            'route_id' =>  10,
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+        \DB::table('menu_modules')->insert(array(
+            'name'     => 'Listar',
+            'menu_item' =>  'Y',
+            'type_access' =>  'Pantalla',
+            'module_id' =>  5,
+            'route_id' =>  11,
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('menu_modules')->insert(array(
+            'name'     => 'Registrar',
+            'menu_item' =>  'Y',
+            'type_access' =>  'Pantalla',
+            'module_id' =>  6,
+            'route_id' =>  12,
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+        \DB::table('menu_modules')->insert(array(
+            'name'     => 'Listar',
+            'menu_item' =>  'Y',
+            'type_access' =>  'Pantalla',
+            'module_id' =>  6,
+            'route_id' =>  13,
             'created_at' => new DateTime,
             'updated_at' =>  new Datetime,
         ));

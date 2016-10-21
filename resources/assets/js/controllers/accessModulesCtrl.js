@@ -69,6 +69,7 @@ angular.module('accessModulesCtrl', [])
 			$scope.accessmodulesData.company= null;
 		};
 
+
     $scope.option_check_data=[];
 
 		$scope.isChecked = function(id, campo){
@@ -93,7 +94,43 @@ angular.module('accessModulesCtrl', [])
 			}
 		};
 
-		$scope.to_insert = function(){
+        $scope.isChecked_all = function(){
+            angular.forEach($scope.menuModules, function(value) {
+                $scope.sync('acc_consult',value.id,'acc_consult');
+                $scope.isChecked(value.id,'acc_consult');
+                $scope.sync('acc_update',value.id,'acc_update');
+                $scope.isChecked(value.id,'acc_update');
+                $scope.sync('acc_insert',value.id,'acc_insert');
+                $scope.isChecked(value.id,'acc_insert');
+                $scope.sync('acc_remove',value.id,'acc_remove');
+                $scope.isChecked(value.id,'acc_remove');
+            });
+        };
+        $scope.isChecked_all = function(){
+            angular.forEach($scope.menuModules, function(value) {
+                $scope.sync('acc_consult',value.id,'acc_consult');
+                $scope.isChecked(value.id,'acc_consult');
+                $scope.sync('acc_update',value.id,'acc_update');
+                $scope.isChecked(value.id,'acc_update');
+                $scope.sync('acc_insert',value.id,'acc_insert');
+                $scope.isChecked(value.id,'acc_insert');
+                $scope.sync('acc_remove',value.id,'acc_remove');
+                $scope.isChecked(value.id,'acc_remove');
+            });
+        };
+        $scope.isChecked_especial = function(){
+            angular.forEach($scope.menuModules, function(value) {
+                $scope.sync('acc_special',value.id,'acc_special');
+                $scope.isChecked(value.id,'acc_special');
+            });
+        };
+        $scope.isChecked_auth = function(){
+            angular.forEach($scope.menuModules, function(value) {
+                $scope.sync('acc_authorize',value.id,'acc_authorize');
+                $scope.isChecked(value.id,'acc_authorize');
+            });
+        };
+        $scope.to_insert = function(){
 			$scope.loading = true;
 
 			var preparando_data= [];
@@ -168,6 +205,7 @@ angular.module('accessModulesCtrl', [])
 
 			});
 			$scope.loading = false;
+            alert('Datos Guardados con exito, msj Temporal');
 			$scope.accessmodulesData = {};
 		}
 

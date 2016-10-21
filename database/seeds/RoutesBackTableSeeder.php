@@ -93,12 +93,72 @@ class RoutesBackTableSeeder extends Seeder
             'updated_at' =>  new Datetime,
         ));
         \DB::table('routes')->insert(array(
-            'name_route'     => 'Dashboard',
-            'description'     => 'Dashboard',
+            'name_route'     => 'Registrar Modulos',
+            'description'     => 'Registrar Modulos',
             'method'     => 'GET|HEAD',
-            'uri' =>  'index-access',
-            'name' =>  'index-access',
-            'action' =>  'App\Http\Controllers\Admin\HomeController@index_access',
+            'uri' =>  'admin/modules/create',
+            'name' =>  'admin.modules.create',
+            'action' =>  'App\Http\Controllers\Admin\ModulesController@create',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Listar Modulos',
+            'description'     => 'Listar Modulos',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'admin/modules',
+            'name' =>  'admin.modules.index',
+            'action' =>  'App\Http\Controllers\Admin\ModulesController@index',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Registrar Mantenimiento de Pantallas',
+            'description'     => 'Registrar Mantenimiento de Pantallas',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'admin/menu-modules/create',
+            'name' =>  'admin.menu-modules.create',
+            'action' =>  'App\Http\Controllers\Admin\MenuModulesController@create',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Listar Mantenimiento de Pantallas',
+            'description'     => 'Listar Mantenimiento de Pantallas',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'admin/menu-modules',
+            'name' =>  'admin.menu-modules.index',
+            'action' =>  'App\Http\Controllers\Admin\MenuModulesController@index',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Registrar Derechos de Accesos',
+            'description'     => 'Registrar Derechos de Accesos',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'admin/access-modules/create',
+            'name' =>  'admin.access-modules.create',
+            'action' =>  'App\Http\Controllers\Admin\AccessModulesController@create',
+            'status' =>  'A',
+            'created_at' => new DateTime,
+            'updated_at' =>  new Datetime,
+        ));
+
+        \DB::table('routes')->insert(array(
+            'name_route'     => 'Listar Derechos de Accesos',
+            'description'     => 'Listar Derechos de Accesos',
+            'method'     => 'GET|HEAD',
+            'uri' =>  'admin/access-modules',
+            'name' =>  'admin.access-modules.index',
+            'action' =>  'App\Http\Controllers\Admin\AccessModulesController@index',
             'status' =>  'A',
             'created_at' => new DateTime,
             'updated_at' =>  new Datetime,

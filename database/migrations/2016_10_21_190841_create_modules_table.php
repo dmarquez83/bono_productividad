@@ -21,6 +21,7 @@ class CreateModulesTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
+            $table->string('icon')->nullable();
             $table->enum('status', ['A','E']);
             $table->timestamps();
         });

@@ -92,45 +92,48 @@
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-settings"></i>Pantalla / Modulos                  
-                </div>
-                <div class="tools"> </div>
-            </div>
-            <div class="portlet-body">
-               <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="access_modules" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                  <th class="all">#</th>
-                  <th class="all">Descripcion</th>
-                  <th class="all">Tipo</th>
-                  <th class="all">Modulo</th>
-                  <th class="all">Consultar</th>
-                  <th class="all">Actualizar</th>
-                  <th class="all">Insertar</th>
-                  <th class="all">Eliminar</th>
-                  <th class="all">Especial</th>
-                  <th class="all">Autorizar</th>
-                 
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="menuModule in menuModules" >
-                  <td>{{ menuModule.id }}</td>
-                  <td>{{ menuModule.name }}</td>
-                  <td>{{ menuModule.type_access }}</td>
-                  <td>{{ menuModule.module.name }}</td>
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_consult, menuModule.id, 'acc_consult')" ng-model="acc_consult" ng-checked="isChecked(menuModule.id, 'acc_consult')" ></td>                  
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_update, menuModule.id, 'acc_update')" ng-model="acc_update" ng-checked="isChecked(menuModule.id, 'acc_update')" ></td>                  
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_insert, menuModule.id, 'acc_insert')" ng-model="acc_insert" ng-checked="isChecked(menuModule.id, 'acc_insert')" ></td>                  
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_remove, menuModule.id, 'acc_remove')" ng-model="acc_remove" ng-checked="isChecked(menuModule.id, 'acc_remove')" ></td>                  
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_special, menuModule.id, 'acc_special')" ng-model="acc_special" ng-checked="isChecked(menuModule.id, 'acc_special')" ></td>                  
-                  <td><input type="checkbox" class="icheck" ng-change="sync(acc_authorize, menuModule.id, 'acc_authorize')" ng-model="acc_authorize" ng-checked="isChecked(menuModule.id, 'acc_authorize')" ></td>                  
-                </tr>
-                </tbody>
-              </table>
-            </div>
-        </div>
-        <!-- END EXAMPLE TABLE PORTLET-->
+                    <i class="fa fa-settings"></i>Pantalla / Modulos
+                     <button type="button" class="btn btn-circle grey-mint" ng-click="isChecked_all()" >All Basicos</button>
+                     <button type="button" class="btn btn-circle grey-mint" ng-click="isChecked_especial()" >All Especial</button>
+                     <button type="button" class="btn btn-circle grey-mint" ng-click="isChecked_auth()" >All Autenticar</button>
+                  </div>
+                  <div class="tools"> </div>
+              </div>
+              <div class="portlet-body">
+                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="access_modules" cellspacing="0" width="100%">
+                  <thead>
+                  <tr>
+                    <th class="all">#</th>
+                    <th class="all">Descripcion</th>
+                    <th class="all">Tipo</th>
+                    <th class="all">Modulo</th>
+                    <th class="all">Consultar</th>
+                    <th class="all">Actualizar</th>
+                    <th class="all">Insertar</th>
+                    <th class="all">Eliminar</th>
+                    <th class="all">Especial</th>
+                    <th class="all">Autorizar</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="menuModule in menuModules" >
+                    <td>{{ menuModule.id }}</td>
+                    <td>{{ menuModule.name }}</td>
+                    <td>{{ menuModule.type_access }}</td>
+                    <td>{{ menuModule.module.name }}</td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_consult, menuModule.id, 'acc_consult')" ng-model="acc_consult" ng-checked="isChecked(menuModule.id, 'acc_consult')" ></td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_update, menuModule.id, 'acc_update')" ng-model="acc_update" ng-checked="isChecked(menuModule.id, 'acc_update')" ></td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_insert, menuModule.id, 'acc_insert')" ng-model="acc_insert" ng-checked="isChecked(menuModule.id, 'acc_insert')" ></td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_remove, menuModule.id, 'acc_remove')" ng-model="acc_remove" ng-checked="isChecked(menuModule.id, 'acc_remove')" ></td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_special, menuModule.id, 'acc_special')" ng-model="acc_special" ng-checked="isChecked(menuModule.id, 'acc_special')" ></td>
+                    <td><input type="checkbox" class="icheck" ng-change="sync(acc_authorize, menuModule.id, 'acc_authorize')" ng-model="acc_authorize" ng-checked="isChecked(menuModule.id, 'acc_authorize')" ></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
   <!-- fin lista de pantalla-->

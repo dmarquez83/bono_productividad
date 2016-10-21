@@ -19,14 +19,14 @@ class CreateMenuModulesTable extends Migration
             $table->enum('type_access', ['Pantalla','Reporte']);
             $table->integer('module_id')->unsigned();//entero sin signo
             $table->foreign('module_id')
-              ->references('id')
-              ->on('modules')
-              ->onDelete('cascade');
+                ->references('id')
+                ->on('modules')
+                ->onDelete('cascade');
             $table->integer('route_id')->unsigned();//entero sin signo
             $table->foreign('route_id')
-              ->references('id')
-              ->on('routes')
-              ->onDelete('cascade');
+                ->references('id')
+                ->on('routes')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
