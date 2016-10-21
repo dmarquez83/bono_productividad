@@ -68,12 +68,12 @@ angular.module('accessModulesCtrl', [])
 		$scope.all_companies = function(){
 			$scope.accessmodulesData.company= null;
 		};
-    
+
     $scope.option_check_data=[];
 
 		$scope.isChecked = function(id, campo){
 			var match = false;
-			for(var i=0 ; i < $scope.option_check_data.length; i++) {				
+			for(var i=0 ; i < $scope.option_check_data.length; i++) {
 				if($scope.option_check_data[i].id == id && $scope.option_check_data[i].campo == campo){
 					match = true;
 				}
@@ -82,15 +82,15 @@ angular.module('accessModulesCtrl', [])
 		};
 
 		$scope.sync = function(check, item, campo){
-			if(check){				
+			if(check){
 				$scope.option_check_data.push({id: item, campo: campo});
-			} else {				
-				for(var i=0 ; i < $scope.option_check_data.length; i++) {			
+			} else {
+				for(var i=0 ; i < $scope.option_check_data.length; i++) {
 					if($scope.option_check_data[i].id == item && $scope.option_check_data[i].campo == campo){
 						$scope.option_check_data.splice(i,1);
 					}
 				}
-			}			
+			}
 		};
 
 		$scope.to_insert = function(){
@@ -108,7 +108,7 @@ angular.module('accessModulesCtrl', [])
 
 			var option_check_data = _.groupBy($scope.option_check_data, 'id');
 
-			angular.forEach((option_check_data), function (row) { 
+			angular.forEach((option_check_data), function (row) {
 					var acc_consult = false;
 			  	    var acc_update = false;
 					var acc_insert = false;

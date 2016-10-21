@@ -1,7 +1,6 @@
 <!-- declare our angular app and controller -->
-<body class="container" ng-app="accessModules" ng-controller="accessModulesController">
-<form ng-submit="submitGroupUser()">
-  <div class="row">
+<form ng-controller="accessModulesController" >
+  <div class="row" >
         <p class="text-center" ng-show="loading"><span class="fa fa-spinner fa-5x fa-spin"></span></p>
         <div class="form-group col-md-3 col-sm-3">
             <label for="type_user">Tipo</label>
@@ -146,6 +145,5 @@
     <!-- <pre>{{option_check_data | json}} </pre>-->
 <!-- </div>-->
 </form>
-</body>
 
 

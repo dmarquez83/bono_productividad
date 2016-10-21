@@ -14,8 +14,10 @@
             <!-- BEGIN SIDEBAR -->
             <!--   <div class="page-sidebar navbar-collapse collapse"   ng-app="app"    ng-controller="accessUsersController"  >-->
                 <div class="page-sidebar navbar-collapse collapse" >
-                @include('partials.home.menu.sidebar_menu')
-            </div>
+                    <form ng-controller="accessUsersController" >
+                        @include('partials.home.menu.sidebar_menu')
+                    </form>
+               </div>
             <!-- END SIDEBAR -->
         </div>
         <!-- END SIDEBAR -->
@@ -27,7 +29,7 @@
                 @yield('configure')
                 @include('partials.home.page_bar')
                 @include('partials.home.title')
-                @yield('sidebar')
+                <!--   @yield('sidebar')-->
 
             </div>
             <!-- END CONTENT BODY -->
