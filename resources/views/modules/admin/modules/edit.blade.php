@@ -22,7 +22,7 @@
                     @include('modules.admin.modules.partials.messager')
                     {!! Form::model($module, ['route' => ['admin.modules.update', $module], 'method' => 'PUT']) !!}
                     <div class="form-body">
-                        @include('modules.admin.modules.partials.fields')
+                        @include('modules.admin.modules.partials.fields_edit')
                         <div class="col-xs-5 col-sm-6 text-center">
                             <button type="submit" class="btn blue">Actualizar Modulos</button>
                         </div>

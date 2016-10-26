@@ -29,7 +29,10 @@
 <div class="form-group">
 {!! Form::label('icon', 'Seleccione el Icono') !!}
     <div class="input-group">
-
+        <span class="item-box">
+        <span class="item">
+            <span aria-hidden="true" class="{!! $module->icon !!}"></span> &nbsp;<input type="radio" name="icon" class="icheck" value="{!! $module->icon !!}" checked> </span>
+        </span>
         <span class="item-box">
         <span class="item">
             <span aria-hidden="true" class="icon-user"></span> &nbsp;<input type="radio" name="icon" class="icheck" value="icon-user" > </span>

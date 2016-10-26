@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Module;
+use App\Models\Category;
 use App\Http\Requests;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,9 @@ class ModulesController extends Controller
      */
     public function create()
     {
-        return view('modules.admin.modules.create');
+        $categories =  Category::orderBy('id', 'asc')->lists('name', 'id');
+      //  dd($categories);
+        return view('modules.admin.modules.create', compact('categories'));        
     }
 
     /**
@@ -41,7 +44,9 @@ class ModulesController extends Controller
     {
 
         $rules = array(
-          'name' => 'required|unique:modules,name'
+          'name' => 'required|unique:modules,name',
+          'category_id' => 'required',
+          'icon' => 'required'
         );
 
         $this->validate($request, $rules);
@@ -49,6 +54,8 @@ class ModulesController extends Controller
         $data= [
           'name'  => $request->get('name'),
           'description'  => $request->get('description'),
+          'category_id'  => $request->get('category_id'),
+          'icon'  => $request->get('icon'),
           'status'  => 'A',
           'created_at' => new \DateTime,
           'updated_at' =>  new \Datetime
@@ -80,7 +87,9 @@ class ModulesController extends Controller
     public function edit($id)
     {
         $module = Module::findOrFail($id);
-        return view('modules.admin.modules.edit', compact('module'));
+        $categories =  Category::orderBy('id', 'asc')->lists('name', 'id');
+        return view('modules.admin.modules.edit', compact('module','categories'));
+        
     }
 
     /**
@@ -94,7 +103,9 @@ class ModulesController extends Controller
     {
 
         $rules = array(
-          'name' => 'required|unique:modules,name'
+          'name' => 'required',
+           'category_id' => 'required',
+          'icon' => 'required'
         );
 
         $this->validate($request, $rules);
@@ -105,6 +116,8 @@ class ModulesController extends Controller
           'name'  => $request->get('name'),
           'email' =>  $request->get('email'),
           'status'  => 'A',
+          'category_id'  => $request->get('category_id'),
+          'icon'  => $request->get('icon'),
           'created_at' => new \DateTime,
           'updated_at' =>  new \Datetime
         ];

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
   protected $table = 'modules';
-  protected $fillable = ['name','description', 'category_id','status'];
+  protected $fillable = ['name','description', 'category_id','status','icon'];
 
   public function menumodules(){
     return $this->hasMany('App\Models\MenuModules');
