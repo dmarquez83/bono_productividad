@@ -94,7 +94,7 @@ class UsersController extends Controller
         $userGroups =  GroupUser::with(['group','user'])->where('user_id', '=', $id)->get();
         //agregar luego la cantidad de miembros del grupo y el porcentaje que representa
 
-       // dd($userGroups);
+        //dd($user);
         if(empty($userProfile))
         {
             Flash::error('Perfil no encontrado');
@@ -127,6 +127,7 @@ class UsersController extends Controller
     public function update(EditUserRequest $request, $id)
     {
 
+
         $data = [
             'username' => $request->get('username'),
             'status' =>  'A'
@@ -153,9 +154,15 @@ class UsersController extends Controller
 
         $user = User::findOrFail($id);
 
-        $user->delete();
+        if($id==1) {
+            $message=' El usuario Root No puede ser Eliminado de Nuestro Registro, refrescar para volver a visualizarme';
+        }
+        else{
+            $user->delete();
+            $message=$user->FullName.' fue Eliminado de Nuestro Registro';
+        }
 
-        $message=$user->FullName.' fue Eliminado de Nuestro Registro';
+
 
         if($request->ajax()){
             return response()->json([

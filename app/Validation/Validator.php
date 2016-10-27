@@ -18,4 +18,13 @@ class Validator extends LaravelValidator {
         return Hash::check($value, Auth::user()->password);
     }
 
+    public function validateRootLocked($attribute, $value, $parameters)
+    {
+        //dd($value);
+        if($value == 'root'){
+            return false;
+        }
+
+    }
+
 }

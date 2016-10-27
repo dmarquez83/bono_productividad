@@ -75,6 +75,7 @@ return [
     "unique"           => ":attribute ya ha sido registrado.",
     "url"              => "El formato :attribute es inválido.",
     "current_password" => "La :attribute No Coincide con la Grabada en el Sistema",
+    "root_locked" => "El Username de Root no puede Modificado",
 
     /*
     |--------------------------------------------------------------------------
