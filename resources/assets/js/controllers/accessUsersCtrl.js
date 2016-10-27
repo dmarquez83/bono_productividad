@@ -24,7 +24,9 @@ angular.module('accessUsersCtrl', [])
             if($scope.acc_insert[0]) $scope.acc_insert=false; else $scope.acc_insert=true;
 
             $scope.acc_remove=_.pluck(_.where(data, {menu_modules_id : $scope.menu_modules}), 'acc_remove');
+            $scope.acc_remove_list= $scope.acc_remove[0];
             if($scope.acc_remove[0]) $scope.acc_remove=false; else $scope.acc_remove=true;
+
 
             $scope.acc_special=_.pluck(_.where(data, {menu_modules_id : $scope.menu_modules}), 'acc_special');
             if($scope.acc_special[0]) $scope.acc_special=false; else $scope.acc_special=true;

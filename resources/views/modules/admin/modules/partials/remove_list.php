@@ -1,1 +1,2 @@
-<a ng-if="video == video.large" href="#" class="btn-delete" data-toggle="Eliminar" ng-controller="accessUsersController">  <i class="fa fa-remove"></i> </a>
+<input type="hidden"  ng-init="menu_modules = 8 ">
+<a href="#" class="btn-delete" data-toggle="Eliminar" ng-controller="accessUsersController" ng-show="acc_remove_list" >  <i class="fa fa-remove"></i> </a>
