@@ -23,9 +23,7 @@
                     {!! Form::open(['route' => 'admin.modules.store', 'POST' ,'role' => 'form' ]) !!}
                     <div class="form-body">
                         @include('modules.admin.modules.partials.fields')
-                        <div class="text-center">
-                            <button type="submit" class="btn blue">Crear Modulo</button>
-                        </div>
+                        @include('modules.admin.modules.partials.insert')
                     </div>
                     {!! Form::close() !!}
                 </div>

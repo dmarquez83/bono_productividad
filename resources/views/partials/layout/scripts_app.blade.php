@@ -17,6 +17,7 @@
 <script src="{{ asset('assets/js/angular.min.js') }}"></script>
 <script src="{{ asset('assets/js/services/appService.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
+<!--<script src="{{ asset('assets/js/directive/myDisabled.js') }}"></script>-->
 <script src="{{ asset('assets/js/controllers/accessUsersCtrl.js') }}"></script>
 <script src="{{ asset('assets/js/controllers/groupUserCtrl.js') }}"></script>
 <script src="{{ asset('assets/js/controllers/accessModulesCtrl.js') }}"></script>

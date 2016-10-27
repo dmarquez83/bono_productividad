@@ -22,11 +22,8 @@
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="fa fa-briefcase"></i>Modulos
-
                                         <a href="{{ route('admin.modules.create') }}" class="btn btn-default btn-sm btn-circle">
                                             <i class="fa fa-plus"></i> Nuevo </a>
-
-
                                 </div>
                                 <div class="tools"> </div>
                             </div>

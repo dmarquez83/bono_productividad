@@ -18,10 +18,9 @@
             <td>{{ $module->description }}</td>
             <td>{{ $module->created_at }}</td>
             <td>{{ $module->updated_at }}</td>
-
             <td>
                 <a href="{{ route('admin.modules.edit',$module->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
-                <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
+                @include('modules.admin.modules.partials.remove_list')
             </td>
         </tr>
     @endforeach

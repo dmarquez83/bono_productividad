@@ -16,20 +16,17 @@
                         <i class="icon-briefcase font-red-sunglo"></i>
                         <span class="caption-subject bold uppercase">Editar Modulos: {{ $module->name }}</span>
                     </div>
-                    @include('modules.admin.modules.partials.action')
                 </div>
                 <div class="portlet-body form">
                     @include('modules.admin.modules.partials.messager')
                     {!! Form::model($module, ['route' => ['admin.modules.update', $module], 'method' => 'PUT']) !!}
                     <div class="form-body">
                         @include('modules.admin.modules.partials.fields_edit')
-                        <div class="col-xs-5 col-sm-6 text-center">
-                            <button type="submit" class="btn blue">Actualizar Modulos</button>
-                        </div>
+                        @include('modules.admin.modules.partials.insert')
                     {!! Form::close() !!}
-                        <div class="col-xs-5 col-sm-6 text-center">
-                            @include('modules.admin.modules.partials.delete')
-                        </div>
+                    {!! Form::open(['route' => ['admin.modules.destroy', $module], 'method' => 'DELETE']) !!}
+                        @include('modules.admin.modules.partials.remove')
+                    {!! Form::close() !!}
                     </div>
                 </div>
             </div>
