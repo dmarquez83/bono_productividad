@@ -1,7 +1,5 @@
 /vendor
 /node_modules
 .env
-public/assets
-public/css
 .idea
 /bower_components
