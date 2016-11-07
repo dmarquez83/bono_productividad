@@ -13,10 +13,10 @@
     </thead>
     <tbody>
     @foreach($users as $user)
-        <tr ng-controller="accessUsersController" ng-init="user_id = {{ $user->id }}" data-id="{{ $user->id }}">
+        <tr ng-controller="accessUsersController" ng-init="modules_id = {{ $user->id }}" data-id="{{ $user->id }}">
             <td>{{ $user->id }}</td>
             <td>{{ $user->username }}</td>
-            <td>{{ $user->email }}</td>
+            <td>{{ $user->userprofile }}</td>
             <td>{{ $user->status }}</td>
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
