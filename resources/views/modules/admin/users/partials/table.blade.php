@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     @foreach($users as $user)
-        <tr data-id="{{ $user->id }}">
+        <tr ng-controller="accessUsersController" ng-init="user_id = {{ $user->id }}" data-id="{{ $user->id }}">
             <td>{{ $user->id }}</td>
             <td>{{ $user->username }}</td>
             <td>{{ $user->email }}</td>
@@ -22,9 +22,10 @@
             <td>{{ $user->updated_at }}</td>
 
             <td>
-                <a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
+                <!-- <a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
                 <!--<a href="{{ route('admin.users.show',$user->id) }}" data-toggle="Ver">  <i class="fa fa-user"></i> </a>-->
-                <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
+                @include('modules.admin.users.partials.acc_consult')
+                @include('modules.admin.users.partials.remove_list')
             </td>
         </tr>
     @endforeach

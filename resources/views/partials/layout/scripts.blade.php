@@ -13,7 +13,7 @@
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="{{ asset('assets/global/scripts/app.min.js') }}"></script>
 
-<script src="{{ asset('assets/js/admin/app.js') }}"></script>
+<!--<script src="{{ asset('assets/js/admin/app.js') }}"></script>-->
 <!-- END THEME GLOBAL SCRIPTS -->
 
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
