@@ -12,7 +12,7 @@
     </thead>
     <tbody>
     @foreach($groups as $group)
-        <tr data-id="{{ $group->id }}">
+        <tr ng-controller="accessUsersController" ng-init="modules_id = {{ $group->id }}" data-id="{{ $group->id }}">
             <td>{{ $group->id }}</td>
             <td>{{ $group->name }}</td>
             <td>{{ $group->description }}</td>
@@ -20,8 +20,10 @@
             <td>{{ $group->updated_at }}</td>
 
             <td>
-                <a href="{{ route('admin.groups.edit',$group->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
-                <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>
+               <!-- <a href="{{ route('admin.groups.edit',$group->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
+                <a href="#" class="btn-delete" data-toggle="Eliminar">  <i class="fa fa-remove"></i> </a>-->
+                @include('modules.admin.groups.partials.acc_consult')
+                @include('modules.admin.groups.partials.remove_list')
             </td>
         </tr>
     @endforeach

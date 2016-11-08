@@ -23,9 +23,7 @@
                     {!! Form::open(['route' => 'admin.groups.store', 'POST' ,'role' => 'form', 'files' => 'true' ]) !!}
                     <div class="form-body">
                         @include('modules.admin.groups.partials.fields')
-                        <div class="text-center">
-                            <button type="submit" class="btn blue">Crear Grupo</button>
-                        </div>
+                        @include('modules.admin.groups.partials.insert')
                     </div>
                     {!! Form::close() !!}
                 </div>

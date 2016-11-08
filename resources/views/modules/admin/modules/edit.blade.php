@@ -22,7 +22,7 @@
                     {!! Form::model($module, ['route' => ['admin.modules.update', $module], 'method' => 'PUT']) !!}
                     <div class="form-body">
                         @include('modules.admin.modules.partials.fields_edit')
-                        @include('modules.admin.modules.partials.insert')
+                        @include('modules.admin.modules.partials.update')
                     {!! Form::close() !!}
                     {!! Form::open(['route' => ['admin.modules.destroy', $module], 'method' => 'DELETE']) !!}
                         @include('modules.admin.modules.partials.remove')
