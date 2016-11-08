@@ -9,6 +9,7 @@ angular.module('accessUsersCtrl', [])
         var path_new = res[0] + res[1] ;
         $scope.path = path_new + '//' + res[2] + '/';
         $scope.link_modules=path + '/' + $scope.modules_id +  '/edit' ;
+        $scope.link_modules_user=path + '/' + $scope.modules_id;
 
         server.getAll(path_new + '/index-access').success(function (data) {
             $scope.accessUsers = data;
