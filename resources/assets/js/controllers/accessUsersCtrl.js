@@ -22,7 +22,7 @@ angular.module('accessUsersCtrl', [])
 
             $scope.acc_update=_.pluck(_.where(data, {menu_modules_id : $scope.menu_modules}), 'acc_update');
             if($scope.acc_update[0]) $scope.acc_update=false; else $scope.acc_update=true;
-            console.log('aqui',$scope.acc_update);
+            //console.log('aqui',$scope.acc_update);
 
             $scope.acc_insert=_.pluck(_.where(data, {menu_modules_id : $scope.menu_modules}), 'acc_insert');
             if($scope.acc_insert[0]) $scope.acc_insert=false; else $scope.acc_insert=true;
