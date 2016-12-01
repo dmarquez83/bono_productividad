@@ -73,6 +73,7 @@ class UsersController extends Controller
             'avatar' =>  'avatar.png',
             'name' =>  $request->get('name'),
             'phone' =>  $request->get('phone'),
+            'email' =>  $request->get('email'),
             'extending' =>  $request->get('extending')
         ];
 

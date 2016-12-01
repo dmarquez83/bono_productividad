@@ -8,6 +8,15 @@
     </div>
 </div>
 <div class="form-group">
+    {!! Form::label('email', trans('form.label.email'), array('class' => 'control-label')) !!}
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-tag "></i>
+        </span>
+        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Por favor introduzca su '.trans('form.label.email')]) !!}
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('name', trans('form.label.name')) !!}
     <div class="input-group">
         <span class="input-group-addon">

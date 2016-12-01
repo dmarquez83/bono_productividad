@@ -15,13 +15,20 @@ class CompanyTableSeeder extends Seeder
 
         \DB::table('companies')->insert(array(
             'name' =>'Trical de Venezuela C.A.',
-            'email'  => 'Geosinteticos Trical C.A.',
+            'email'  => 'trical_venezuela@gmail.com',
             'status' => 'A',
             'created_at'     => new DateTime,
             'updated_at'     => new Datetime,
         ));
-        $faker = Faker::create('es_VE');
-        // $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker)); --
+
+        \DB::table('companies')->insert(array(
+            'name' =>'Geosinteticos Trical C.A.',
+            'email'  => 'geosinteticos_trical@gmail.com',
+            'status' => 'A',
+            'created_at'     => new DateTime,
+            'updated_at'     => new Datetime,
+        ));
+
 
     }
 }
