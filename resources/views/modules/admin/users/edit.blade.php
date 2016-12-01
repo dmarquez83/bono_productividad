@@ -16,7 +16,7 @@
                         <i class="icon-user font-red-sunglo"></i>
                         <span class="caption-subject bold uppercase">Editar Usuario: {{ $user->FullName }}</span>
                     </div>
-                    @include('modules.admin.users.partials.action')
+                   <!-- @include('modules.admin.users.partials.action')-->
                 </div>
                 <div class="portlet-body form">
                     @include('modules.admin.users.partials.messager')

@@ -12,7 +12,5 @@
         </div>
     </div>
 </div>
-<div class="margin-top-10">
-    <button type="submit" class="btn green">Guardar</button>
-</div>
+@include('modules.admin.users.partials_profile.update')
 {!! Form::close() !!}

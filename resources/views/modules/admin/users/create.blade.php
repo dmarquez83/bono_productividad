@@ -23,9 +23,7 @@
                     {!! Form::open(['route' => 'admin.users.store', 'POST' ,'role' => 'form' ]) !!}
                     <div class="form-body">
                         @include('modules.admin.users.partials.fields')
-                        <div class="text-center">
-                            <button type="submit" class="btn blue">Crear Usuario</button>
-                        </div>
+                        @include('modules.admin.users.partials_profile.insert')
                     </div>
                     {!! Form::close() !!}
                 </div>

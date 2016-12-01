@@ -14,14 +14,13 @@
                     <div class="row number-stats margin-bottom-30">
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="stat-left">
-                                <div class="stat-chart">
-                                    <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                                <!--  <div class="stat-chart">
                                     <div id="sparkline_bar2"></div>
                                 </div>
                                 <div class="stat-number">
                                     <div class="title"> Cantidad </div>
                                     <div class="number"> 7 </div>
-                                </div>
+                                </div>-->
                             </div>
                             </div>
                         </div>

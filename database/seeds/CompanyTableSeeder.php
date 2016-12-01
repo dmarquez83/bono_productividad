@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-Use Faker\Factory as Faker;
 
 class CompanyTableSeeder extends Seeder
 {
@@ -13,17 +12,23 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('es_VE');
-        // $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker)); --
 
-        for($i =0; $i <15; $i ++){
-            \DB::table('companies')->insert(array(
-                'name' => $faker->unique()->company,
-                'email'  => $faker->unique()->companyEmail,
-                'status' => 'A',
-                'created_at'     => new DateTime,
-                'updated_at'     => new Datetime,
-            ));
-        }
+        \DB::table('companies')->insert(array(
+            'name' =>'Trical de Venezuela C.A.',
+            'email'  => 'trical_venezuela@gmail.com',
+            'status' => 'A',
+            'created_at'     => new DateTime,
+            'updated_at'     => new Datetime,
+        ));
+
+        \DB::table('companies')->insert(array(
+            'name' =>'Geosinteticos Trical C.A.',
+            'email'  => 'geosinteticos_trical@gmail.com',
+            'status' => 'A',
+            'created_at'     => new DateTime,
+            'updated_at'     => new Datetime,
+        ));
+
+
     }
 }

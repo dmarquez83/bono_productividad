@@ -12,14 +12,14 @@
     </thead>
     <tbody>
     @foreach($modules as $module)
-        <tr data-id="{{ $module->id }}">
+        <tr ng-controller="accessUsersController" ng-init="modules_id = {{ $module->id }}" data-id="{{ $module->id }}">
             <td>{{ $module->id }}</td>
             <td>{{ $module->name }}</td>
             <td>{{ $module->description }}</td>
             <td>{{ $module->created_at }}</td>
             <td>{{ $module->updated_at }}</td>
             <td>
-                <a href="{{ route('admin.modules.edit',$module->id) }}" data-toggle="Editar">  <i class="fa fa-edit"></i> </a>
+                @include('modules.admin.modules.partials.acc_consult')
                 @include('modules.admin.modules.partials.remove_list')
             </td>
         </tr>

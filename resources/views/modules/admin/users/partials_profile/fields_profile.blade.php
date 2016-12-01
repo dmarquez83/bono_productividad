@@ -24,7 +24,5 @@
         {!! Form::label('home_page', 'Pagina de Inicio') !!}
         {!! Form::select('home_page', ['' => 'Selecione el la Pagina de Inicio','home' => 'Home'], null, ['class' => 'form-control'] ) !!}
     </div>
-    <div class="margiv-top-10">
-        <button type="submit" class="btn green">Guardar</button>
-    </div>
+    @include('modules.admin.users.partials_profile.update')
 {!! Form::close() !!}
